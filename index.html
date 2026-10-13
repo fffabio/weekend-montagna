@@ -27,17 +27,18 @@ body{margin:0;background:var(--bg);color:var(--text);
 .wrap{max-width:900px;margin:0 auto;padding:0 16px}
 
 header{padding:26px 0 12px;display:flex;align-items:flex-start;gap:12px}
-h1{margin:0;font-size:25px;line-height:1.18;letter-spacing:-.4px;flex:1;font-weight:800}
-h1 small{display:block;font-size:14px;font-weight:400;color:var(--muted);margin-top:5px;letter-spacing:0}
+h1{margin:0;font-size:27px;line-height:1.18;letter-spacing:-.4px;flex:1;font-weight:800}
+h1 small{display:block;font-size:15.5px;font-weight:400;color:var(--muted);margin-top:5px;letter-spacing:0}
 #mode{background:var(--surface);border:1px solid var(--line);color:var(--text);
-  width:44px;height:44px;border-radius:50%;font-size:18px;cursor:pointer;flex:none}
+  width:44px;height:44px;border-radius:50%;font-size:19.5px;cursor:pointer;flex:none}
 
 nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);
   margin:0 -16px;padding:0 10px;display:flex;gap:2px;overflow-x:auto;align-items:center;
   -webkit-overflow-scrolling:touch;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 nav button{flex:none;background:none;border:0;border-bottom:3px solid transparent;
-  color:var(--muted);font:700 15px/1 inherit;padding:15px 11px;cursor:pointer;white-space:nowrap}
+  color:var(--muted);font-family:inherit;font-weight:700;font-size:13.5px;line-height:1;
+  padding:15px 11px;cursor:pointer;white-space:nowrap}
 nav button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
 nav .div{flex:none;width:1px;height:20px;background:var(--line);margin:0 7px}
 nav .glab{flex:none;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;
@@ -52,77 +53,77 @@ nav button[data-g="b"][aria-selected="true"]{color:var(--malt);border-bottom-col
 
 section[role=tabpanel]{padding:22px 0 60px}
 section[hidden]{display:none}
-h2{font-size:14px;letter-spacing:.5px;color:var(--accent);margin:34px 0 13px;font-weight:800}
+h2{font-size:15.5px;letter-spacing:.5px;color:var(--accent);margin:34px 0 13px;font-weight:800}
 h2:first-child{margin-top:0}
 
 .drinks{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--drink);
   border-radius:18px;padding:17px 19px;box-shadow:var(--shadow)}
-.drinks .main{font-size:18px;font-weight:800;color:var(--drink);line-height:1.35}
-.drinks .temp{font-size:15px;color:var(--text);margin-top:5px;font-weight:600}
-.drinks p{margin:11px 0 0;font-size:15px;color:var(--muted)}
+.drinks .main{font-size:19.5px;font-weight:800;color:var(--drink);line-height:1.35}
+.drinks .temp{font-size:16.5px;color:var(--text);margin-top:5px;font-weight:600}
+.drinks p{margin:11px 0 0;font-size:16.5px;color:var(--muted)}
 .drinks p b{color:var(--text)}
 .drinks .alt{margin-top:13px;padding-top:12px;border-top:1px dashed var(--line);
-  font-size:14.5px;color:var(--muted)}
+  font-size:16px;color:var(--muted)}
 .drinks .alt b{color:var(--text)}
 
 .scheda{background:var(--surface);border:1px solid var(--line);border-radius:18px;
   box-shadow:var(--shadow);overflow:hidden;border-top:5px solid var(--accent)}
 .scheda .top{padding:17px 19px 15px}
-.scheda .fmt{font-size:13.5px;color:var(--muted)}
+.scheda .fmt{font-size:15px;color:var(--muted)}
 .scheda .big{font:800 44px/1 -apple-system,BlinkMacSystemFont,sans-serif;
   color:var(--hot);letter-spacing:-2px;margin-top:10px}
-.scheda .big em{font-style:normal;font-size:18px;font-weight:700;letter-spacing:0}
-.scheda .lbl{font-size:11.5px;color:var(--muted);text-transform:uppercase;
+.scheda .big em{font-style:normal;font-size:19.5px;font-weight:700;letter-spacing:0}
+.scheda .lbl{font-size:12.5px;color:var(--muted);text-transform:uppercase;
   letter-spacing:1.1px;margin-top:4px;font-weight:700}
 dl{margin:0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr}
 @media(min-width:640px){dl{grid-template-columns:1fr 1fr}}
 dl div{display:flex;gap:12px;padding:11px 19px;border-bottom:1px solid var(--line);align-items:baseline}
-dt{flex:0 0 42%;font-size:12.5px;color:var(--muted);text-transform:uppercase;
+dt{flex:0 0 42%;font-size:14px;color:var(--muted);text-transform:uppercase;
   letter-spacing:.6px;font-weight:700;line-height:1.35}
-dd{margin:0;flex:1;font-size:15px}
-dd.k{font-weight:800;color:var(--hot);font-size:17px}
+dd{margin:0;flex:1;font-size:16.5px}
+dd.k{font-weight:800;color:var(--hot);font-size:18.5px}
 dd.no{color:var(--muted)}
 
 .rule{background:var(--surface);border:1px solid var(--line);border-radius:18px;
   padding:16px 19px;margin-bottom:11px;box-shadow:var(--shadow)}
-.rule h3{margin:0 0 6px;font-size:16.5px;font-weight:800}
-.rule p{margin:0;font-size:15.5px;color:var(--muted)}
+.rule h3{margin:0 0 6px;font-size:18px;font-weight:800}
+.rule p{margin:0;font-size:17px;color:var(--muted)}
 .rule p+p{margin-top:7px}
 .rule b{color:var(--text)}
 
 .callout{background:var(--warn-bg);border:1px solid var(--line);border-left:5px solid var(--warn);
   border-radius:18px;padding:16px 19px;margin:18px 0 0}
-.callout h3{margin:0 0 7px;font-size:16.5px;font-weight:800}
-.callout p{margin:0 0 8px;font-size:15.5px}
+.callout h3{margin:0 0 7px;font-size:18px;font-weight:800}
+.callout p{margin:0 0 8px;font-size:17px}
 .callout p:last-child{margin-bottom:0}
 
 .tl{list-style:none;padding:0;margin:0}
 .tl li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
 .tl li:last-child{border-bottom:0}
-.tl .h{flex:0 0 58px;font-weight:800;font-size:16px;color:var(--hot);
+.tl .h{flex:0 0 58px;font-weight:800;font-size:17.5px;color:var(--hot);
   font-variant-numeric:tabular-nums;padding-top:1px}
-.tl .b{flex:1;font-size:15.5px}
-.tl .b b{display:block;font-size:16px;margin-bottom:2px;color:var(--text)}
+.tl .b{flex:1;font-size:17px}
+.tl .b b{display:block;font-size:17.5px;margin-bottom:2px;color:var(--text)}
 .tl .b span{color:var(--muted)}
 .box{background:var(--surface);border:1px solid var(--line);border-radius:18px;
   padding:6px 19px;box-shadow:var(--shadow)}
 
 .atto{background:var(--surface);border:1px solid var(--line);border-radius:18px;
   padding:16px 19px;margin-bottom:11px;box-shadow:var(--shadow);border-left:5px solid var(--accent)}
-.atto h3{margin:0 0 3px;font-size:17px;font-weight:800}
-.atto .w{font-size:14.5px;color:var(--drink);font-weight:700;margin-bottom:7px}
-.atto p{margin:0;font-size:15.5px;color:var(--muted)}
+.atto h3{margin:0 0 3px;font-size:18.5px;font-weight:800}
+.atto .w{font-size:16px;color:var(--drink);font-weight:700;margin-bottom:7px}
+.atto p{margin:0;font-size:17px;color:var(--muted)}
 .atto p b{color:var(--text)}
 
 /* vino */
 .vino-h{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:6px}
-.vino-h .ord{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;
+.vino-h .ord{font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase;
   color:var(--drink);font-weight:800}
-.vino-h h3{margin:5px 0 3px;font-size:24px;font-weight:800;letter-spacing:-.5px;line-height:1.2}
-.vino-h .prod{font-size:15.5px;color:var(--muted)}
-.vino-h .when{font-size:14px;color:var(--accent);font-weight:700;margin-top:8px}
+.vino-h h3{margin:5px 0 3px;font-size:26px;font-weight:800;letter-spacing:-.5px;line-height:1.2}
+.vino-h .prod{font-size:17px;color:var(--muted)}
+.vino-h .when{font-size:15.5px;color:var(--accent);font-weight:700;margin-top:8px}
 
-footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
+footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
   color:var(--muted);text-align:center}
 </style>
 </head>
@@ -154,7 +155,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <button role="tab" data-g="v" aria-selected="false" aria-controls="v6" id="t-v6">Tawny 20</button>
   <span class="div"></span>
   <span class="glab b">Bevande</span>
-  <button role="tab" data-g="b" aria-selected="false" aria-controls="sb" id="t-sb">Sake e birre</button>
+  <button role="tab" data-g="b" aria-selected="false" aria-controls="sb" id="t-sb">Sake, birre, liquori</button>
 </nav>
 
 <!-- ==================== WAGYU ==================== -->
@@ -873,9 +874,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
 
   <div class="vino-h">
     <div class="ord">Le bevande non di vino</div>
-    <h3>Sake e birre</h3>
-    <div class="prod">Un sake giapponese e tre lager tedesche</div>
-    <div class="when">Il sake giovedì con il Wagyu. Le birre giovedì e sabato</div>
+    <h3>Sake, birre e digestivo</h3>
+    <div class="prod">Un sake giapponese, tre lager tedesche e un liquore di liquirizia</div>
+    <div class="when">Il sake giovedì con il Wagyu. Le birre giovedì e sabato. L’Eclisse a fine serata</div>
   </div>
 
   <h2>Il sake, la scheda</h2>
@@ -952,6 +953,35 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <div class="rule"><h3>Come versarla, soprattutto le torbide</h3>
   <p>Bicchiere <b>bagnato e inclinato</b>, poi raddrizza a metà per fare due dita di schiuma: non è estetica, la schiuma trattiene gli aromi e rallenta l'ossidazione.</p>
   <p>Per Kellerbier e Landbier, che hanno lievito sul fondo: versa i tre quarti, poi <b>ruota delicatamente la bottiglia</b> per rimettere in sospensione il deposito e versa anche quello. È dove stanno corpo e sapore.</p></div>
+
+  <h2>Le nostre di casa, a confronto</h2>
+
+  <div class="rule"><h3>Poretti Non Filtrata e Ichnusa Non Filtrata sono la stessa famiglia</h3>
+  <p>Non sono una categoria diversa da quelle comprate per il weekend: sono <b>la stessa idea</b>, cioè una lager chiara lasciata non filtrata, col lievito ancora in sospensione. Anche i numeri si somigliano, e le italiane sono perfino un filo più forti: <b>Poretti 5%</b> e <b>Ichnusa 5%</b> contro <b>Kaiserdom Kellerbier 4,7%</b> e <b>Rittmayer Landbier Hell 4,9%</b>. La differenza, quindi, non è la gradazione.</p>
+  <p>L'<b>Ichnusa Non Filtrata</b> lo dichiara apertamente: è descritta come <b>stile Zwickel</b>, esattamente la categoria franconiana. È nata nel 2017, per i cinquant'anni dello stabilimento di Assemini.</p>
+  <p>Sulla <b>Poretti</b> c'è un dettaglio che quasi nessuno sa: nella gamma, <b>il numero di luppoli non è uno stile ma una scala</b>. Indica quante varietà di luppolo entrano nella ricetta, e salendo cresce l'intensità aromatica e amara. La 4 Luppoli è il gradino più semplice della famiglia, non una denominazione.</p></div>
+
+  <div class="rule"><h3>Che cosa cambia davvero, in tre punti</h3>
+  <p><b>1. La scala.</b> Poretti è Carlsberg Italia, Ichnusa è di Heineken dal 1986. Kaiserdom sta a Bamberga e Rittmayer a Hallerndorf: due birrifici franconiani piccoli, in una regione dove la Kellerbier non è una referenza di gamma ma la birra normale del paese.</p>
+  <p><b>2. Il carattere.</b> Le due italiane sono costruite per piacere al maggior numero di persone possibile: pulite, leggere, col lievito presente ma discreto. Le franconiane spingono su <b>pane, crosta e amaro erbaceo di luppolo nobile</b>, e hanno più corpo. Detto semplice: se piace la Non Filtrata, queste sono la stessa cosa col volume alzato.</p>
+  <p><b>3. La temperatura.</b> Ed è qui l'errore da non fare. In Italia la Non Filtrata e l'Ichnusa si bevono quasi sempre gelate, sui 3–4 °C. A quella temperatura una Kellerbier <b>non sa di niente</b>: il malto si chiude e resta acqua gassata. <b>6–8 °C</b>, altrimenti si butta via esattamente quello che si è andati a cercare.</p></div>
+
+  <div class="rule"><h3>Un confronto che costa due euro</h3>
+  <p>Se ne resta una di casa, vale la pena aprire <b>una italiana e una tedesca la stessa sera</b>, stesso bicchiere, stessa temperatura, una accanto all'altra. È lo stesso esercizio dei due Amaroni del venerdì, applicato alla birra, e si capisce in un sorso dove va a finire la differenza di prezzo.</p></div>
+
+  <h2>Il digestivo</h2>
+
+  <div class="rule"><h3>Liquirizia Eclisse, l'ultima cosa della serata</h3>
+  <p>La liquirizia è <b>aggressiva e persistente</b>: riveste la bocca e ci resta per minuti. Se arriva prima del Recioto o del Tawny, quei due non si sentono più. Va quindi servita <b>a bicchieri di vino finiti</b>, come chiusura vera, non come intermezzo.</p>
+  <p>La dolcezza, inoltre, è dello stesso tipo di quella dei vini dolci: metterli in fila nello stesso momento è ridondante. Separali di mezz'ora.</p></div>
+
+  <div class="rule"><h3>Freezer, non frigo</h3>
+  <p>Questi liquori sono densi e molto zuccherini, e il freddo fa parte del gioco: <b>in freezer non congelano</b> per via dell'alcol e dello zucchero, diventano sciropposi e la dolcezza si smorza. Serviti a temperatura ambiente risultano invece stucchevoli.</p>
+  <p>Bicchierini piccoli, <b>20–30 ml</b>. La gradazione si legge in etichetta: i liquori di liquirizia stanno quasi sempre fra il 20 e il 30%.</p></div>
+
+  <div class="rule"><h3>Perché la liquirizia chiude bene una cena grassa</h3>
+  <p>Il principio dolce della radice è la <b>glicirrizina</b>, che è circa <b>cinquanta volte più dolce dello zucchero</b> ma con un fondo amaro e quasi salato. È questa doppia natura a funzionare dopo carne e formaggi: la parte dolce chiude il pasto, quella amara pulisce.</p>
+  <p>Una cosa vera e poco nota: la glicirrizina, in quantità importanti e continuative, <b>alza davvero la pressione</b>, perché interferisce con l'ormone che regola sodio e potassio. È uno dei pochissimi casi in cui una caramella ha un effetto farmacologico documentato. Un bicchierino a fine serata, ovviamente, non c'entra nulla con quelle quantità.</p></div>
 
   <div class="rule"><h3>Dieci bottiglie non bastano</h3>
   <p>Cinque litri in quattro, su tre sere, con due cene in cui la birra è la bevanda principale di un intero passaggio. Vanno integrate sul posto, e la cosa da non dimenticare è <b>una maltata per il sabato</b>: una Augustiner Edelstoff, una Kuchlbauer Zwickl o qualunque <i>Märzen</i> o <i>Festbier</i>.</p></div>
