@@ -222,7 +222,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
 </section>
 
 <!-- ==================== PICANHA ==================== -->
-<section role="tabpanel" id="picanha" aria-labelledby="t-picanha">
+<section role="tabpanel" id="picanha" aria-labelledby="t-picanha" hidden>
 
   <h2>Bevande</h2>
   <div class="drinks">
@@ -283,7 +283,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
 </section>
 
 <!-- ==================== COSTATA ==================== -->
-<section role="tabpanel" id="costata" aria-labelledby="t-costata">
+<section role="tabpanel" id="costata" aria-labelledby="t-costata" hidden>
 
   <h2>Bevande</h2>
   <div class="drinks">
@@ -879,7 +879,13 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   }
   tabs.forEach(function(t){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'),true)})});
   var h=location.hash.replace('#','');
-  if(h&&document.getElementById(h))show(h,false);
+  var valid=h&&tabs.some(function(t){return t.getAttribute('aria-controls')===h});
+  if(!valid){
+    var cur=tabs.filter(function(t){return t.getAttribute('aria-selected')==='true'})[0]||tabs[0];
+    h=cur.getAttribute('aria-controls');
+  }
+  show(h,false);
+  window.scrollTo(0,0);
 
   var KEY='wm-mode',btn=document.getElementById('mode'),root=document.documentElement;
   try{var s=localStorage.getItem(KEY); if(s)root.setAttribute('data-mode',s);}catch(e){}
