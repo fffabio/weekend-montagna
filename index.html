@@ -91,6 +91,26 @@ dd.no{color:var(--muted)}
 .callout p{margin:0 0 8px;font-size:15.5px}
 .callout p:last-child{margin-bottom:0}
 
+/* ---- timeline ---- */
+.tl{list-style:none;padding:0;margin:0}
+.tl li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+.tl li:last-child{border-bottom:0}
+.tl .h{flex:0 0 58px;font-weight:800;font-size:16px;color:var(--hot);
+  font-variant-numeric:tabular-nums;padding-top:1px}
+.tl .b{flex:1;font-size:15.5px}
+.tl .b b{display:block;font-size:16px;margin-bottom:2px;color:var(--text)}
+.tl .b span{color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:6px 19px;box-shadow:var(--shadow)}
+
+/* ---- atti ---- */
+.atto{background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:16px 19px;margin-bottom:11px;box-shadow:var(--shadow);border-left:5px solid var(--accent)}
+.atto h3{margin:0 0 3px;font-size:17px;font-weight:800}
+.atto .w{font-size:14.5px;color:var(--drink);font-weight:700;margin-bottom:7px}
+.atto p{margin:0;font-size:15.5px;color:var(--muted)}
+.atto p b{color:var(--text)}
+
 .soon{text-align:center;color:var(--muted);padding:70px 20px;font-size:16px}
 footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   color:var(--muted);text-align:center}
@@ -119,12 +139,12 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
 
   <h2>Bevande</h2>
   <div class="drinks">
-    <div class="main">Pilsner ghiacciata + sake Taiheizan</div>
-    <div class="temp">Birra 4 °C · sake 14 °C oppure tiepido a 40 °C</div>
-    <p><b>Fanno due lavori diversi, quindi non competono.</b> La birra ha bollicine e amaro: <b>pulisce</b> il palato dal grasso tra una fetta e l'altra. Il sake no — è un kimoto a 15%, e i suoi amminoacidi <b>amplificano l'umami</b> della carne invece di lavarlo via.</p>
+    <div class="main">Pilsner ghiacciata + sake Taiheizan caldo</div>
+    <div class="temp">Birra 4 °C · sake 40 °C</div>
+    <p><b>Fanno due lavori diversi, quindi non competono.</b> La birra ha bollicine e amaro: <b>pulisce</b> il palato dal grasso tra una fetta e l'altra. Il sake no — i suoi amminoacidi <b>amplificano l'umami</b> della carne invece di lavarlo via.</p>
     <p>Un sorso di sake <b>con</b> la fetta, un sorso di birra <b>dopo</b>. È l'abbinamento classico giapponese per il wagyu grasso.</p>
-    <p><b>Provalo in due modi:</b> metà bottiglia fredda a 14 °C, metà scaldata a bagnomaria sui 40 °C. Un kimoto dà il meglio tiepido, e sul grasso funziona ancora meglio. Mai al microonde.</p>
-    <div class="alt">Bicchierini piccoli, <b>40–60 ml</b> a testa: è a 15%. Poi acqua e una ventina di minuti prima di aprire il <b>Mosesco</b>, che è a 14% e subito dopo un sake sembrerebbe più scarico di quello che è.</div>
+    <p><b>Il sake va caldo — 40 °C, il grado detto <i>nurukan</i>.</b> Un kimoto freddo resta chiuso e austero; a 40 si apre, l'umami viene fuori e contro il grasso dell'A5 funziona molto meglio.</p>
+    <div class="alt">Bicchierini piccoli, <b>40–60 ml</b> a testa: è a 15%.</div>
   </div>
 
   <h2>La scheda</h2>
@@ -165,6 +185,21 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <div class="rule"><h3>Pietra pulita, e non caricarla</h3>
   <p>Il Wagyu va <b>per primo</b>, su pietra asciutta: se ci passi prima la pancetta, un A5 da 230 €/kg ti sa di maiale. E un pezzo alla volta — 400 g insieme fanno crollare la temperatura.</p>
   <p>A fine serata: <b>raschia da calda, acqua bollente, mai sapone</b>. È porosa e il detersivo te lo restituisce sulla carne.</p></div>
+
+  <h2>Il sake — come si scalda</h2>
+
+  <div class="rule"><h3>A bagnomaria, 2–3 minuti</h3>
+  <p><b>Non scaldare tutta la bottiglia.</b> Travasa <b>200–250 ml per volta</b> in un contenitore a collo stretto — una caraffina, un bicchiere resistente al calore, una bottiglietta di vetro — riempiendolo all'80%.</p>
+  <p>Scalda l'acqua in un pentolino fino a <b>60–70 °C e spegni</b>: non deve bollire con dentro il sake. Immergi il contenitore <b>fino al livello del sake</b>, non oltre.</p>
+  <p><b>Due-tre minuti.</b> Misura con la sonda e togli a <b>42 °C</b>: ne perde un paio arrivando al bicchiere. Senza sonda: il fondo del contenitore deve risultare <b>caldo sul palmo, non scottare</b>.</p></div>
+
+  <div class="rule"><h3>Mai microonde, mai sopra i 50 °C</h3>
+  <p>Il microonde scalda a chiazze e brucia gli aromi. Sopra i 50 °C l'alcol diventa pungente e la finezza del kimoto sparisce.</p>
+  <p>E <b>non riscaldare due volte</b>: scalda solo quello che bevi nel giro.</p></div>
+
+  <div class="rule"><h3>Come conservare la bottiglia</h3>
+  <p><b>Chiusa:</b> in piedi, al buio, al fresco. Il sake teme la luce molto più del vino — l'UV gli dà odori di stantio in poche ore. Frigo, o un mobile fresco e buio. <b>In piedi</b>, non coricata: il tappo è a vite e non va bagnato.</p>
+  <p><b>Aperta:</b> tappo stretto, in frigo, in piedi. Regge <b>1–2 settimane</b> tranquillamente: alcol e assenza di tannini lo proteggono molto più di un vino. Il gusto si arrotonda, non si guasta. Non congelare.</p></div>
 
 </section>
 
@@ -293,7 +328,61 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
 
 </section>
 
-<section role="tabpanel" id="gio" aria-labelledby="t-gio" hidden><p class="soon">Giovedì 15 — da costruire</p></section>
+<section role="tabpanel" id="gio" aria-labelledby="t-gio" hidden>
+
+  <h2>Le bevande della sera</h2>
+  <div class="drinks">
+    <div class="main">Birra → sake caldo → i due Dolcetto</div>
+    <div class="temp">Sì, <b>entrambi</b> i Dolcetto si aprono stasera, uno dopo l'altro</div>
+    <p>Prima il <b>Mosesco</b>, che è più fresco e immediato, sulle salsicce. Poi il <b>Sorì Pradurent</b>, più denso e speziato dai dieci mesi di barrique, sul tagliere di salumi e formaggi: regge il tagliere molto meglio.</p>
+    <p>Sono 1,5 litri in quattro — circa 375 ml a testa nell'arco della serata, accanto alla birra. Giusto.</p>
+  </div>
+
+  <h2>Come preparare ogni bottiglia</h2>
+  <div class="box">
+    <ul class="tl">
+      <li><span class="h">4 °C</span><span class="b"><b>Kaiserdom Pilsener</b><span>In frigo appena arrivi. Se è tiepida dal viaggio: <b>secchio con ghiaccio, acqua e due manciate di sale grosso</b> — da 20 a 4 °C in 10-12 minuti, tre volte più veloce del congelatore e senza rischio di dimenticarla.</span></span></li>
+      <li><span class="h">40 °C</span><span class="b"><b>Sake Taiheizan</b><span>A bagnomaria, 200–250 ml per volta. Il procedimento completo è nel tab <b>Wagyu</b>.</span></span></li>
+      <li><span class="h">15-16 °C</span><span class="b"><b>Mosesco 2024</b><span><b>Frigo 25–30 minuti</b>, poi apri e versa. <b>Niente caraffa</b>: è acciaio puro, giovane, non ha nulla da arieggiare.</span></span></li>
+      <li><span class="h">15-16 °C</span><span class="b"><b>Sorì Pradurent 2023</b><span><b>Frigo 25–30 minuti</b>, poi <b>caraffa 30 minuti</b>. I dieci mesi di barrique e la maggiore densità hanno bisogno d'aria. Travasalo mentre siete ancora sul Mosesco.</span></span></li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <h3>🌡️ Tara il frigo stasera</h3>
+    <p>I 25–30 minuti sono una stima sul <i>mio</i> frigo, non sul tuo. <b>Usa il Mosesco come prova</b>: mettilo dentro, controlla con la sonda a 20, 25 e 30 minuti.</p>
+    <p>Quando sai quanto scende in quel frigo, il numero è fisso per tutto il weekend — e venerdì sui due Amaroni non sbagli.</p>
+  </div>
+
+  <h2>La serata in tre atti</h2>
+
+  <div class="atto">
+    <h3>1 · Wagyu A5</h3>
+    <div class="w">Pilsner ghiacciata + sake caldo</div>
+    <p>Pietra <b>pulita e asciutta</b>, 200–230 °C. Rendi prima la cappa di grasso, poi cuoci <b>un pezzo alla volta</b>, 6–8 minuti girando ogni minuto. Affetta a bocconcini su <b>tagliere di legno tiepido</b>. Dettagli completi nel tab Wagyu.</p>
+  </div>
+
+  <div class="atto">
+    <h3>2 · Salsicce, pancetta, lardo</h3>
+    <div class="w">Mosesco 2024</div>
+    <p>Salsicce a calore moderato, 15–20 minuti, girandole spesso: <b>non bucarle</b>. Pancetta a fette spesse, 2–3 minuti per lato. Il <b>lardo crudo</b> su pane scaldato sulla pietra — cotto si scioglie e lo perdi.</p>
+  </div>
+
+  <div class="atto">
+    <h3>3 · Tagliere</h3>
+    <div class="w">Sorì Pradurent 2023</div>
+    <p>Salumi e formaggi <b>giovani, freddi, a fette</b>: toma e taleggio. Non sulla piastra — il taleggio cola e si infila nella pietra, e il tagliere freddo è il partner giusto dei Dolcetto. Tirali fuori dal frigo <b>30–40 minuti prima</b>: a 5 °C un formaggio è muto.</p>
+  </div>
+
+  <h2>Due cose da fare stasera</h2>
+  <div class="box">
+    <ul class="tl">
+      <li><span class="h">🥔</span><span class="b"><b>Lessa tutte le patate</b><span>Mentre la pietra è già calda per le salsicce. Domani a pranzo le riscaldi sotto il formaggio fuso e il pranzo è pronto in cinque minuti, senza che nessuno si avvicini ai fornelli.</span></span></li>
+      <li><span class="h">🔥</span><span class="b"><b>Tara il forno a 110 °C</b><span>Accendilo mentre mangiate il Wagyu e infilaci la sonda. Venerdì e sabato dipendono da 110 gradi <i>reali</i>, e i forni delle case di vacanza sono spesso sbagliati di venti o trenta.</span></span></li>
+    </ul>
+  </div>
+
+</section>
 <section role="tabpanel" id="ven" aria-labelledby="t-ven" hidden><p class="soon">Venerdì 16 — da costruire</p></section>
 <section role="tabpanel" id="sab" aria-labelledby="t-sab" hidden><p class="soon">Sabato 17 — da costruire</p></section>
 
