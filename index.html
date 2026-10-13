@@ -125,6 +125,46 @@ dd.no{color:var(--muted)}
 
 footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
   color:var(--muted);text-align:center}
+
+/* ===== menu iniziale a schede ===== */
+.home h2.grp{font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;font-weight:800;
+  margin:26px 0 10px;padding:0;border:0}
+.home h2.grp.d{color:var(--accent)} .home h2.grp.c{color:var(--hot)}
+.home h2.grp.v{color:var(--drink)} .home h2.grp.b{color:var(--malt)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:10px}
+.card{display:flex;align-items:center;gap:12px;text-align:left;width:100%;
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:13px 14px;cursor:pointer;color:var(--text);font-family:inherit;
+  border-left:4px solid var(--ac,var(--line));transition:border-color .12s,background .12s}
+.card:hover,.card:focus-visible{background:var(--surface-2);outline:none}
+.card .tx{min-width:0;flex:1}
+.card .nm{display:block;font-size:15.5px;font-weight:800;line-height:1.2}
+.card .sb{display:block;font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.32}
+.card.d{--ac:var(--accent)} .card.c{--ac:var(--hot)}
+.card.v{--ac:var(--drink)} .card.b{--ac:var(--malt)}
+.ico{flex:none;width:30px;height:42px}
+.ico.sq{width:38px;height:38px}
+.ico .glass{fill:var(--g,#7b3b4a)}
+.ico .cap{fill:var(--line)}
+.ico .lbl{fill:var(--surface-2);stroke:var(--line);stroke-width:1}
+.ico .meat{fill:var(--g,#8c4a3f)}
+.ico .fat{fill:var(--surface-2)}
+.ico .mrb{stroke:var(--surface-2);stroke-width:2;fill:none;stroke-linecap:round}
+.ico .bone{fill:var(--surface-2)}
+.ico .dnum{fill:var(--ac);font-weight:800;font-size:15px;font-family:inherit}
+.ico .ring{fill:none;stroke:var(--ac);stroke-width:2;opacity:.45}
+
+/* ===== barra indietro dentro ogni pagina ===== */
+.bar{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);
+  margin:0 -16px 4px;padding:9px 16px;display:flex;align-items:center;gap:11px}
+.bar button{background:var(--surface);border:1px solid var(--line);color:var(--text);
+  font-family:inherit;font-weight:700;font-size:14px;border-radius:9px;
+  padding:9px 13px;cursor:pointer;flex:none;min-height:40px}
+.bar button:hover{background:var(--surface-2)}
+.bar .ttl{font-size:14.5px;font-weight:800;color:var(--bc,var(--muted));
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+section.d{--bc:var(--accent)} section.c{--bc:var(--hot)}
+section.v{--bc:var(--drink)} section.b{--bc:var(--malt)}
 </style>
 </head>
 <body>
@@ -135,31 +175,65 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
   <button id="mode" aria-label="Cambia tema">◑</button>
 </header>
 
-<nav role="tablist">
-  <span class="glab d">Giorni</span>
-  <button role="tab" data-g="d" aria-selected="true"  aria-controls="gio" id="t-gio">Giovedì</button>
-  <button role="tab" data-g="d" aria-selected="false" aria-controls="ven" id="t-ven">Venerdì</button>
-  <button role="tab" data-g="d" aria-selected="false" aria-controls="sab" id="t-sab">Sabato</button>
-  <span class="div"></span>
-  <span class="glab c">Cucina</span>
-  <button role="tab" data-g="c" aria-selected="false" aria-controls="wagyu"   id="t-wagyu">Wagyu</button>
-  <button role="tab" data-g="c" aria-selected="false" aria-controls="picanha" id="t-picanha">Picanha</button>
-  <button role="tab" data-g="c" aria-selected="false" aria-controls="costata" id="t-costata">Costata</button>
-  <span class="div"></span>
-  <span class="glab v">Vini</span>
-  <button role="tab" data-g="v" aria-selected="false" aria-controls="v1" id="t-v1">Mosesco</button>
-  <button role="tab" data-g="v" aria-selected="false" aria-controls="v2" id="t-v2">Pradurent</button>
-  <button role="tab" data-g="v" aria-selected="false" aria-controls="v3" id="t-v3">Case Vecie</button>
-  <button role="tab" data-g="v" aria-selected="false" aria-controls="v4" id="t-v4">S. Benedetto</button>
-  <button role="tab" data-g="v" aria-selected="false" aria-controls="v5" id="t-v5">Recioto</button>
-  <button role="tab" data-g="v" aria-selected="false" aria-controls="v6" id="t-v6">Tawny 20</button>
-  <span class="div"></span>
-  <span class="glab b">Bevande</span>
-  <button role="tab" data-g="b" aria-selected="false" aria-controls="sb" id="t-sb">Sake, birre, liquori</button>
-</nav>
+
+<section id="home" class="home">
+  <h2 class="grp d">Giorni</h2>
+  <div class="grid">
+    <button class="card d" data-go="gio"><svg class="ico sq" viewBox="0 0 42 42" aria-hidden="true"><circle class="ring" cx="21" cy="21" r="18"/><text class="dnum" x="21" y="26" text-anchor="middle">GIO</text></svg><span class="tx">
+      <span class="nm">Giovedì</span>
+      <span class="sb">Wagyu, salsicce, i due Dolcetto</span></span></button>
+    <button class="card d" data-go="ven"><svg class="ico sq" viewBox="0 0 42 42" aria-hidden="true"><circle class="ring" cx="21" cy="21" r="18"/><text class="dnum" x="21" y="26" text-anchor="middle">VEN</text></svg><span class="tx">
+      <span class="nm">Venerdì</span>
+      <span class="sb">Picanha e i due Amaroni affiancati</span></span></button>
+    <button class="card d" data-go="sab"><svg class="ico sq" viewBox="0 0 42 42" aria-hidden="true"><circle class="ring" cx="21" cy="21" r="18"/><text class="dnum" x="21" y="26" text-anchor="middle">SAB</text></svg><span class="tx">
+      <span class="nm">Sabato</span>
+      <span class="sb">Costata, poi Recioto e Tawny</span></span></button>
+  </div>
+  <h2 class="grp c">Cucina</h2>
+  <div class="grid">
+    <button class="card c" data-go="wagyu"><svg class="ico sq" viewBox="0 0 48 42" aria-hidden="true" style="--g:#8c3f3f"><path class="meat" d="M6 21c0-10 9-15 19-15s17 4 17 14-8 16-18 16S6 31 6 21z"/><path class="mrb" d="M14 14c4 2 6 6 5 11M22 10c3 4 4 9 2 14M30 11c2 5 2 10 0 14M37 16c1 4 1 7 0 10"/></svg><span class="tx">
+      <span class="nm">Wagyu A5</span>
+      <span class="sb">Pietra 200-230 °C, 6-8 minuti</span></span></button>
+    <button class="card c" data-go="picanha"><svg class="ico sq" viewBox="0 0 48 42" aria-hidden="true" style="--g:#9c4733"><path class="meat" d="M7 24c0-11 10-16 20-16s15 5 15 13-7 14-17 14S7 33 7 24z"/><path class="fat" d="M9 15c6-6 18-8 27-5 2 .7 3 2 3 3-9-3-21-2-28 4a9 9 0 0 1-2-2z"/></svg><span class="tx">
+      <span class="nm">Picanha</span>
+      <span class="sb">Forno 110 °C, poi brace</span></span></button>
+    <button class="card c" data-go="costata"><svg class="ico sq" viewBox="0 0 48 42" aria-hidden="true" style="--g:#8e4436"><path class="meat" d="M10 21c0-10 8-15 17-15 10 0 16 6 16 14 0 9-7 15-16 15-10 0-17-5-17-14z"/><rect class="bone" x="4" y="13" width="7" height="17" rx="3.5"/><path class="fat" d="M38 10c3 4 4 8 4 11s-1 7-4 10c2-4 2.6-7 2.6-10S40 14 38 10z"/></svg><span class="tx">
+      <span class="nm">Costata</span>
+      <span class="sb">Due pezzi da 1,1 kg</span></span></button>
+  </div>
+  <h2 class="grp v">Vini</h2>
+  <div class="grid">
+    <button class="card v" data-go="v1"><svg class="ico" viewBox="0 0 40 64" aria-hidden="true" style="--g:#7d2740"><rect class="cap" x="15" y="1" width="10" height="7" rx="1.5"/><path class="glass" d="M16 7h8v9c0 3.5 6 8 6 14.5V60a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V30.5C10 24 16 19.5 16 16V7z"/><rect class="lbl" x="11.5" y="38" width="17" height="13" rx="1.5"/></svg><span class="tx">
+      <span class="nm">Mosesco</span>
+      <span class="sb">Dolcetto 2024 · 15-16 °C</span></span></button>
+    <button class="card v" data-go="v2"><svg class="ico" viewBox="0 0 40 64" aria-hidden="true" style="--g:#6d2238"><rect class="cap" x="15" y="1" width="10" height="7" rx="1.5"/><path class="glass" d="M16 7h8v9c0 3.5 6 8 6 14.5V60a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V30.5C10 24 16 19.5 16 16V7z"/><rect class="lbl" x="11.5" y="38" width="17" height="13" rx="1.5"/></svg><span class="tx">
+      <span class="nm">Sorì Pradurent</span>
+      <span class="sb">Dolcetto 2023 · 15-16 °C</span></span></button>
+    <button class="card v" data-go="v3"><svg class="ico" viewBox="0 0 40 64" aria-hidden="true" style="--g:#5a1626"><rect class="cap" x="15" y="1" width="10" height="7" rx="1.5"/><path class="glass" d="M16 7h8v9c0 3.5 6 8 6 14.5V60a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V30.5C10 24 16 19.5 16 16V7z"/><rect class="lbl" x="11.5" y="38" width="17" height="13" rx="1.5"/></svg><span class="tx">
+      <span class="nm">Case Vecie</span>
+      <span class="sb">Amarone 2018 · 17 °C</span></span></button>
+    <button class="card v" data-go="v4"><svg class="ico" viewBox="0 0 40 64" aria-hidden="true" style="--g:#4d1220"><rect class="cap" x="15" y="1" width="10" height="7" rx="1.5"/><path class="glass" d="M16 7h8v9c0 3.5 6 8 6 14.5V60a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V30.5C10 24 16 19.5 16 16V7z"/><rect class="lbl" x="11.5" y="38" width="17" height="13" rx="1.5"/></svg><span class="tx">
+      <span class="nm">Corte San Benedetto</span>
+      <span class="sb">Amarone 2015 · 17 °C</span></span></button>
+    <button class="card v" data-go="v5"><svg class="ico" viewBox="0 0 40 64" aria-hidden="true" style="--g:#55101f"><rect class="cap" x="15" y="1" width="10" height="7" rx="1.5"/><path class="glass" d="M16 7h8v9c0 3.5 6 8 6 14.5V60a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V30.5C10 24 16 19.5 16 16V7z"/><rect class="lbl" x="11.5" y="38" width="17" height="13" rx="1.5"/></svg><span class="tx">
+      <span class="nm">Recioto</span>
+      <span class="sb">Dolce 2021 · 16-18 °C</span></span></button>
+    <button class="card v" data-go="v6"><svg class="ico" viewBox="0 0 40 64" aria-hidden="true" style="--g:#a9622f"><rect class="cap" x="15" y="1" width="10" height="7" rx="1.5"/><path class="glass" d="M16 7h8v9c0 3.5 6 8 6 14.5V60a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V30.5C10 24 16 19.5 16 16V7z"/><rect class="lbl" x="11.5" y="38" width="17" height="13" rx="1.5"/></svg><span class="tx">
+      <span class="nm">Graham’s Tawny 20</span>
+      <span class="sb">Porto · 12-14 °C</span></span></button>
+  </div>
+  <h2 class="grp b">Bevande</h2>
+  <div class="grid">
+    <button class="card b" data-go="sb"><svg class="ico sq" viewBox="0 0 48 42" aria-hidden="true"><path class="glass" style="fill:#d9a441" d="M9 9h15l-2 24a3 3 0 0 1-3 3h-5a3 3 0 0 1-3-3L9 9z"/><rect class="lbl" x="9" y="18" width="15" height="7"/><path class="glass" style="fill:#cfd6c4" d="M33 8h9l2 9c0 3-2 5-3 7l1 12a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2l1-12c-1-2-3-4-3-7l2-9z"/></svg><span class="tx">
+      <span class="nm">Sake, birre, liquori</span>
+      <span class="sb">Taiheizan, le lager, l’Eclisse</span></span></button>
+  </div>
+</section>
 
 <!-- ==================== WAGYU ==================== -->
-<section role="tabpanel" id="wagyu" aria-labelledby="t-wagyu" hidden>
+<section id="wagyu" class="pg c" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Wagyu A5</span></div>
 
   <h2>Bevande</h2>
   <div class="drinks">
@@ -216,7 +290,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 </section>
 
 <!-- ==================== PICANHA ==================== -->
-<section role="tabpanel" id="picanha" aria-labelledby="t-picanha" hidden>
+<section id="picanha" class="pg c" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Picanha</span></div>
 
   <h2>Bevande</h2>
   <div class="drinks">
@@ -277,7 +353,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 </section>
 
 <!-- ==================== COSTATA ==================== -->
-<section role="tabpanel" id="costata" aria-labelledby="t-costata" hidden>
+<section id="costata" class="pg c" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Costata</span></div>
 
   <h2>Bevande</h2>
   <div class="drinks">
@@ -340,7 +418,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 </section>
 
 <!-- ==================== GIOVEDÌ ==================== -->
-<section role="tabpanel" id="gio" aria-labelledby="t-gio">
+<section id="gio" class="pg d" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Giovedì</span></div>
 
   <h2>Le bevande della sera</h2>
   <div class="drinks">
@@ -391,7 +471,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 </section>
 
 <!-- ==================== VENERDÌ ==================== -->
-<section role="tabpanel" id="ven" aria-labelledby="t-ven" hidden>
+<section id="ven" class="pg d" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Venerdì</span></div>
 
   <h2>Le bevande della sera</h2>
   <div class="drinks">
@@ -435,7 +517,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 </section>
 
 <!-- ==================== SABATO ==================== -->
-<section role="tabpanel" id="sab" aria-labelledby="t-sab" hidden>
+<section id="sab" class="pg d" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Sabato</span></div>
 
   <h2>Le bevande della sera</h2>
   <div class="drinks">
@@ -483,7 +567,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 </section>
 
 <!-- ==================== VINO 1 ==================== -->
-<section role="tabpanel" id="v1" aria-labelledby="t-v1" hidden>
+<section id="v1" class="pg v" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Mosesco</span></div>
 
   <div class="vino-h">
     <div class="ord">Vino 1 di 6</div>
@@ -541,7 +627,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 </section>
 
 <!-- ==================== VINO 2 ==================== -->
-<section role="tabpanel" id="v2" aria-labelledby="t-v2" hidden>
+<section id="v2" class="pg v" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Sorì Pradurent</span></div>
 
   <div class="vino-h">
     <div class="ord">Vino 2 di 6</div>
@@ -602,7 +690,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 </section>
 
 <!-- ==================== VINO 3 ==================== -->
-<section role="tabpanel" id="v3" aria-labelledby="t-v3" hidden>
+<section id="v3" class="pg v" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Case Vecie</span></div>
 
   <div class="vino-h">
     <div class="ord">Vino 3 di 6</div>
@@ -660,7 +750,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 </section>
 
 <!-- ==================== VINO 4 ==================== -->
-<section role="tabpanel" id="v4" aria-labelledby="t-v4" hidden>
+<section id="v4" class="pg v" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Corte San Benedetto</span></div>
 
   <div class="vino-h">
     <div class="ord">Vino 4 di 6</div>
@@ -720,7 +812,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 </section>
 
 <!-- ==================== VINO 5 ==================== -->
-<section role="tabpanel" id="v5" aria-labelledby="t-v5" hidden>
+<section id="v5" class="pg v" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Recioto</span></div>
 
   <div class="vino-h">
     <div class="ord">Vino 5 di 6</div>
@@ -784,7 +878,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 </section>
 
 <!-- ==================== VINO 6 ==================== -->
-<section role="tabpanel" id="v6" aria-labelledby="t-v6" hidden>
+<section id="v6" class="pg v" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Graham’s Tawny 20</span></div>
 
   <div class="vino-h">
     <div class="ord">Vino 6 di 6</div>
@@ -870,7 +966,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 
 
 <!-- ==================== SAKE E BIRRE ==================== -->
-<section role="tabpanel" id="sb" aria-labelledby="t-sb" hidden>
+<section id="sb" class="pg b" hidden>
+
+  <div class="bar"><button data-go="home">← Indice</button><span class="ttl">Sake, birre, liquori</span></div>
 
   <div class="vino-h">
     <div class="ord">Le bevande non di vino</div>
@@ -993,29 +1091,29 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 
 <script>
 (function(){
-  var tabs=[].slice.call(document.querySelectorAll('nav button'));
+  var pages=[].slice.call(document.querySelectorAll('section.pg')),
+      home=document.getElementById('home');
   function show(id,push){
-    tabs.forEach(function(t){
-      var on=t.getAttribute('aria-controls')===id;
-      t.setAttribute('aria-selected',on);
-      document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
-      if(on&&t.scrollIntoView)t.scrollIntoView({inline:'center',block:'nearest'});
-    });
-    if(push&&history.replaceState)history.replaceState(null,'','#'+id);
+    if(id!=='home'&&!document.getElementById(id))id='home';
+    home.hidden=(id!=='home');
+    pages.forEach(function(p){p.hidden=(p.id!==id)});
+    if(push&&history.pushState)history.pushState({p:id},'',id==='home'?'#':'#'+id);
     window.scrollTo(0,0);
   }
-  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'),true)})});
-  var h=location.hash.replace('#','');
-  var valid=h&&tabs.some(function(t){return t.getAttribute('aria-controls')===h});
-  if(!valid){
-    var cur=tabs.filter(function(t){return t.getAttribute('aria-selected')==='true'})[0]||tabs[0];
-    h=cur.getAttribute('aria-controls');
-  }
-  show(h,false);
-  window.scrollTo(0,0);
+  document.addEventListener('click',function(e){
+    var t=e.target,b=null;
+    while(t&&t!==document){ if(t.getAttribute&&t.getAttribute('data-go')){b=t;break;} t=t.parentNode; }
+    if(!b)return;
+    e.preventDefault();
+    show(b.getAttribute('data-go'),true);
+  });
+  window.addEventListener('popstate',function(){
+    show(location.hash.replace('#',''),false);
+  });
+  show(location.hash.replace('#',''),false);
 
   var KEY='wm-mode',btn=document.getElementById('mode'),root=document.documentElement;
-  try{var s=localStorage.getItem(KEY); if(s)root.setAttribute('data-mode',s);}catch(e){}
+  try{var sv=localStorage.getItem(KEY); if(sv)root.setAttribute('data-mode',sv);}catch(e){}
   function icon(){btn.textContent=root.getAttribute('data-mode')==='dark'?'◑':'◐'}
   icon();
   btn.addEventListener('click',function(){
