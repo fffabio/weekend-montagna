@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Weekend in Montagna</title>
-<meta name="description" content="Piano cotture e serate — 15-18 ottobre 2026">
+<meta name="description" content="Piano cotture, serate e vini. 15-18 ottobre 2026">
 <meta name="theme-color" content="#171a15">
 <style>
 :root{
@@ -37,16 +37,15 @@ nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px soli
   -webkit-overflow-scrolling:touch;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 nav button{flex:none;background:none;border:0;border-bottom:3px solid transparent;
-  color:var(--muted);font:700 15px/1 inherit;padding:15px 12px;cursor:pointer;white-space:nowrap}
+  color:var(--muted);font:700 15px/1 inherit;padding:15px 11px;cursor:pointer;white-space:nowrap}
 nav button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
-nav .div{flex:none;width:1px;height:20px;background:var(--line);margin:0 8px}
+nav .div{flex:none;width:1px;height:20px;background:var(--line);margin:0 7px}
 
 section[role=tabpanel]{padding:22px 0 60px}
 section[hidden]{display:none}
 h2{font-size:14px;letter-spacing:.5px;color:var(--accent);margin:34px 0 13px;font-weight:800}
 h2:first-child{margin-top:0}
 
-/* ---- bevande ---- */
 .drinks{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--drink);
   border-radius:18px;padding:17px 19px;box-shadow:var(--shadow)}
 .drinks .main{font-size:18px;font-weight:800;color:var(--drink);line-height:1.35}
@@ -55,10 +54,8 @@ h2:first-child{margin-top:0}
 .drinks p b{color:var(--text)}
 .drinks .alt{margin-top:13px;padding-top:12px;border-top:1px dashed var(--line);
   font-size:14.5px;color:var(--muted)}
-.drinks .no{color:var(--muted);font-size:14.5px;margin-top:9px}
-.drinks .no b{color:var(--text)}
+.drinks .alt b{color:var(--text)}
 
-/* ---- scheda ---- */
 .scheda{background:var(--surface);border:1px solid var(--line);border-radius:18px;
   box-shadow:var(--shadow);overflow:hidden;border-top:5px solid var(--accent)}
 .scheda .top{padding:17px 19px 15px}
@@ -77,7 +74,6 @@ dd{margin:0;flex:1;font-size:15px}
 dd.k{font-weight:800;color:var(--hot);font-size:17px}
 dd.no{color:var(--muted)}
 
-/* ---- regole ---- */
 .rule{background:var(--surface);border:1px solid var(--line);border-radius:18px;
   padding:16px 19px;margin-bottom:11px;box-shadow:var(--shadow)}
 .rule h3{margin:0 0 6px;font-size:16.5px;font-weight:800}
@@ -91,7 +87,6 @@ dd.no{color:var(--muted)}
 .callout p{margin:0 0 8px;font-size:15.5px}
 .callout p:last-child{margin-bottom:0}
 
-/* ---- timeline ---- */
 .tl{list-style:none;padding:0;margin:0}
 .tl li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
 .tl li:last-child{border-bottom:0}
@@ -103,7 +98,6 @@ dd.no{color:var(--muted)}
 .box{background:var(--surface);border:1px solid var(--line);border-radius:18px;
   padding:6px 19px;box-shadow:var(--shadow)}
 
-/* ---- atti ---- */
 .atto{background:var(--surface);border:1px solid var(--line);border-radius:18px;
   padding:16px 19px;margin-bottom:11px;box-shadow:var(--shadow);border-left:5px solid var(--accent)}
 .atto h3{margin:0 0 3px;font-size:17px;font-weight:800}
@@ -111,7 +105,14 @@ dd.no{color:var(--muted)}
 .atto p{margin:0;font-size:15.5px;color:var(--muted)}
 .atto p b{color:var(--text)}
 
-.soon{text-align:center;color:var(--muted);padding:70px 20px;font-size:16px}
+/* vino */
+.vino-h{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:6px}
+.vino-h .ord{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--drink);font-weight:800}
+.vino-h h3{margin:5px 0 3px;font-size:24px;font-weight:800;letter-spacing:-.5px;line-height:1.2}
+.vino-h .prod{font-size:15.5px;color:var(--muted)}
+.vino-h .when{font-size:14px;color:var(--accent);font-weight:700;margin-top:8px}
+
 footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   color:var(--muted);text-align:center}
 </style>
@@ -132,6 +133,12 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <button role="tab" aria-selected="false" aria-controls="gio" id="t-gio">Giovedì</button>
   <button role="tab" aria-selected="false" aria-controls="ven" id="t-ven">Venerdì</button>
   <button role="tab" aria-selected="false" aria-controls="sab" id="t-sab">Sabato</button>
+  <span class="div"></span>
+  <button role="tab" aria-selected="false" aria-controls="v1" id="t-v1">Mosesco</button>
+  <button role="tab" aria-selected="false" aria-controls="v2" id="t-v2">Pradurent</button>
+  <button role="tab" aria-selected="false" aria-controls="v3" id="t-v3">Case Vecie</button>
+  <button role="tab" aria-selected="false" aria-controls="v4" id="t-v4">S. Benedetto</button>
+  <button role="tab" aria-selected="false" aria-controls="v5" id="t-v5">Recioto</button>
 </nav>
 
 <!-- ==================== WAGYU ==================== -->
@@ -141,9 +148,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <div class="drinks">
     <div class="main">Pilsner ghiacciata + sake Taiheizan caldo</div>
     <div class="temp">Birra 4 °C · sake 40 °C</div>
-    <p><b>Fanno due lavori diversi, quindi non competono.</b> La birra ha bollicine e amaro: <b>pulisce</b> il palato dal grasso tra una fetta e l'altra. Il sake no — i suoi amminoacidi <b>amplificano l'umami</b> della carne invece di lavarlo via.</p>
+    <p><b>Fanno due lavori diversi, quindi non competono.</b> La birra ha bollicine e amaro: <b>pulisce</b> il palato dal grasso tra una fetta e l'altra. Il sake no, i suoi amminoacidi <b>amplificano l'umami</b> della carne invece di lavarlo via.</p>
     <p>Un sorso di sake <b>con</b> la fetta, un sorso di birra <b>dopo</b>. È l'abbinamento classico giapponese per il wagyu grasso.</p>
-    <p><b>Il sake va caldo — 40 °C, il grado detto <i>nurukan</i>.</b> Un kimoto freddo resta chiuso e austero; a 40 si apre, l'umami viene fuori e contro il grasso dell'A5 funziona molto meglio.</p>
+    <p><b>Il sake va caldo, 40 °C, il grado detto <i>nurukan</i>.</b> Un kimoto freddo resta chiuso e austero. A 40 si apre, l'umami viene fuori e contro il grasso dell'A5 funziona molto meglio.</p>
     <div class="alt">Bicchierini piccoli, <b>40–60 ml</b> a testa: è a 15%.</div>
   </div>
 
@@ -156,7 +163,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
     </div>
     <dl>
       <div><dt>Fattore limitante</dt><dd>Scioglimento del grasso</dd></div>
-      <div><dt>Salatura</dt><dd class="no">No — fiocchi alla fine</dd></div>
+      <div><dt>Salatura</dt><dd class="no">No, fiocchi alla fine</dd></div>
       <div><dt>Pietra</dt><dd class="k">200–230 °C</dd></div>
       <div><dt>Tempo</dt><dd class="k">6–8 min</dd></div>
       <div><dt>Girare</dt><dd>Ogni minuto</dd></div>
@@ -169,7 +176,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <h2>Regole</h2>
 
   <div class="rule"><h3>Va cotto più di un filetto, non meno</h3>
-  <p>Il fattore limitante non è il cuore, è <b>lo scioglimento del grasso</b> — che richiede tempo a temperatura, non una fiammata. Scottato 30 secondi, il grasso resta <b>ceroso</b> e perdi tutto quello per cui hai pagato.</p></div>
+  <p>Il fattore limitante non è il cuore, è <b>lo scioglimento del grasso</b>, che richiede tempo a temperatura e non una fiammata. Scottato 30 secondi, il grasso resta <b>ceroso</b> e perdi tutto quello per cui hai pagato.</p></div>
 
   <div class="rule"><h3>Il segnale è l'aspetto, non il cronometro</h3>
   <p>Fermati quando la superficie è <b>lucida, il grasso visibilmente sciolto</b> e il pezzo cede sotto il dito. I 6–8 minuti sono una stima.</p></div>
@@ -180,25 +187,25 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
 
   <div class="rule"><h3>Niente deve essere freddo</h3>
   <p>Il grasso del Wagyu fonde a 25–30 °C e <b>si rapprende alla stessa temperatura</b>: su un tagliere freddo torna ceroso in venti secondi. <b>Scalda il piatto di riposo, il tagliere e i piatti di servizio.</b></p>
-  <p>Affetta su <b>legno tiepido</b>, mai sulla pietra: è steatite, Mohs 1–2,5, più morbida della tua unghia — il coltello la scava.</p></div>
+  <p>Affetta su <b>legno tiepido</b>, mai sulla pietra: è steatite, Mohs 1–2,5, più morbida della tua unghia, e il coltello la scava.</p></div>
 
   <div class="rule"><h3>Pietra pulita, e non caricarla</h3>
-  <p>Il Wagyu va <b>per primo</b>, su pietra asciutta: se ci passi prima la pancetta, un A5 da 230 €/kg ti sa di maiale. E un pezzo alla volta — 400 g insieme fanno crollare la temperatura.</p>
+  <p>Il Wagyu va <b>per primo</b>, su pietra asciutta: se ci passi prima la pancetta, un A5 da 230 €/kg ti sa di maiale. E un pezzo alla volta, perché 400 g insieme fanno crollare la temperatura.</p>
   <p>A fine serata: <b>raschia da calda, acqua bollente, mai sapone</b>. È porosa e il detersivo te lo restituisce sulla carne.</p></div>
 
-  <h2>Il sake — come si scalda</h2>
+  <h2>Il sake, come si scalda</h2>
 
   <div class="rule"><h3>A bagnomaria, 2–3 minuti</h3>
-  <p><b>Non scaldare tutta la bottiglia.</b> Travasa <b>200–250 ml per volta</b> in un contenitore a collo stretto — una caraffina, un bicchiere resistente al calore, una bottiglietta di vetro — riempiendolo all'80%.</p>
+  <p><b>Non scaldare tutta la bottiglia.</b> Travasa <b>200–250 ml per volta</b> in un contenitore a collo stretto (una caraffina, un bicchiere resistente al calore, una bottiglietta di vetro) riempiendolo all'80%.</p>
   <p>Scalda l'acqua in un pentolino fino a <b>60–70 °C e spegni</b>: non deve bollire con dentro il sake. Immergi il contenitore <b>fino al livello del sake</b>, non oltre.</p>
-  <p><b>Due-tre minuti.</b> Misura con la sonda e togli a <b>42 °C</b>: ne perde un paio arrivando al bicchiere. Senza sonda: il fondo del contenitore deve risultare <b>caldo sul palmo, non scottare</b>.</p></div>
+  <p><b>Due o tre minuti.</b> Misura con la sonda e togli a <b>42 °C</b>: ne perde un paio arrivando al bicchiere. Senza sonda, il fondo del contenitore deve risultare <b>caldo sul palmo, non scottare</b>.</p></div>
 
   <div class="rule"><h3>Mai microonde, mai sopra i 50 °C</h3>
   <p>Il microonde scalda a chiazze e brucia gli aromi. Sopra i 50 °C l'alcol diventa pungente e la finezza del kimoto sparisce.</p>
   <p>E <b>non riscaldare due volte</b>: scalda solo quello che bevi nel giro.</p></div>
 
   <div class="rule"><h3>Come conservare la bottiglia</h3>
-  <p><b>Chiusa:</b> in piedi, al buio, al fresco. Il sake teme la luce molto più del vino — l'UV gli dà odori di stantio in poche ore. Frigo, o un mobile fresco e buio. <b>In piedi</b>, non coricata: il tappo è a vite e non va bagnato.</p>
+  <p><b>Chiusa:</b> in piedi, al buio, al fresco. Il sake teme la luce molto più del vino, l'UV gli dà odori di stantio in poche ore. Frigo, o un mobile fresco e buio. <b>In piedi</b>, non coricata: il tappo è a vite e non va bagnato.</p>
   <p><b>Aperta:</b> tappo stretto, in frigo, in piedi. Regge <b>1–2 settimane</b> tranquillamente: alcol e assenza di tannini lo proteggono molto più di un vino. Il gusto si arrotonda, non si guasta. Non congelare.</p></div>
 
 </section>
@@ -209,16 +216,16 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <h2>Bevande</h2>
   <div class="drinks">
     <div class="main">I due Amaroni, affiancati</div>
-    <div class="temp">Case Vecie 2018 + Corte San Benedetto 2015 — 17 °C</div>
+    <div class="temp">Case Vecie 2018 + Corte San Benedetto 2015 · 17 °C</div>
     <p>Il <b>cappello di grasso reso</b> è ciò che regge i 16,5% dell'Amarone: alcol ed estratto tagliano il grasso, e la caramellatura della cappa richiama la frutta secca del vino.</p>
-    <p><b>Caraffa:</b> Case Vecie <b>2 ore prima</b>. San Benedetto <b>30–40 min</b>, versato piano — ha sedimento, lascia l'ultimo dito nella bottiglia.</p>
+    <p><b>Caraffa:</b> Case Vecie <b>2 ore prima</b>. San Benedetto <b>30–40 min</b>, versato piano, perché ha sedimento: lascia l'ultimo dito nella bottiglia.</p>
     <div class="alt">È la sera del confronto: stessa denominazione, stessi 16,5%, <b>sette anni contro dieci</b>. Serviti negli stessi calici, nello stesso momento.</div>
   </div>
 
   <h2>La scheda</h2>
   <div class="scheda">
     <div class="top">
-      <div class="fmt">1,4 kg · intera · reverse sear: forno → brace</div>
+      <div class="fmt">1,4 kg · intera · reverse sear: forno, poi brace</div>
       <div class="big">53–54<em> °C</em></div>
       <div class="lbl">al taglio</div>
     </div>
@@ -237,16 +244,16 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <h2>Regole</h2>
 
   <div class="rule"><h3>Sforna sotto il target</h3>
-  <p>Tra forno e piatto guadagni <b>+4/+6 °C</b>: carryover +1/2, riposo −2/3, brace +4/6. A 110 °C il carryover è piccolo — <b>è la scottatura a scaldare</b>, non il riposo.</p></div>
+  <p>Tra forno e piatto guadagni <b>+4/+6 °C</b>: carryover +1/2, riposo −2/3, brace +4/6. A 110 °C il carryover è piccolo, quindi <b>è la scottatura a scaldare</b>, non il riposo.</p></div>
 
   <div class="rule"><h3>Riposo prima della brace, scoperta</h3>
-  <p>È il senso del reverse sear: forno → riposo → scottatura → servi subito. <b>Niente alluminio</b>: la stanza è a 21–22 °C e il foglio intrappola vapore, ammorbidendo la superficie che hai asciugato per due giorni.</p></div>
+  <p>È il senso del reverse sear: forno, riposo, scottatura, servi subito. <b>Niente alluminio</b>: la stanza è a 21–22 °C e il foglio intrappola vapore, ammorbidendo la superficie che hai asciugato per due giorni.</p></div>
 
   <div class="rule"><h3>La cappa: 5–6 minuti, non dieci</h3>
-  <p>Dopo 75–90 minuti a 110 °C <b>il grasso si è già parzialmente reso in forno</b>: non parte da crudo. E sulla brace il grasso che cola <b>accende fiammate</b> che carbonizzano invece di rendere. Braci moderate, non roventi, e sorveglia.</p></div>
+  <p>Dopo 75–90 minuti a 110 °C <b>il grasso si è già parzialmente reso in forno</b> e non parte da crudo. E sulla brace il grasso che cola <b>accende fiammate</b> che carbonizzano invece di rendere. Braci moderate, non roventi, e sorveglia.</p></div>
 
   <div class="rule"><h3>Misura dopo la scottatura, non prima</h3>
-  <p>Il numero che conta è quello al momento di affettare. Rinfila la sonda dopo la brace: se sei basso, altri trenta secondi non costano niente — il contrario sì.</p></div>
+  <p>Il numero che conta è quello al momento di affettare. Rinfila la sonda dopo la brace: se sei basso, altri trenta secondi non costano niente, il contrario sì.</p></div>
 
   <div class="rule"><h3>La venatura cambia direzione</h3>
   <p>È l'errore classico sulla picanha: si imposta il taglio sulla parte spessa e si finisce la punta nel verso sbagliato.</p>
@@ -254,7 +261,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <p><b>Controprova sulla prima fetta:</b> puntini = giusto, striature lunghe = ruota di 90°.</p></div>
 
   <div class="rule"><h3>Il pepe brucia sulla brace</h3>
-  <p>Metà prima del forno, <b>metà dopo la scottatura</b>. Sul fuoco diretto carbonizza e diventa amaro — l'unica cosa che l'Amarone non perdona.</p></div>
+  <p>Metà prima del forno, <b>metà dopo la scottatura</b>. Sul fuoco diretto carbonizza e diventa amaro, l'unica cosa che l'Amarone non perdona.</p></div>
 
   <div class="callout">
     <h3>⚠️ Tara il forno giovedì sera</h3>
@@ -270,7 +277,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <h2>Bevande</h2>
   <div class="drinks">
     <div class="main">Birra maltata, poi il Recioto</div>
-    <div class="temp">Augustiner o Kuchlbauer Zwickl 6–8 °C → Recioto 16–18 °C</div>
+    <div class="temp">Augustiner o Kuchlbauer Zwickl 6–8 °C, poi Recioto 16–18 °C</div>
     <p>La <b>crosta bruciata dalla brace</b> contro un vino da 16,5% è un litigio: l'alcol amplifica l'amaro della bruciatura. La birra maltata invece la asseconda.</p>
     <div class="alt"><b>Niente Amarone stasera:</b> sono due e si aprono entrambi venerdì. Si chiude direttamente con il <b>Recioto</b>, su formaggi stagionati, gorgonzola e cioccolato fondente.</div>
   </div>
@@ -278,7 +285,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <h2>La scheda</h2>
   <div class="scheda">
     <div class="top">
-      <div class="fmt">2 × 1,1 kg · interi · reverse sear: forno → brace</div>
+      <div class="fmt">2 × 1,1 kg · interi · reverse sear: forno, poi brace</div>
       <div class="big">55–57<em> °C</em></div>
       <div class="lbl">al taglio</div>
     </div>
@@ -300,17 +307,17 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <p>Prime rib USA è molto marezzata e lo spinalis ha connettivo: <b>sotto i 52 °C risulta flaccida e unta</b>, a 55–57 il grasso si è sciolto e diventa cremosa. Su un filetto 56 sarebbe un delitto, qui è il punto giusto.</p></div>
 
   <div class="rule"><h3>Sforna sotto il target</h3>
-  <p>Tra forno e piatto guadagni <b>+4/+6 °C</b>. A 110 °C il carryover è di 1–2 gradi: <b>è la scottatura a scaldare</b>. Sforna a 50–51 e arrivi a 55–57.</p>
+  <p>Tra forno e piatto guadagni <b>+4/+6 °C</b>. A 110 °C il carryover è di 1–2 gradi, quindi <b>è la scottatura a scaldare</b>. Sforna a 50–51 e arrivi a 55–57.</p>
   <p>Due pezzi da 1,1 kg insieme sono molta massa: conta <b>60–80 minuti</b>, e vai di sonda.</p></div>
 
   <div class="rule"><h3>Riposo prima della brace, scoperta</h3>
-  <p>Forno → riposo 10–15 min → scottatura → 3–5 min → taglio. <b>Niente alluminio</b>: a 21–22 °C di stanza non serve, e intrappola vapore.</p></div>
+  <p>Forno, riposo 10–15 min, scottatura, 3–5 min, taglio. <b>Niente alluminio</b>: a 21–22 °C di stanza non serve, e intrappola vapore.</p></div>
 
   <div class="rule"><h3>Il bordo di grasso va messo in piedi</h3>
   <p>A 90 secondi per faccia il rimbocco di grasso esterno resta crudo e gommoso. <b>Tienila in piedi sul bordo 1–2 minuti</b> prima di toglierla.</p></div>
 
   <div class="rule"><h3>Non affettarla com'è appoggiata</h3>
-  <p>Il macellaio ha tagliato di traverso al lombo: <b>le fibre corrono attraverso lo spessore</b>, da una faccia piatta all'altra. Se affetti col coltello che scende, tagli <i>parallelo</i> alle fibre e viene stopposa.</p>
+  <p>Il macellaio ha tagliato di traverso al lombo, quindi <b>le fibre corrono attraverso lo spessore</b>, da una faccia piatta all'altra. Se affetti col coltello che scende, tagli <i>parallelo</i> alle fibre e viene stopposa.</p>
   <p><b>Stacca il muscolo dall'osso, giralo di 90° su un fianco, poi affetta.</b> Controprova: puntini = giusto, striature lunghe = ruota.</p></div>
 
   <div class="rule"><h3>Lo spinalis si stacca e si affetta a parte</h3>
@@ -327,30 +334,30 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
 
 </section>
 
+<!-- ==================== GIOVEDÌ ==================== -->
 <section role="tabpanel" id="gio" aria-labelledby="t-gio" hidden>
 
   <h2>Le bevande della sera</h2>
   <div class="drinks">
-    <div class="main">Birra → sake caldo → i due Dolcetto</div>
+    <div class="main">Birra, sake caldo, poi i due Dolcetto</div>
     <div class="temp"><b>Entrambi</b> i Dolcetto si aprono stasera, uno dopo l'altro</div>
     <p>Prima il <b>Mosesco</b>, che è più fresco e immediato, sulle salsicce. Poi il <b>Sorì Pradurent</b>, più denso e speziato dai dieci mesi di barrique, sul tagliere di salumi e formaggi: regge il tagliere molto meglio.</p>
-    <p>Sono 1,5 litri in quattro — circa 375 ml a testa nell'arco della serata, accanto alla birra. Giusto.</p>
   </div>
 
   <h2>Come preparare ogni bottiglia</h2>
   <div class="box">
     <ul class="tl">
-      <li><span class="h">4 °C</span><span class="b"><b>Kaiserdom Pilsener</b><span>In frigo appena arrivi. Se è tiepida dal viaggio: <b>secchio con ghiaccio, acqua e due manciate di sale grosso</b> — da 20 a 4 °C in 10-12 minuti, tre volte più veloce del congelatore e senza rischio di dimenticarla.</span></span></li>
+      <li><span class="h">4 °C</span><span class="b"><b>Kaiserdom Pilsener</b><span>In frigo appena arrivi. Qui serve davvero ghiacciata: è la lama che pulisce il palato dal grasso dell'A5.</span></span></li>
       <li><span class="h">40 °C</span><span class="b"><b>Sake Taiheizan</b><span>A bagnomaria, 200–250 ml per volta. Il procedimento completo è nel tab <b>Wagyu</b>.</span></span></li>
-      <li><span class="h">15-16 °C</span><span class="b"><b>Mosesco 2024</b><span><b>Frigo 25–30 minuti</b>, poi apri e versa. <b>Niente caraffa:</b> è affinato <b>solo in vasche d'acciaio, senza legno</b>, ed è dell'annata scorsa. Non ha né tannini da ammorbidire né note di botte da aprire — l'aria gli toglierebbe solo freschezza, che è tutto quello che ha da dare.</span></span></li>
+      <li><span class="h">15-16 °C</span><span class="b"><b>Mosesco 2024</b><span><b>Frigo 25–30 minuti</b>, poi apri e versa. <b>Niente caraffa:</b> è affinato <b>solo in vasche d'acciaio, senza legno</b>, ed è dell'annata scorsa. Non ha né tannini da ammorbidire né note di botte da aprire, e l'aria gli toglierebbe solo freschezza.</span></span></li>
       <li><span class="h">15-16 °C</span><span class="b"><b>Sorì Pradurent 2023</b><span><b>Frigo 25–30 minuti</b>, poi <b>caraffa 30 minuti</b>. I dieci mesi di barrique e la maggiore densità hanno bisogno d'aria. Travasalo mentre siete ancora sul Mosesco.</span></span></li>
     </ul>
   </div>
 
   <div class="callout">
     <h3>🌡️ Tara il frigo stasera</h3>
-    <p>I 25–30 minuti sono una stima sul <i>mio</i> frigo, non sul tuo. <b>Usa il Mosesco come prova</b>: mettilo dentro, controlla con la sonda a 20, 25 e 30 minuti.</p>
-    <p>Quando sai quanto scende in quel frigo, il numero è fisso per tutto il weekend — e venerdì sui due Amaroni non sbagli.</p>
+    <p>I 25–30 minuti sono una stima sul <i>mio</i> frigo, non sul tuo. <b>Usa il Mosesco come prova</b>: mettilo dentro e controlla con la sonda a 20, 25 e 30 minuti.</p>
+    <p>Quando sai quanto scende in quel frigo, il numero è fisso per tutto il weekend, e venerdì sui due Amaroni non sbagli.</p>
   </div>
 
   <h2>La serata in tre atti</h2>
@@ -364,13 +371,13 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <div class="atto">
     <h3>2 · Salsicce, pancetta, lardo</h3>
     <div class="w">Mosesco 2024</div>
-    <p>Salsicce a calore moderato, 15–20 minuti, girandole spesso: <b>non bucarle</b>. Pancetta a fette spesse, 2–3 minuti per lato. Il <b>lardo crudo</b> su pane scaldato sulla pietra — cotto si scioglie e lo perdi.</p>
+    <p>Salsicce a calore moderato, 15–20 minuti, girandole spesso: <b>non bucarle</b>. Pancetta a fette spesse, 2–3 minuti per lato. Il <b>lardo crudo</b> su pane scaldato sulla pietra, perché cotto si scioglie e lo perdi.</p>
   </div>
 
   <div class="atto">
     <h3>3 · Tagliere</h3>
     <div class="w">Sorì Pradurent 2023</div>
-    <p>Salumi e formaggi <b>giovani, freddi, a fette</b>: toma e taleggio. Non sulla piastra — il taleggio cola e si infila nella pietra, e il tagliere freddo è il partner giusto dei Dolcetto. Tirali fuori dal frigo <b>30–40 minuti prima</b>: a 5 °C un formaggio è muto.</p>
+    <p>Salumi e formaggi <b>giovani, freddi, a fette</b>: toma e taleggio. Non sulla piastra, perché il taleggio cola e si infila nella pietra, e il tagliere freddo è il partner giusto dei Dolcetto. Tirali fuori dal frigo <b>30–40 minuti prima</b>: a 5 °C un formaggio è muto.</p>
   </div>
 
   <h2>Una cosa da fare stasera</h2>
@@ -381,22 +388,24 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   </div>
 
 </section>
+
+<!-- ==================== VENERDÌ ==================== -->
 <section role="tabpanel" id="ven" aria-labelledby="t-ven" hidden>
 
   <h2>Le bevande della sera</h2>
   <div class="drinks">
     <div class="main">I due Amaroni, affiancati</div>
-    <div class="temp">Case Vecie 2018 + Corte San Benedetto 2015 — 17 °C</div>
+    <div class="temp">Case Vecie 2018 + Corte San Benedetto 2015 · 17 °C</div>
     <p>È la sera per cui è nato tutto il weekend. <b>Stessa denominazione, stessi 16,5%, sette anni contro dieci.</b> Non si bevono uno dopo l'altro: si aprono insieme, si versano negli stessi calici e si confrontano.</p>
-    <p>Il <b>Case Vecie</b> è il più esplosivo — il frutto è ancora tutto lì. Il <b>San Benedetto</b> è più evoluto: cuoio, tabacco, sottobosco. È lui il più vicino a quello che cercavi.</p>
+    <p>Il <b>Case Vecie</b> è il più esplosivo, il frutto è ancora tutto lì. Il <b>San Benedetto</b> è più evoluto: cuoio, tabacco, sottobosco. È lui il più vicino a quello che cercavi.</p>
   </div>
 
   <h2>Come preparare ogni bottiglia</h2>
   <div class="box">
     <ul class="tl">
-      <li><span class="h">⚠️</span><span class="b"><b>Servono due caraffe, insieme</b><span>Il Case Vecie entra in caraffa alle 18:00, il San Benedetto alle 20:25: per una mezz'ora abbondante sono <b>entrambe in uso</b>. È l'unica sera del weekend in cui te ne servono due — sabato non ne serve nessuna.</span></span></li>
-      <li><span class="h">2 h</span><span class="b"><b>Case Vecie 2018 — caraffa</b><span>Due ore piene prima di versare. È giovane e potente: l'ossigeno gli serve davvero. Travasalo alle 18.</span></span></li>
-      <li><span class="h">40 min</span><span class="b"><b>Corte San Benedetto 2015 — caraffa</b><span>Solo 30–40 minuti: a dieci anni si ossida in fretta e oltre l'ora lo appiattisci. <b>Ha sedimento</b> — tienila in piedi da ieri, travasa piano alla luce e <b>fermati quando vedi il deposito</b>: lascia l'ultimo dito nella bottiglia.</span></span></li>
+      <li><span class="h">⚠️</span><span class="b"><b>Servono due caraffe, insieme</b><span>Il Case Vecie entra in caraffa alle 18:00, il San Benedetto alle 20:25: per una mezz'ora abbondante sono <b>entrambe in uso</b>. È l'unica sera del weekend in cui te ne servono due, sabato non ne serve nessuna.</span></span></li>
+      <li><span class="h">2 h</span><span class="b"><b>Case Vecie 2018, caraffa</b><span>Due ore piene prima di versare. È giovane e potente, l'ossigeno gli serve davvero. Travasalo alle 18.</span></span></li>
+      <li><span class="h">40 min</span><span class="b"><b>Corte San Benedetto 2015, caraffa</b><span>Solo 30–40 minuti: a dieci anni si ossida in fretta e oltre l'ora lo appiattisci. <b>Ha sedimento</b>, quindi tienila in piedi da ieri, travasa piano alla luce e <b>fermati quando vedi il deposito</b>, lasciando l'ultimo dito nella bottiglia.</span></span></li>
       <li><span class="h">17 °C</span><span class="b"><b>Entrambi in frigo 15–20 min</b><span>Con la stanza a 21–22 °C servono pochi minuti. Usa il tempo che hai misurato ieri sul Mosesco. Caraffe <b>lontane dal camino</b>.</span></span></li>
     </ul>
   </div>
@@ -411,7 +420,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
       <li><span class="h">20:35</span><span class="b"><b>Riposo 10–15 min, scoperta</b><span>Niente alluminio. Prepara le braci: <b>moderate, non roventi</b>.</span></span></li>
       <li><span class="h">20:50</span><span class="b"><b>Sulla brace</b><span><b>Grasso giù 5–6 minuti</b> sorvegliando le fiammate, poi <b>1–2 minuti sul lato carne</b>.</span></span></li>
       <li><span class="h">21:00</span><span class="b"><b>Risonda e riposa 5 min</b><span>Devi essere sui <b>53–54 °C</b>. Se sei basso, trenta secondi in più sulla brace.</span></span></li>
-      <li><span class="h">21:05</span><span class="b"><b>Taglia e servi</b><span><b>Contro fibra</b>, seguendo i due segni di riferimento — parte grossa e punta come pezzi separati. Resto del pepe e sale in fiocchi alla fine.</span></span></li>
+      <li><span class="h">21:05</span><span class="b"><b>Taglia e servi</b><span><b>Contro fibra</b>, seguendo i due segni di riferimento, parte grossa e punta come pezzi separati. Resto del pepe e sale in fiocchi alla fine.</span></span></li>
       <li><span class="h">22:00</span><span class="b"><b>Formaggi stagionati</b><span>Parmigiano 30-36 mesi e pecorino, con i due Amaroni. È lì che danno il meglio, e reggono per ore senza altro cibo.</span></span></li>
     </ul>
   </div>
@@ -419,26 +428,28 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <div class="callout">
     <h3>🍷 Il confronto, fatto bene</h3>
     <p>Versa <b>poco per volta in entrambi i calici</b> e tornaci sopra durante la serata: a un'ora di distanza i due vini saranno diversi da come erano all'apertura, e il Case Vecie più del San Benedetto.</p>
-    <p>Se ne avanza, <b>rimettili nella bottiglia</b> prima di andare a dormire — mai lasciarli in caraffa tutta la notte.</p>
+    <p>Se ne avanza, <b>rimettili nella bottiglia</b> prima di andare a dormire. Mai lasciarli in caraffa tutta la notte.</p>
   </div>
 
 </section>
+
+<!-- ==================== SABATO ==================== -->
 <section role="tabpanel" id="sab" aria-labelledby="t-sab" hidden>
 
   <h2>Le bevande della sera</h2>
   <div class="drinks">
-    <div class="main">Birra → Recioto</div>
+    <div class="main">Birra, poi Recioto</div>
     <div class="temp">Due momenti, in quest'ordine</div>
-    <p><b>1 · Con la costata:</b> birra maltata, 6–8 °C. La crosta bruciata dalla brace contro un vino a 16,5% è un litigio — l'alcol amplifica l'amaro della bruciatura. La birra la asseconda.</p>
+    <p><b>1 · Con la costata:</b> birra maltata, 6–8 °C. La crosta bruciata dalla brace contro un vino a 16,5% è un litigio, perché l'alcol amplifica l'amaro della bruciatura. La birra la asseconda.</p>
     <p><b>2 · La chiusura:</b> il <b>Recioto</b>, 16–18 °C, su formaggi stagionati, gorgonzola e cioccolato fondente.</p>
-    <div class="alt"><b>Niente Amarone stasera.</b> Ne arrivano due al weekend e si aprono entrambi venerdì: è la sera del confronto, e ha senso che sia così. Il Parmigiano 36 mesi col Recioto funziona benissimo — dolce contro sapido.</div>
+    <div class="alt"><b>Niente Amarone stasera.</b> Ne arrivano due al weekend e si aprono entrambi venerdì: è la sera del confronto, e ha senso che sia così. Il Parmigiano 36 mesi col Recioto funziona benissimo, dolce contro sapido.</div>
   </div>
 
   <h2>Come preparare ogni bottiglia</h2>
   <div class="box">
     <ul class="tl">
-      <li><span class="h">6-8 °C</span><span class="b"><b>Birra maltata</b><span>Augustiner Edelstoff o Kuchlbauer Zwickl. Più calda della Pilsner di giovedì: qui il malto deve sentirsi, sotto i 5 °C si spegne.</span></span></li>
-      <li><span class="h">20 min</span><span class="b"><b>Recioto 2021 — niente caraffa</b><span>Bastano venti minuti di bottiglia aperta. <b>16–18 °C, non freddo</b>: tutti mettono in frigo i vini dolci, e con un Recioto rosso è l'errore classico — il freddo spegne gli aromi e lascia emergere solo lo zucchero.</span></span></li>
+      <li><span class="h">6-8 °C</span><span class="b"><b>Birra maltata</b><span>Augustiner Edelstoff o Kuchlbauer Zwickl. Più calda della Pilsner di giovedì: qui il malto deve sentirsi, e sotto i 5 °C si spegne.</span></span></li>
+      <li><span class="h">20 min</span><span class="b"><b>Recioto 2021, niente caraffa</b><span>Bastano venti minuti di bottiglia aperta. <b>16–18 °C, non freddo</b>: tutti mettono in frigo i vini dolci, e con un Recioto rosso è l'errore classico, perché il freddo spegne gli aromi e lascia emergere solo lo zucchero.</span></span></li>
       <li><span class="h">✓</span><span class="b"><b>Nessuna caraffa stasera</b><span>Le due caraffe servono solo venerdì. Stasera lavale e mettile via.</span></span></li>
     </ul>
   </div>
@@ -446,29 +457,285 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <h2>La giornata</h2>
   <div class="box">
     <ul class="tl">
-      <li><span class="h">13:00</span><span class="b"><b>Pranzo freddo</b><span>Bresaola con rucola, grana e limone · cannellini con tonno e cipolla rossa. Oppure la <b>picanha avanzata, fredda, sul pane con la senape</b> — se ne resta, è la cosa migliore.</span></span></li>
+      <li><span class="h">13:00</span><span class="b"><b>Pranzo freddo</b><span>Bresaola con rucola, grana e limone, oppure cannellini con tonno e cipolla rossa. O la <b>picanha avanzata, fredda, sul pane con la senape</b>: se ne resta, è la cosa migliore.</span></span></li>
       <li><span class="h">18:00</span><span class="b"><b>Costate fuori dal frigo</b><span>Incidi il bordo di grasso, metà del pepe.</span></span></li>
       <li><span class="h">19:00</span><span class="b"><b>In forno a 110 °C</b><span>Tutte e due insieme. Sonda nel pezzo più grosso. <b>Due pezzi da 1,1 kg sono molta massa:</b> conta 60–80 minuti.</span></span></li>
       <li><span class="h">20:15</span><span class="b"><b>Sforna a 50–51 °C</b><span>Intanto prepara le braci: <b>due zone</b>, ammucchiate da un lato e rade dall'altro.</span></span></li>
       <li><span class="h">20:25</span><span class="b"><b>Riposo 10–15 min, scoperta</b><span>Birre in frigo adesso.</span></span></li>
-      <li><span class="h">20:40</span><span class="b"><b>Sulla brace</b><span><b>90–120 secondi per faccia</b>, poi <b>in piedi sul bordo di grasso 1–2 minuti</b>: altrimenti quel rimbocco resta crudo e gommoso.</span></span></li>
-      <li><span class="h">20:50</span><span class="b"><b>Risonda e riposa 3–5 min</b><span>Devi essere sui <b>55–57 °C</b>. Più di una fiorentina: qui il grasso deve sciogliersi.</span></span></li>
-      <li><span class="h">20:55</span><span class="b"><b>Taglia</b><span>Stacca i muscoli dall'osso, <b>gira ciascuno di 90° su un fianco</b>, poi affetta. Lo <b>spinalis</b> — il cappello esterno — staccalo e affettalo a parte: ha venatura propria ed è il pezzo migliore.</span></span></li>
-      <li><span class="h">22:00</span><span class="b"><b>Apri il Recioto</b><span>Venti minuti di bottiglia aperta e basta. Tiralo fuori dal frigo adesso se ce l'hai messo.</span></span></li>
+      <li><span class="h">20:40</span><span class="b"><b>Sulla brace</b><span><b>90–120 secondi per faccia</b>, poi <b>in piedi sul bordo di grasso 1–2 minuti</b>, altrimenti quel rimbocco resta crudo e gommoso.</span></span></li>
+      <li><span class="h">20:50</span><span class="b"><b>Risonda e riposa 3–5 min</b><span>Devi essere sui <b>55–57 °C</b>. Più di una fiorentina, perché qui il grasso deve sciogliersi.</span></span></li>
+      <li><span class="h">20:55</span><span class="b"><b>Taglia</b><span>Stacca i muscoli dall'osso, <b>gira ciascuno di 90° su un fianco</b>, poi affetta. Lo <b>spinalis</b>, il cappello esterno, staccalo e affettalo a parte: ha venatura propria ed è il pezzo migliore.</span></span></li>
+      <li><span class="h">22:00</span><span class="b"><b>Apri il Recioto</b><span>Venti minuti di bottiglia aperta e basta.</span></span></li>
       <li><span class="h">22:20</span><span class="b"><b>Formaggi e chiusura</b><span>Davanti al camino: <b>Parmigiano 36 mesi</b> e pecorino, poi <b>gorgonzola</b> e <b>cioccolato fondente 70%</b>, tutto col Recioto. Bicchierini piccoli, dita di vino.</span></span></li>
     </ul>
   </div>
 
   <div class="callout">
-    <h3>🍯 Il Recioto — due cose</h3>
-    <p><b>Mai su un dolce zuccherino.</b> È l'errore classico: la torta è più dolce del vino, che diventa acido e sparisce. Formaggio erborinato e cioccolato amaro, invece, lo esaltano.</p>
+    <h3>🍯 Il Recioto, due cose</h3>
+    <p><b>Mai su un dolce zuccherino.</b> È l'errore classico: la torta è più dolce del vino, che diventa acido e sparisce. Formaggio erborinato e cioccolato amaro invece lo esaltano.</p>
     <p>E raccontalo: <b>è il padre dei due Amaroni di ieri.</b> L'Amarone è nato per sbaglio, da una botte di Recioto dimenticata a fermentare fino in fondo. Dopo tre giorni di bottiglie, è il momento in cui torna tutto insieme.</p>
-    <p>Una volta aperto <b>regge una settimana in frigo</b>: se ne avanza mezzo, non buttarlo.</p>
   </div>
 
 </section>
 
-<footer>Weekend in Montagna · 15–18 ottobre 2026</footer>
+<!-- ==================== VINO 1 ==================== -->
+<section role="tabpanel" id="v1" aria-labelledby="t-v1" hidden>
+
+  <div class="vino-h">
+    <div class="ord">Vino 1 di 5</div>
+    <h3>Dolcetto d'Alba "Mosesco"</h3>
+    <div class="prod">Prunotto · 2024 · Piemonte</div>
+    <div class="when">Giovedì sera, secondo atto: salsicce, pancetta, lardo</div>
+  </div>
+
+  <h2>La scheda</h2>
+  <div class="scheda">
+    <div class="top">
+      <div class="fmt">Dolcetto d'Alba DOC · 75 cl</div>
+      <div class="big">15–16<em> °C</em></div>
+      <div class="lbl">temperatura di servizio</div>
+    </div>
+    <dl>
+      <div><dt>Uvaggio</dt><dd>Dolcetto 100%</dd></div>
+      <div><dt>Alcol</dt><dd class="k">14%</dd></div>
+      <div><dt>Affinamento</dt><dd>Solo acciaio, nessun legno</dd></div>
+      <div><dt>Frigo</dt><dd>25–30 min</dd></div>
+      <div><dt>Caraffa</dt><dd class="no">No</dd></div>
+      <div><dt>Quando berlo</dt><dd>Subito, è l'annata scorsa</dd></div>
+    </dl>
+  </div>
+
+  <h2>Che cos'è</h2>
+
+  <div class="rule"><h3>È quasi certamente il vino del tuo ricordo</h3>
+  <p>Prunotto fa due Dolcetto: uno base e il cru <b>"Mosesco"</b>. La scheda lo descrive così: <i>"forti sentori vinosi, note di confettura di prugne e amarene, molto caldo all'assaggio, avvolgente e morbido"</i>.</p>
+  <p>Caldo, avvolgente, morbido, confettura di prugne. È la tua descrizione parola per parola. Se la bottiglia che ricordavi era un Prunotto, <b>era questa</b>, e le volte in cui sei rimasto deluso avevi probabilmente preso il base, o una bottiglia ferma troppo a lungo su uno scaffale.</p></div>
+
+  <div class="rule"><h3>Perché non si decanta e non si invecchia</h3>
+  <p>Il Dolcetto ha <b>pochissima acidità</b> e tantissimi antociani: da qui il colore viola carico, la morbidezza, e il fatto che non regge il tempo. È l'acidità a fare da impalcatura al frutto negli anni, e senza quella il frutto crolla.</p>
+  <p>Questo è affinato solo in acciaio, senza legno, ed è del 2024. Non ha né tannini da ammorbidire né note di botte da aprire: <b>l'aria gli toglierebbe l'unica cosa che ha, la freschezza.</b></p></div>
+
+  <h2>Curiosità vere</h2>
+
+  <div class="rule"><h3>"Piccolo dolce" che dolce non è</h3>
+  <p>Il nome <i>Dolcetto</i> non ha niente a che fare con il vino, che è secco. Le due spiegazioni correnti sono che si riferisca alla <b>dolcezza dell'uva da mangiare</b>, che matura presto ed è gradevolissima al grappolo, oppure al dialettale <i>dosset</i>, "collinetta", i rilievi dove si pianta.</p></div>
+
+  <div class="rule"><h3>Era il vino che i contadini si tenevano</h3>
+  <p>Il Dolcetto matura settimane prima del Nebbiolo. Per generazioni nelle Langhe è stato <b>il vino di casa</b>: pronto subito, bevuto in famiglia mentre il Nebbiolo maturava lentamente per essere venduto.</p>
+  <p>Ed è anche il motivo per cui occupa le esposizioni meno pregiate: il Nebbiolo si prende i versanti migliori perché ne ha bisogno, il Dolcetto matura comunque.</p></div>
+
+  <div class="rule"><h3>La casa è di Antinori, ma il nome è di un altro</h3>
+  <p>Prunotto nasce come cantina sociale a inizio Novecento. <b>Alfredo Prunotto</b> la rileva negli anni Venti e le dà il proprio nome. Dal 1956 passa a <b>Beppe Colla</b>, uno degli artefici del Barolo moderno e tra i primi a imbottigliare cru singoli. Gli Antinori la distribuiscono dal 1989 e la acquisiscono del tutto nel 1994.</p>
+  <p>Il nome sull'etichetta è quindi quello di un proprietario che se n'è andato settant'anni fa.</p></div>
+
+</section>
+
+<!-- ==================== VINO 2 ==================== -->
+<section role="tabpanel" id="v2" aria-labelledby="t-v2" hidden>
+
+  <div class="vino-h">
+    <div class="ord">Vino 2 di 5</div>
+    <h3>Dolcetto di Diano d'Alba Superiore "Sorì Pradurent"</h3>
+    <div class="prod">Claudio Alario · 2023 · Piemonte</div>
+    <div class="when">Giovedì sera, terzo atto: tagliere di salumi e formaggi</div>
+  </div>
+
+  <h2>La scheda</h2>
+  <div class="scheda">
+    <div class="top">
+      <div class="fmt">Dolcetto di Diano d'Alba DOCG, menzione Superiore · 75 cl</div>
+      <div class="big">15–16<em> °C</em></div>
+      <div class="lbl">temperatura di servizio</div>
+    </div>
+    <dl>
+      <div><dt>Uvaggio</dt><dd>Dolcetto 100%</dd></div>
+      <div><dt>Alcol</dt><dd class="k">14,5%</dd></div>
+      <div><dt>Affinamento</dt><dd><b>10 mesi</b> in vecchie barrique</dd></div>
+      <div><dt>Frigo</dt><dd>25–30 min</dd></div>
+      <div><dt>Caraffa</dt><dd class="k">Sì, 30 min</dd></div>
+      <div><dt>Riconoscimenti</dt><dd>Veronelli 91 · Bibenda 4/5</dd></div>
+    </dl>
+  </div>
+
+  <h2>Che cos'è</h2>
+
+  <div class="rule"><h3>Il Dolcetto portato al massimo</h3>
+  <p><b>14,5% è il tetto di questo vitigno.</b> La menzione <i>Superiore</i> impone più grado e più affinamento, e Diano d'Alba è, insieme a Dogliani, la zona dove il Dolcetto smette di essere un vino da pasto e diventa serio.</p>
+  <p>I dieci mesi in <b>vecchie</b> barrique sono la chiave: legno già esausto, che non cede vaniglia ma dà <b>corpo e microossigenazione</b>. La scheda parla di <i>"profumi pieni e avvolgenti"</i> e di <i>"sorso ricco"</i>. Non "fresco", non "elegante": pieno, avvolgente, ricco.</p></div>
+
+  <div class="rule"><h3>Perché questo sì e il Mosesco no</h3>
+  <p>È l'opposto del vino precedente: ha legno, ha densità, ha mezzo grado in più. <b>La caraffa qui serve</b>, mezz'ora, e lo apre.</p>
+  <p>Ed è il motivo per cui va sul tagliere e non sulle salsicce: salumi stagionati e formaggi coprirebbero il Mosesco, mentre questo li regge.</p></div>
+
+  <h2>Curiosità vere</h2>
+
+  <div class="rule"><h3>"Sorì" vuol dire dove si scioglie la neve per prima</h3>
+  <p>In piemontese il <b>sorì</b> è il versante esposto a sud o sud-est, quello che prende il sole per primo al mattino e dove la neve se ne va prima che altrove. È il modo contadino di dire "qui matura meglio", molto prima che esistessero le mappe dei cru.</p>
+  <p>È la stessa parola delle etichette più celebri delle Langhe, i <i>Sorì</i> di Gaja a Barbaresco.</p></div>
+
+  <div class="rule"><h3>Diano d'Alba ha mappato le sue vigne prima di quasi tutti</h3>
+  <p>Il comune ha un sistema storico di <b>parcelle nominate, i sörì</b>, riconosciute e riportate in etichetta molto prima che il concetto di vigna singola diventasse di moda in Italia. "Pradurent" è una di quelle.</p></div>
+
+  <div class="rule"><h3>Ha una DOCG tutta sua, e non è scontato</h3>
+  <p>Il Dolcetto di Diano d'Alba è <b>denominazione autonoma</b>, non una sottozona del Dolcetto d'Alba. Un comune solo, poco più di ottomila abitanti, con la propria DOCG: è il riconoscimento che lì quel vitigno fa qualcosa che altrove non fa.</p></div>
+
+</section>
+
+<!-- ==================== VINO 3 ==================== -->
+<section role="tabpanel" id="v3" aria-labelledby="t-v3" hidden>
+
+  <div class="vino-h">
+    <div class="ord">Vino 3 di 5</div>
+    <h3>Amarone della Valpolicella Classico "Case Vecie"</h3>
+    <div class="prod">Brigaldara · 2018 · Veneto</div>
+    <div class="when">Venerdì sera, con la picanha. Affiancato al San Benedetto</div>
+  </div>
+
+  <h2>La scheda</h2>
+  <div class="scheda">
+    <div class="top">
+      <div class="fmt">Amarone della Valpolicella Classico DOCG · 75 cl</div>
+      <div class="big">17<em> °C</em></div>
+      <div class="lbl">temperatura di servizio</div>
+    </div>
+    <dl>
+      <div><dt>Uvaggio</dt><dd>Corvina 40% · Corvinone 30% · Rondinella 20% · altri 10%</dd></div>
+      <div><dt>Alcol</dt><dd class="k">16,5%</dd></div>
+      <div><dt>Età</dt><dd>7 anni</dd></div>
+      <div><dt>Caraffa</dt><dd class="k">2 ore</dd></div>
+      <div><dt>Frigo</dt><dd>15–20 min</dd></div>
+      <div><dt>Riconoscimenti</dt><dd>Veronelli 93 · Bibenda 4/5 · Gambero Rosso 3/3</dd></div>
+    </dl>
+  </div>
+
+  <h2>Che cos'è</h2>
+
+  <div class="rule"><h3>La selezione di vigna di una casa storica</h3>
+  <p>Brigaldara è un'azienda della Valpolicella Classica, a San Pietro in Cariano, della famiglia Cesari. <b>"Case Vecie" è la loro selezione</b>, non l'Amarone base.</p>
+  <p>Sedici e mezzo è il massimo della categoria, e si sente: è il più <b>esplosivo</b> dei due di venerdì. Sette anni bastano ad ammorbidire il tannino ma non a consumare il frutto.</p></div>
+
+  <div class="rule"><h3>Cosa aspettarsi nel bicchiere</h3>
+  <p>Amarena sotto spirito, prugna secca, fico. Sopra, la spezia dolce del legno: cacao, chiodo di garofano, un accenno di tabacco dolce. In bocca è <b>spesso, glicerico, quasi masticabile</b>, e il finale non finisce.</p>
+  <p>Rispetto al San Benedetto è più frutto e meno terziario. Accanto gli serve <b>la caraffa piena, due ore</b>: è giovane e potente, l'ossigeno gli serve davvero.</p></div>
+
+  <h2>Curiosità vere</h2>
+
+  <div class="rule"><h3>L'uva perde quattro chili su dieci prima di fermentare</h3>
+  <p>L'appassimento dura dai cento ai centoventi giorni nei <i>fruttai</i>. I grappoli perdono il <b>35-40% del peso</b> in acqua, e quello che resta è zucchero, acidi ed estratto concentrati. Per una bottiglia di Amarone serve quasi il doppio dell'uva di una bottiglia di Valpolicella.</p></div>
+
+  <div class="rule"><h3>Il vero rischio non è in vigna, è nel solaio</h3>
+  <p>Durante i tre o quattro mesi di appassimento la muffa grigia può attaccare i grappoli stesi. In un'annata sbagliata un produttore può perdere <b>una parte importante del raccolto dopo averlo già vendemmiato sano</b>. È il motivo per cui l'Amarone costa quello che costa.</p></div>
+
+  <div class="rule"><h3>Come DOCG è più giovane del tuo telefono</h3>
+  <p>L'Amarone ha ottenuto la <b>DOCG solo nel 2010</b>. Prima era una tipologia dentro la DOC Valpolicella, nonostante fosse già da decenni uno dei rossi italiani più conosciuti al mondo.</p></div>
+
+</section>
+
+<!-- ==================== VINO 4 ==================== -->
+<section role="tabpanel" id="v4" aria-labelledby="t-v4" hidden>
+
+  <div class="vino-h">
+    <div class="ord">Vino 4 di 5</div>
+    <h3>Amarone della Valpolicella Classico</h3>
+    <div class="prod">Corte San Benedetto · 2015 · Veneto</div>
+    <div class="when">Venerdì sera, con la picanha. Affiancato al Case Vecie</div>
+  </div>
+
+  <h2>La scheda</h2>
+  <div class="scheda">
+    <div class="top">
+      <div class="fmt">Amarone della Valpolicella Classico DOCG · 75 cl</div>
+      <div class="big">17<em> °C</em></div>
+      <div class="lbl">temperatura di servizio</div>
+    </div>
+    <dl>
+      <div><dt>Uvaggio</dt><dd>Corvina Veronese 60% · Corvinone 25% · Rondinella 15%</dd></div>
+      <div><dt>Alcol</dt><dd class="k">16,5%</dd></div>
+      <div><dt>Età</dt><dd class="k">10 anni</dd></div>
+      <div><dt>Caraffa</dt><dd>Solo 30–40 min</dd></div>
+      <div><dt>Sedimento</dt><dd><b>Sì</b>, in piedi da 24 h</dd></div>
+      <div><dt>Quando berlo</dt><dd>È al suo picco adesso</dd></div>
+    </dl>
+  </div>
+
+  <h2>Che cos'è</h2>
+
+  <div class="rule"><h3>È la bottiglia che cercavi da settembre</h3>
+  <p>Stessa densità del Case Vecie, stessi 16,5%, ma <b>dieci anni</b> invece di sette. Il frutto è passato da fresco a <b>confit</b>: fico secco, uva sultanina, prugna. E sopra sono arrivati cuoio, tabacco, sottobosco, una nota balsamica di liquirizia.</p>
+  <p>Il tannino è completamente risolto, entra vellutato. Di tutto il weekend, <b>è lui il più vicino al ricordo</b> da cui siamo partiti.</p></div>
+
+  <div class="rule"><h3>Perché la caraffa va corta</h3>
+  <p>Al contrario del Case Vecie, qui l'ossigeno è un rischio. <b>Un vino evoluto ha già consumato gran parte delle sue difese</b> e oltre l'ora si appiattisce.</p>
+  <p>La caraffa qui serve a <b>pulire</b>, non ad arieggiare: a dieci anni c'è deposito sul fondo. Bottiglia in piedi dal giorno prima, travaso lento contro una luce, e ci si ferma appena il sedimento arriva al collo.</p></div>
+
+  <h2>Curiosità vere</h2>
+
+  <div class="rule"><h3>"Classico" è un posto, non un complimento</h3>
+  <p>Sull'etichetta <i>Classico</i> identifica la zona storica della Valpolicella, le valli di <b>Fumane, Marano, Negrar, San Pietro in Cariano e Sant'Ambrogio</b>. Tutto il resto della denominazione si è aggiunto dopo, e oggi è molto più esteso del cuore originario.</p></div>
+
+  <div class="rule"><h3>Il Corvinone non è un Corvina grande</h3>
+  <p>Per secoli si è creduto che il <b>Corvinone</b> fosse semplicemente una varietà di Corvina con acini più grossi. L'analisi genetica ha stabilito che sono <b>due vitigni distinti</b>, senza parentela diretta. Il Corvinone è anche quello che appassisce meglio, perché ha acini grandi e buccia spessa.</p></div>
+
+  <div class="rule"><h3>Dieci anni sono il punto, non il massimo</h3>
+  <p>Un Amarone a dieci anni è esattamente dove deve essere. Da qui in avanti i terziari continuano a crescere ma <b>il frutto comincia a ritirarsi</b>: a quindici anni è un altro vino, affascinante ma più magro. Per come lo bevi tu, questo è il momento.</p></div>
+
+</section>
+
+<!-- ==================== VINO 5 ==================== -->
+<section role="tabpanel" id="v5" aria-labelledby="t-v5" hidden>
+
+  <div class="vino-h">
+    <div class="ord">Vino 5 di 5</div>
+    <h3>Recioto della Valpolicella</h3>
+    <div class="prod">Camerani, Corte Sant'Alda · 2021 · Veneto</div>
+    <div class="when">Sabato sera, la chiusura: gorgonzola e cioccolato fondente</div>
+  </div>
+
+  <h2>La scheda</h2>
+  <div class="scheda">
+    <div class="top">
+      <div class="fmt">Recioto della Valpolicella DOCG · 50 cl · vino dolce</div>
+      <div class="big">16–18<em> °C</em></div>
+      <div class="lbl">temperatura di servizio</div>
+    </div>
+    <dl>
+      <div><dt>Uvaggio</dt><dd>Corvina grossa 60% · Rondinella 40%</dd></div>
+      <div><dt>Alcol</dt><dd class="k">16,5%</dd></div>
+      <div><dt>Agricoltura</dt><dd>Biodinamica, lieviti indigeni</dd></div>
+      <div><dt>Caraffa</dt><dd class="no">No, 20 min di bottiglia aperta</dd></div>
+      <div><dt>Una volta aperto</dt><dd>Regge <b>una settimana</b> in frigo</dd></div>
+      <div><dt>Porzione</dt><dd>Bicchierini piccoli</dd></div>
+    </dl>
+  </div>
+
+  <h2>Che cos'è</h2>
+
+  <div class="rule"><h3>È il padre dell'Amarone, non un suo derivato</h3>
+  <p>Il Recioto si faceva in Valpolicella <b>secoli prima</b> che l'Amarone esistesse. È dolce perché l'appassimento concentra così tanto zucchero che i lieviti muoiono prima di consumarlo tutto.</p>
+  <p>L'Amarone nasce da un incidente: negli anni Trenta una botte di Recioto viene dimenticata in cantina alla Cantina Valpolicella di Negrar, la fermentazione va fino in fondo e si mangia tutto lo zucchero. Quando il cantiniere <b>Adelino Lucchese</b> l'assaggia dice: <i>"questo non è amaro, è un amarone"</i>. La prima bottiglia commerciale arriva solo negli anni Cinquanta.</p>
+  <p>Quindi venerdì bevi l'incidente, sabato bevi l'originale.</p></div>
+
+  <div class="rule"><h3>16,5% su un Recioto è un numero quasi assurdo</h3>
+  <p>La maggior parte dei Recioto sta tra i 12 e i 14 gradi. Arrivare a <b>16,5 restando dolce</b> significa uve appassite fino allo sfinimento e una fermentazione spinta lontanissimo prima di fermarsi da sola.</p>
+  <p>La cantina lo descrive come <i>"denso, strutturato, deciso e persistente"</i>. Sono le tre parole con cui hai definito il tuo gusto a settembre.</p></div>
+
+  <h2>Curiosità vere</h2>
+
+  <div class="rule"><h3>Si chiama così per le orecchie del grappolo</h3>
+  <p><b>Recioto</b> viene dal dialetto veronese <i>recie</i>, orecchie: i lobi superiori del grappolo, quelli che sporgono ai lati e prendono più sole. Sono i più maturi e i più ricchi di zucchero, e si staccavano a mano per metterli ad appassire da soli.</p>
+  <p>È la selezione più estrema che esista: non si sceglie la vigna, non si sceglie il grappolo, <b>si sceglie un pezzo di grappolo</b>.</p></div>
+
+  <div class="rule"><h3>C'è una recensione scritta nel VI secolo</h3>
+  <p><b>Cassiodoro</b>, ministro di Teodorico, in una lettera delle sue <i>Variae</i> descrive un vino veronese da uve appassite chiamato <i>Acinatico</i>, lodandone il colore e la dolcezza per la tavola reale.</p>
+  <p>Era il 500 dopo Cristo circa. È lo stesso vino che berrai sabato sera, ed è una delle tracce scritte più antiche d'Europa su un vino ancora in produzione.</p></div>
+
+  <div class="rule"><h3>Se ne fa pochissimo, e per scelta</h3>
+  <p>Oggi quasi tutta l'uva appassita della Valpolicella diventa Amarone, che si vende meglio. Il Recioto è rimasto una produzione <b>di poche centinaia o poche migliaia di bottiglie</b> per cantina, spesso tenuta in piedi per tradizione più che per bilancio.</p>
+  <p>Corte Sant'Alda è a Mezzane di Sotto, fuori dalla zona Classica, e lavora in <b>biodinamica con lieviti indigeni</b>. È la stessa casa del "Valmezzane", l'Amarone che ti avevo segnalato come il migliore per mano e stile.</p></div>
+
+</section>
+
+<footer>Weekend in Montagna · 15-18 ottobre 2026</footer>
 </div>
 
 <script>
@@ -479,6 +746,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
       var on=t.getAttribute('aria-controls')===id;
       t.setAttribute('aria-selected',on);
       document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
+      if(on&&t.scrollIntoView)t.scrollIntoView({inline:'center',block:'nearest'});
     });
     if(push&&history.replaceState)history.replaceState(null,'','#'+id);
     window.scrollTo(0,0);
