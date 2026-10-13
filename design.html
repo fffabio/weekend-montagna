@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it" data-skin="enoteca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tre direzioni — Weekend in Montagna</title>
+<style>
+/* ============================================================
+   SKIN 1 — ENOTECA   editoriale, serif, carta, bordeaux
+   ============================================================ */
+[data-skin="enoteca"]{
+  --bg:#faf6ef; --surface:#fffdfa; --surface-2:#f3ece0; --line:#ddd0bd;
+  --text:#1f1a16; --muted:#7a6a5a; --accent:#7b2436; --hot:#7b2436; --rule:#c9b79c;
+  --font:ui-serif,Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+  --font-h:ui-serif,Georgia,"Iowan Old Style",Palatino,serif;
+  --font-num:ui-serif,Georgia,Palatino,serif;
+  --radius:0px; --bw:1px; --pad:22px; --shadow:none;
+  --h2-size:12px; --h2-ls:2.4px; --h2-weight:400; --h2-caps:uppercase;
+  --big-size:40px; --big-weight:400; --big-ls:-1px;
+  --card-border-left:0;
+}
+[data-skin="enoteca"][data-mode="dark"]{
+  --bg:#17120f; --surface:#1f1915; --surface-2:#271f19; --line:#3b2f26;
+  --text:#f3ebdf; --muted:#a6927c; --accent:#e5899a; --hot:#e5899a; --rule:#4a3a2c;
+}
+[data-skin="enoteca"] .tcard{border-top:3px solid var(--accent)}
+[data-skin="enoteca"] h1{font-weight:400;letter-spacing:-.5px}
+[data-skin="enoteca"] thead th{font-weight:400}
+
+/* ============================================================
+   SKIN 2 — SCHEDA TECNICA   denso, mono, grafite, teal
+   ============================================================ */
+[data-skin="tecnica"]{
+  --bg:#eef1f4; --surface:#fff; --surface-2:#e3e8ed; --line:#c6cfd8;
+  --text:#0f1821; --muted:#5d6b7a; --accent:#00756b; --hot:#b3341f; --rule:#c6cfd8;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --font-h:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --font-num:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --radius:3px; --bw:1px; --pad:15px; --shadow:none;
+  --h2-size:11px; --h2-ls:1.6px; --h2-weight:700; --h2-caps:uppercase;
+  --big-size:33px; --big-weight:700; --big-ls:-1.5px;
+  --card-border-left:3px solid var(--accent);
+}
+[data-skin="tecnica"][data-mode="dark"]{
+  --bg:#0c1218; --surface:#141c24; --surface-2:#1c2731; --line:#2b3947;
+  --text:#e6edf3; --muted:#8699aa; --accent:#2ad4c0; --hot:#ff8a6e; --rule:#2b3947;
+}
+[data-skin="tecnica"] .lbl,[data-skin="tecnica"] .sub{font-family:var(--font-num);font-size:11px}
+[data-skin="tecnica"] table{font-size:13.5px}
+[data-skin="tecnica"] th,[data-skin="tecnica"] td{padding:9px 12px}
+[data-skin="tecnica"] .rule h3 i{background:var(--accent);color:var(--surface);padding:2px 6px;border-radius:2px}
+
+/* ============================================================
+   SKIN 3 — RIFUGIO   morbido, loden, legno, arrotondato
+   ============================================================ */
+[data-skin="rifugio"]{
+  --bg:#f4f1e8; --surface:#fffefa; --surface-2:#eae5d6; --line:#d9d2bf;
+  --text:#23261f; --muted:#6c7263; --accent:#3f5d3a; --hot:#9d4b24; --rule:#d9d2bf;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --font-h:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --font-num:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --radius:18px; --bw:1px; --pad:20px; --shadow:0 2px 10px rgba(40,45,30,.07);
+  --h2-size:13px; --h2-ls:.6px; --h2-weight:700; --h2-caps:none;
+  --big-size:38px; --big-weight:800; --big-ls:-1.5px;
+  --card-border-left:0;
+}
+[data-skin="rifugio"][data-mode="dark"]{
+  --bg:#171a15; --surface:#20241c; --surface-2:#2a2f24; --line:#3a4132;
+  --text:#eef0e6; --muted:#9aa38c; --accent:#8fc182; --hot:#f0a06a; --rule:#3a4132;
+  --shadow:none;
+}
+[data-skin="rifugio"] h2{color:var(--accent)}
+[data-skin="rifugio"] .tcard{border-top:5px solid var(--accent)}
+
+/* ============================================================
+   STRUTTURA COMUNE
+   ============================================================ */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.62 var(--font);
+     transition:background .18s,color .18s}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+
+/* switcher */
+.switch{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:var(--bw) solid var(--line);
+  margin:0 -16px;padding:11px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.switch b{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);
+  margin-right:2px;font-weight:700;font-family:-apple-system,sans-serif}
+.switch button{font:600 14px/1 -apple-system,BlinkMacSystemFont,sans-serif;padding:9px 14px;
+  border:var(--bw) solid var(--line);background:var(--surface);color:var(--muted);
+  border-radius:var(--radius);cursor:pointer}
+.switch button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.switch .sp{flex:1}
+
+header{padding:30px 0 10px}
+h1{margin:0;font-family:var(--font-h);font-size:27px;line-height:1.18;letter-spacing:-.3px}
+h1 small{display:block;font-size:14px;font-weight:400;color:var(--muted);margin-top:6px;
+  letter-spacing:0;font-family:-apple-system,sans-serif}
+.tabs{display:flex;gap:4px;border-bottom:var(--bw) solid var(--line);margin:18px -16px 0;padding:0 12px;
+  overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs span{flex:none;padding:13px 12px;font:600 15px/1 -apple-system,sans-serif;color:var(--muted);
+  border-bottom:3px solid transparent;white-space:nowrap}
+.tabs span.on{color:var(--accent);border-bottom-color:var(--accent)}
+
+h2{font-family:var(--font-h);font-size:var(--h2-size);letter-spacing:var(--h2-ls);
+   text-transform:var(--h2-caps);color:var(--muted);font-weight:var(--h2-weight);margin:36px 0 15px}
+
+.temps{display:grid;gap:13px;grid-template-columns:1fr;margin-bottom:6px}
+@media(min-width:640px){.temps{grid-template-columns:repeat(3,1fr)}}
+.tcard{background:var(--surface);border:var(--bw) solid var(--line);border-radius:var(--radius);
+  padding:var(--pad);box-shadow:var(--shadow);border-left:var(--card-border-left)}
+.tcard h3{margin:0 0 3px;font-family:var(--font-h);font-size:17px;letter-spacing:-.1px}
+.sub{font-size:13px;color:var(--muted);margin-bottom:13px}
+.big{font:var(--big-weight) var(--big-size)/1 var(--font-num);color:var(--hot);letter-spacing:var(--big-ls)}
+.big em{font-style:normal;font-size:16px;font-weight:600}
+.lbl{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:5px}
+.pre{margin-top:13px;padding-top:12px;border-top:1px dashed var(--rule);font-size:14px;color:var(--muted)}
+.pre b{color:var(--text);font-family:var(--font-num)}
+
+.scroller{overflow-x:auto;border:var(--bw) solid var(--line);border-radius:var(--radius);
+  background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:14.5px}
+th,td{padding:11px 14px;text-align:left;border-bottom:var(--bw) solid var(--line);vertical-align:top}
+thead th{background:var(--surface-2);font-size:11.5px;text-transform:uppercase;letter-spacing:1px;
+  color:var(--muted);font-family:-apple-system,sans-serif}
+tbody th{font-weight:600;color:var(--muted);font-size:13.5px;white-space:nowrap}
+tr:last-child td,tr:last-child th{border-bottom:0}
+td.k{font-family:var(--font-num);font-weight:700;color:var(--hot)}
+
+.rule{background:var(--surface);border:var(--bw) solid var(--line);border-radius:var(--radius);
+  padding:var(--pad);margin-bottom:11px;box-shadow:var(--shadow)}
+.rule h3{margin:0 0 6px;font-family:var(--font-h);font-size:17px;display:flex;gap:10px;align-items:baseline}
+.rule h3 i{font-style:normal;font-family:var(--font-num);color:var(--accent);font-size:13px;flex:none}
+.rule p{margin:0;font-size:15.5px;color:var(--muted)}
+.rule p b{color:var(--text)}
+
+footer{border-top:var(--bw) solid var(--line);margin-top:40px;padding:20px 0 50px;
+  font-size:13px;color:var(--muted);text-align:center;font-family:-apple-system,sans-serif}
+.note{background:var(--surface-2);border-radius:var(--radius);padding:14px 18px;margin:20px 0 0;
+  font-size:14.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="switch wrap">
+  <b>Direzione</b>
+  <button data-skin="enoteca" aria-pressed="true">Enoteca</button>
+  <button data-skin="tecnica" aria-pressed="false">Scheda tecnica</button>
+  <button data-skin="rifugio" aria-pressed="false">Rifugio</button>
+  <span class="sp"></span>
+  <button id="mode">◐ Scuro</button>
+</div>
+
+<div class="wrap">
+
+<header>
+  <h1>Weekend in Montagna<small>Giovedì 15 → domenica 18 ottobre 2026 · 4 persone</small></h1>
+  <div class="tabs"><span class="on">Cotture</span><span>Giovedì</span><span>Venerdì</span><span>Sabato</span></div>
+</header>
+
+<h2>Le tre temperature</h2>
+<div class="temps">
+  <div class="tcard">
+    <h3>Wagyu A5</h3><div class="sub">2 × 200 g · pietra ollare</div>
+    <div class="big">55–58<em> °C</em></div><div class="lbl">al taglio</div>
+    <div class="pre">Niente forno · pietra a <b>200–230 °C</b> · <b>6–8 min</b> girando ogni minuto</div>
+  </div>
+  <div class="tcard">
+    <h3>Picanha</h3><div class="sub">1,4 kg · forno + brace</div>
+    <div class="big">53–54<em> °C</em></div><div class="lbl">al taglio</div>
+    <div class="pre">Sforna a <b>47–48 °C</b> · forno 110 °C per <b>75–90 min</b></div>
+  </div>
+  <div class="tcard">
+    <h3>Costata</h3><div class="sub">2 × 1,1 kg · forno + brace</div>
+    <div class="big">55–57<em> °C</em></div><div class="lbl">al taglio</div>
+    <div class="pre">Sforna a <b>50–51 °C</b> · forno 110 °C per <b>60–80 min</b></div>
+  </div>
+</div>
+
+<h2>Tabella completa</h2>
+<div class="scroller">
+<table>
+<thead><tr><th></th><th>Wagyu A5</th><th>Picanha</th><th>Costata</th></tr></thead>
+<tbody>
+<tr><th>Fattore limitante</th><td>Scioglimento del grasso</td><td>Cottura uniforme</td><td>Resa del grasso</td></tr>
+<tr><th>Salatura</th><td>Solo in fiocchi alla fine</td><td>~14 g, 46 h</td><td>~11 g a pezzo, 48 h</td></tr>
+<tr><th>Temperatura</th><td class="k">200–230 °C</td><td>Forno 110 °C</td><td>Forno 110 °C</td></tr>
+<tr><th>Tempo</th><td class="k">6–8 min</td><td>75–90 min forno</td><td>60–80 min forno</td></tr>
+<tr><th>Sforna a</th><td>—</td><td class="k">47–48 °C</td><td class="k">50–51 °C</td></tr>
+<tr><th>Riposo</th><td>1–2 min, piatto caldo</td><td>10–15 min scoperta</td><td>10–15 min scoperta</td></tr>
+<tr><th>Brace</th><td>—</td><td>Grasso 5–6 min + carne 1–2</td><td>90–120 s per faccia + bordo grasso</td></tr>
+<tr><th>Al taglio</th><td class="k">55–58 °C</td><td class="k">53–54 °C</td><td class="k">55–57 °C</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Regole generali</h2>
+<div class="rule"><h3><i>01</i> Chiediti qual è il fattore limitante</h3>
+<p>Su una carne <b>magra</b> il nemico è stracuocere. Su una carne <b>grassa</b> il problema è opposto: se il grasso non si scioglie resta ceroso. <b>Il Wagyu va cotto più di un filetto, non meno.</b></p></div>
+
+<div class="rule"><h3><i>02</i> La sonda, non l'orologio</h3>
+<p>I minuti sono una stima: dipendono da spessore, temperatura di partenza e forno. <b>Solo la temperatura al cuore non mente.</b></p></div>
+
+<div class="rule"><h3><i>03</i> Misura dopo la scottatura, non prima</h3>
+<p>Il numero che conta è quello al momento di affettare. Se sei basso, altri trenta secondi non costano niente — il contrario sì.</p></div>
+
+<div class="note">Stesso contenuto, tre impostazioni diverse. Prova ciascuna anche in <b>modalità scura</b> col pulsante in alto a destra: è lì che si vede la differenza vera.</div>
+
+<footer>Confronto direzioni grafiche</footer>
+</div>
+
+<script>
+var html=document.documentElement;
+document.querySelectorAll('.switch button[data-skin]').forEach(function(b){
+  b.addEventListener('click',function(){
+    html.setAttribute('data-skin',b.dataset.skin);
+    document.querySelectorAll('.switch button[data-skin]').forEach(function(x){
+      x.setAttribute('aria-pressed',x===b);
+    });
+  });
+});
+var m=document.getElementById('mode');
+m.addEventListener('click',function(){
+  var d=html.getAttribute('data-mode')==='dark';
+  html.setAttribute('data-mode',d?'light':'dark');
+  m.textContent=d?'◐ Scuro':'◑ Chiaro';
+});
+</script>
+</body>
+</html>
