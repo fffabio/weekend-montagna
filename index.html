@@ -10,13 +10,13 @@
 :root{
   --bg:#f4f1e8; --surface:#fffefa; --surface-2:#eae5d6; --line:#d9d2bf;
   --text:#23261f; --muted:#6c7263; --accent:#3f5d3a; --hot:#9d4b24;
-  --drink:#7b3b4a; --warn:#8a6a1f; --warn-bg:#f7eed6;
+  --drink:#7b3b4a; --warn:#8a6a1f; --warn-bg:#f7eed6; --malt:#2d5c68;
   --shadow:0 2px 10px rgba(40,45,30,.07);
 }
 :root[data-mode="dark"]{
   --bg:#171a15; --surface:#20241c; --surface-2:#2a2f24; --line:#3a4132;
   --text:#eef0e6; --muted:#9aa38c; --accent:#8fc182; --hot:#d9b47a;
-  --drink:#d79aa2; --warn:#d9b47a; --warn-bg:#2b2a1c;
+  --drink:#d79aa2; --warn:#d9b47a; --warn-bg:#2b2a1c; --malt:#8ebcc8;
   --shadow:none;
 }
 *{box-sizing:border-box}
@@ -45,8 +45,10 @@ nav .glab{flex:none;font-size:10px;letter-spacing:1.4px;text-transform:uppercase
 nav .glab.d{color:var(--accent)}
 nav .glab.c{color:var(--hot)}
 nav .glab.v{color:var(--drink)}
+nav .glab.b{color:var(--malt)}
 nav button[data-g="c"][aria-selected="true"]{color:var(--hot);border-bottom-color:var(--hot)}
 nav button[data-g="v"][aria-selected="true"]{color:var(--drink);border-bottom-color:var(--drink)}
+nav button[data-g="b"][aria-selected="true"]{color:var(--malt);border-bottom-color:var(--malt)}
 
 section[role=tabpanel]{padding:22px 0 60px}
 section[hidden]{display:none}
@@ -150,6 +152,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <button role="tab" data-g="v" aria-selected="false" aria-controls="v4" id="t-v4">S. Benedetto</button>
   <button role="tab" data-g="v" aria-selected="false" aria-controls="v5" id="t-v5">Recioto</button>
   <button role="tab" data-g="v" aria-selected="false" aria-controls="v6" id="t-v6">Tawny 20</button>
+  <span class="div"></span>
+  <span class="glab b">Bevande</span>
+  <button role="tab" data-g="b" aria-selected="false" aria-controls="sb" id="t-sb">Sake e birre</button>
 </nav>
 
 <!-- ==================== WAGYU ==================== -->
@@ -204,20 +209,8 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <p>Il Wagyu va <b>per primo</b>, su pietra asciutta: se ci passi prima la pancetta, un A5 da 230 €/kg ti sa di maiale. E un pezzo alla volta, perché 400 g insieme fanno crollare la temperatura.</p>
   <p>A fine serata: <b>raschia da calda, acqua bollente, mai sapone</b>. È porosa e il detersivo te lo restituisce sulla carne.</p></div>
 
-  <h2>Il sake, come si scalda</h2>
-
-  <div class="rule"><h3>A bagnomaria, 2–3 minuti</h3>
-  <p><b>Non scaldare tutta la bottiglia.</b> Travasa <b>200–250 ml per volta</b> in un contenitore a collo stretto (una caraffina, un bicchiere resistente al calore, una bottiglietta di vetro) riempiendolo all'80%.</p>
-  <p>Scalda l'acqua in un pentolino fino a <b>60–70 °C e spegni</b>: non deve bollire con dentro il sake. Immergi il contenitore <b>fino al livello del sake</b>, non oltre.</p>
-  <p><b>Due o tre minuti.</b> Misura con la sonda e togli a <b>42 °C</b>: ne perde un paio arrivando al bicchiere. Senza sonda, il fondo del contenitore deve risultare <b>caldo sul palmo, non scottare</b>.</p></div>
-
-  <div class="rule"><h3>Mai microonde, mai sopra i 50 °C</h3>
-  <p>Il microonde scalda a chiazze e brucia gli aromi. Sopra i 50 °C l'alcol diventa pungente e la finezza del kimoto sparisce.</p>
-  <p>E <b>non riscaldare due volte</b>: scalda solo quello che bevi nel giro.</p></div>
-
-  <div class="rule"><h3>Come conservare la bottiglia</h3>
-  <p><b>Chiusa:</b> in piedi, al buio, al fresco. Il sake teme la luce molto più del vino, l'UV gli dà odori di stantio in poche ore. Frigo, o un mobile fresco e buio. <b>In piedi</b>, non coricata: il tappo è a vite e non va bagnato.</p>
-  <p><b>Aperta:</b> tappo stretto, in frigo, in piedi. Regge <b>1–2 settimane</b> tranquillamente: alcol e assenza di tannini lo proteggono molto più di un vino. Il gusto si arrotonda, non si guasta. Non congelare.</p></div>
+  <div class="rule"><h3>Il sake che accompagna</h3>
+  <p>Scheda della bottiglia, come si scalda a 40 °C e come si conserva: tutto nel tab <b>Sake e birre</b>.</p></div>
 
 </section>
 
@@ -359,7 +352,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <div class="box">
     <ul class="tl">
       <li><span class="h">4 °C</span><span class="b"><b>Kaiserdom Pilsener</b><span>In frigo appena arrivi. Qui serve davvero ghiacciata: è la lama che pulisce il palato dal grasso dell'A5.</span></span></li>
-      <li><span class="h">40 °C</span><span class="b"><b>Sake Taiheizan</b><span>A bagnomaria, 200–250 ml per volta. Il procedimento completo è nel tab <b>Wagyu</b>.</span></span></li>
+      <li><span class="h">40 °C</span><span class="b"><b>Sake Taiheizan</b><span>A bagnomaria, 200–250 ml per volta. Il procedimento completo è nel tab <b>Sake e birre</b>.</span></span></li>
       <li><span class="h">15-16 °C</span><span class="b"><b>Mosesco 2024</b><span><b>Frigo 25–30 minuti</b>, poi apri e versa. <b>Niente caraffa:</b> è affinato <b>solo in vasche d'acciaio, senza legno</b>, ed è dell'annata scorsa. Non ha né tannini da ammorbidire né note di botte da aprire, e l'aria gli toglierebbe solo freschezza.</span></span></li>
       <li><span class="h">15-16 °C</span><span class="b"><b>Sorì Pradurent 2023</b><span><b>Frigo 25–30 minuti</b>, poi <b>caraffa 30 minuti</b>. I dieci mesi di barrique e la maggiore densità hanno bisogno d'aria. Travasalo mentre siete ancora sul Mosesco.</span></span></li>
     </ul>
@@ -696,7 +689,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <h2>Perché questo e non un altro Amarone</h2>
   <div class="rule"><h3>Il punto non è la cantina, è l'età</h3>
   <p>Il disciplinare impone <b>due anni</b> di affinamento minimo e vieta la vendita prima del <b>1° gennaio del terzo anno dopo la vendemmia</b>. La maggior parte dei produttori mette le bottiglie in commercio appena scaduto quel termine, perché tenere vino fermo in cantina costa magazzino e soldi immobilizzati. Il risultato è che in enoteca e sui siti online quasi tutti gli Amaroni in vendita hanno <b>tre o quattro anni</b>, e si comprano in pratica appena usciti. Questo ne ha <b>dieci</b>.</p>
-  <p>E l'età di solito si paga: un rosso con dieci anni sulle spalle costa normalmente il doppio o il triplo del suo pari giovane. <b>Questa bottiglia è arrivata a dieci anni restando nella fascia di prezzo di un Amarone qualunque</b>, e succede quando dietro c'è un piccolo produttore che si tiene le bottiglie in cantina invece di venderle appena il disciplinare glielo consente.</p></div>
+  <p>E l'età di solito si paga: un rosso con dieci anni sulle spalle costa normalmente il doppio o il triplo del suo pari giovane. <b>Questa bottiglia è arrivata a dieci anni restando nella fascia di prezzo di un buon Amarone giovane</b>, e succede quando dietro c'è un piccolo produttore che si tiene le bottiglie in cantina invece di venderle appena il disciplinare glielo consente.</p></div>
 
   <div class="rule"><h3>Uvaggio tradizionale, annata forte</h3>
   <p><b>Corvina al 60%</b> con Corvinone e Rondinella: la ricetta storica, senza le uve internazionali che qualcuno aggiunge per scurire e ammorbidire.</p>
@@ -862,6 +855,106 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <p>I mercanti britannici si trasferirono in massa a Porto, e il Porto diventò di fatto il vino della borghesia inglese. <b>Graham's nasce nel 1820</b>, fondata da due fratelli scozzesi di Glasgow, e passa ai Symington nel 1970.</p>
   <p>Sono tutti cognomi di quei mercanti, e presi alla lettera dicono cose pochissimo solenni. <b>Taylor</b> vuol dire <i>sarto</i>. <b>Croft</b> è il <i>piccolo campo recintato</i> dell'inglese antico, il podere. <b>Dow</b> viene dal gaelico scozzese <i>dubh</i>, <i>nero</i>, ed era il soprannome di un uomo dai capelli scuri. <b>Graham</b> non è nemmeno un nome di persona ma di luogo: è la forma anglo-normanna di <i>Grantham</i>, cittadina del Lincolnshire, probabilmente <i>la fattoria sulla ghiaia</i>. Su <b>Sandeman</b> i dizionari litigano, e la lettura meglio documentata è <i>l'uomo di Saunder</i>, cioè il servitore di un Alexander.</p>
   <p>Dietro le etichette più britanniche del vino portoghese ci sono quindi <b>un sarto, un campo, un tizio coi capelli neri e un servitore</b>.</p></div>
+
+  <div class="rule"><h3>Perché uno è un sarto e uno è un campo</h3>
+  <p>Non è casuale: fino al Medioevo la gente comune aveva solo il nome di battesimo, e in un villaggio con quattro Giovanni serviva un modo per distinguerli. I cognomi nascono lì, da una manciata di domande pratiche, e ancora oggi quasi ogni cognome europeo risponde a una di queste:</p>
+  <p><b>Che mestiere fa?</b> → Taylor, il sarto. Come Smith il fabbro, o in italiano Ferrari, Molinari, Sartori.<br>
+  <b>Dove abita?</b> → Croft, quello del campicello recintato. Come Hill, Brooks, o Della Valle e Lariviere.<br>
+  <b>Da dove viene?</b> → Graham, cioè quello arrivato da Grantham. Come Romano, Pugliese, Milanesi.<br>
+  <b>Com'è fatto?</b> → Dow, il nero di capelli. Come Rossi, Biondi, Basso.<br>
+  <b>Di chi è figlio o uomo?</b> → Sandeman, l'uomo di Saunder. Come Johnson, MacDonald, O'Brien, o Di Giovanni.</p>
+  <p>Le cinque case del Porto con i nomi più britannici coprono quindi, per puro caso, <b>l'intero repertorio</b>: un mestiere, un luogo in cui si abita, un luogo da cui si proviene, un tratto fisico e un'appartenenza.</p></div>
+
+</section>
+
+
+<!-- ==================== SAKE E BIRRE ==================== -->
+<section role="tabpanel" id="sb" aria-labelledby="t-sb" hidden>
+
+  <div class="vino-h">
+    <div class="ord">Le bevande non di vino</div>
+    <h3>Sake e birre</h3>
+    <div class="prod">Un sake giapponese e tre lager tedesche</div>
+    <div class="when">Il sake giovedì con il Wagyu. Le birre giovedì e sabato</div>
+  </div>
+
+  <h2>Il sake, la scheda</h2>
+  <div class="scheda">
+    <div class="top">
+      <div class="fmt">Taiheizan Kimoto Junmai · Akita, Giappone · 72 cl</div>
+      <div class="big">40<em> °C</em></div>
+      <div class="lbl">temperatura di servizio, detta <i>nurukan</i></div>
+    </div>
+    <dl>
+      <div><dt>Tipologia</dt><dd>Junmai, metodo <b>kimoto</b></dd></div>
+      <div><dt>Alcol</dt><dd class="k">15%</dd></div>
+      <div><dt>Quando</dt><dd>Giovedì, con il Wagyu A5</dd></div>
+      <div><dt>Scaldare</dt><dd>Bagnomaria, <b>200–250 ml</b> per volta</dd></div>
+      <div><dt>Microonde</dt><dd class="no">Mai</dd></div>
+      <div><dt>Una volta aperto</dt><dd>Regge <b>1–2 settimane</b> in frigo</dd></div>
+    </dl>
+  </div>
+
+  <h2>Perché proprio un kimoto</h2>
+
+  <div class="rule"><h3>È il metodo originale, tornato per scelta</h3>
+  <p>Ogni sake parte da un piccolo avviatore di riso, acqua e <i>koji</i> che va protetto dai batteri sbagliati. A proteggerlo è l'<b>acido lattico</b>. La domanda è da dove arriva.</p>
+  <p>Nel metodo <b>kimoto</b>, il più antico, non lo si aggiunge: lo si lascia produrre ai batteri lattici presenti naturalmente in cantina, e per aiutarli l'impasto veniva pestato a mano con pali di legno per ore, operazione detta <i>yamaoroshi</i>. Richiede settimane in più e può fallire.</p>
+  <p>Nel 1909 si scoprì che il pestaggio era inutile e nacque lo <b>yamahai</b>, il cui nome significa letteralmente <i>abolizione dello yamaoroshi</i>. Poco dopo arrivò il metodo moderno, il <b>sokujo</b>, che l'acido lattico lo versa direttamente nel tino: più rapido, più sicuro, ed è così che si fa la stragrande maggioranza del sake di oggi.</p>
+  <p>Fare kimoto oggi non è quindi arretratezza ma una scelta: la fermentazione lenta e la flora selvatica lasciano <b>più acidità, più umami e più struttura</b>. È il motivo per cui regge il grasso dell'A5 invece di sparirci sotto.</p></div>
+
+  <div class="rule"><h3>Junmai vuol dire soltanto riso</h3>
+  <p><b>Junmai</b> significa <i>riso puro</i>: dentro ci sono solo riso, acqua, koji e lievito. Gran parte del sake industriale contiene invece alcol distillato aggiunto, che allunga la resa e alleggerisce il corpo.</p>
+  <p>Un junmai ha più corpo e più sapore, e soprattutto <b>regge il calore</b>: è la categoria che si scalda, mentre i sake più profumati e delicati scaldati perdono tutto.</p></div>
+
+  <h2>Il sake, come si scalda</h2>
+
+  <div class="rule"><h3>A bagnomaria, 2–3 minuti</h3>
+  <p><b>Non scaldare tutta la bottiglia.</b> Travasa <b>200–250 ml per volta</b> in un contenitore a collo stretto (una caraffina, un bicchiere resistente al calore, una bottiglietta di vetro) riempiendolo all'80%.</p>
+  <p>Scalda l'acqua in un pentolino fino a <b>60–70 °C e spegni</b>: non deve bollire con dentro il sake. Immergi il contenitore <b>fino al livello del sake</b>, non oltre.</p>
+  <p><b>Due o tre minuti.</b> Misura con la sonda e togli a <b>42 °C</b>: ne perde un paio arrivando al bicchiere. Senza sonda, il fondo del contenitore deve risultare <b>caldo sul palmo, non scottare</b>.</p></div>
+
+  <div class="rule"><h3>Mai microonde, mai sopra i 50 °C</h3>
+  <p>Il microonde scalda a chiazze e brucia gli aromi. Sopra i 50 °C l'alcol diventa pungente e la finezza del kimoto sparisce.</p>
+  <p>E <b>non riscaldare due volte</b>: scalda solo quello che bevi nel giro.</p></div>
+
+  <div class="rule"><h3>Come conservare la bottiglia</h3>
+  <p><b>Chiusa:</b> in piedi, al buio, al fresco. Il sake teme la luce molto più del vino, l'UV gli dà odori di stantio in poche ore. Frigo, o un mobile fresco e buio. <b>In piedi</b>, non coricata: il tappo è a vite e non va bagnato.</p>
+  <p><b>Aperta:</b> tappo stretto, in frigo, in piedi. Regge <b>1–2 settimane</b> tranquillamente: alcol e assenza di tannini lo proteggono molto più di un vino. Il gusto si arrotonda, non si guasta. Non congelare.</p></div>
+
+  <h2>Le birre, la scheda</h2>
+  <div class="scheda">
+    <div class="top">
+      <div class="fmt">Tre lager tedesche, dieci bottiglie da 50 cl</div>
+      <div class="big">4–8<em> °C</em></div>
+      <div class="lbl">a seconda della birra, non tutte uguali</div>
+    </div>
+    <dl>
+      <div><dt>Kaiserdom Pilsener</dt><dd>4 bottiglie · <b>4 °C</b> · giovedì sul Wagyu</dd></div>
+      <div><dt>Kaiserdom Kellerbier</dt><dd>3 bottiglie · <b>6–8 °C</b></dd></div>
+      <div><dt>Rittmayer Landbier Hell</dt><dd>3 bottiglie · <b>6–8 °C</b></dd></div>
+      <div><dt>Totale</dt><dd>5 litri, <b>da integrare sul posto</b></dd></div>
+      <div><dt>Per il sabato</dt><dd>Serve una <b>maltata</b> sulla costata</dd></div>
+    </dl>
+  </div>
+
+  <h2>Che cosa sono</h2>
+
+  <div class="rule"><h3>Kellerbier e Zwickl, l'originale della non filtrata</h3>
+  <p>In Franconia la birra si è sempre bevuta <b>presa direttamente dalla cantina di maturazione</b>, prima di filtrarla e pastorizzarla. <i>Keller</i> vuol dire cantina, e <i>Zwickl</i> è il rubinetto di assaggio da cui il mastro birraio la spillava per controllarla.</p>
+  <p>Il risultato è una lager <b>torbida, poco gasata e non pastorizzata</b>, con il lievito ancora in sospensione: pane, crosta, un amaro erbaceo contenuto. È la famiglia a cui appartengono le lager non filtrate industriali che si trovano in Italia: il concetto è lo stesso, questa è la versione di origine, fatta su scala piccola e senza pastorizzazione.</p>
+  <p>Due note pratiche: <b>non è un difetto se è torbida</b>, ed è il motivo per cui va bevuta meno fredda. Sotto i 5 °C il malto si spegne e resta solo acqua gassata.</p></div>
+
+  <div class="rule"><h3>Perché la Pilsener con il Wagyu e la maltata con la costata</h3>
+  <p>Sono due lavori opposti. Sul <b>Wagyu</b> serve una lama: la Pilsener ha carbonazione alta e amaro di luppolo netto, e <b>porta via il grasso</b> dal palato tra una fetta e l'altra. Per questo va davvero ghiacciata, 4 °C.</p>
+  <p>Sulla <b>costata</b> il problema non è il grasso ma la <b>crosta bruciata</b> dalla brace. Lì l'amaro peggiora le cose, perché si somma a quello della bruciatura. Serve il contrario: una birra dove si sente il <b>malto dolce e tostato</b>, che asseconda la crosta invece di combatterla. Ed è anche il motivo per cui quella sera un vino a 16,5% resta nel cassetto.</p></div>
+
+  <div class="rule"><h3>Come versarla, soprattutto le torbide</h3>
+  <p>Bicchiere <b>bagnato e inclinato</b>, poi raddrizza a metà per fare due dita di schiuma: non è estetica, la schiuma trattiene gli aromi e rallenta l'ossidazione.</p>
+  <p>Per Kellerbier e Landbier, che hanno lievito sul fondo: versa i tre quarti, poi <b>ruota delicatamente la bottiglia</b> per rimettere in sospensione il deposito e versa anche quello. È dove stanno corpo e sapore.</p></div>
+
+  <div class="rule"><h3>Dieci bottiglie non bastano</h3>
+  <p>Cinque litri in quattro, su tre sere, con due cene in cui la birra è la bevanda principale di un intero passaggio. Vanno integrate sul posto, e la cosa da non dimenticare è <b>una maltata per il sabato</b>: una Augustiner Edelstoff, una Kuchlbauer Zwickl o qualunque <i>Märzen</i> o <i>Festbier</i>.</p></div>
 
 </section>
 
