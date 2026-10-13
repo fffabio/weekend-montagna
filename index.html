@@ -1,115 +1,114 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-mode="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Weekend in Montagna</title>
 <meta name="description" content="Piano cotture e serate — 15-18 ottobre 2026">
-<meta name="theme-color" content="#1a1512">
+<meta name="theme-color" content="#171a15">
 <style>
+/* ---------- RIFUGIO ---------- */
 :root{
-  --bg:#fbf7f3; --surface:#fff; --surface-2:#f4ece4; --line:#e2d5c7;
-  --text:#231b16; --muted:#6f6158; --accent:#b4441d; --accent-soft:#fbe9e0;
-  --hot:#c0392b; --cool:#1f7a6a; --warn:#9a6a00; --warn-bg:#fdf3dc;
-  --radius:14px; --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --bg:#f4f1e8; --surface:#fffefa; --surface-2:#eae5d6; --line:#d9d2bf;
+  --text:#23261f; --muted:#6c7263; --accent:#3f5d3a; --hot:#9d4b24;
+  --warn:#8a6a1f; --warn-bg:#f7eed6;
+  --shadow:0 2px 10px rgba(40,45,30,.07);
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#15110e; --surface:#1f1915; --surface-2:#2a221c; --line:#3a2f27;
-    --text:#f2e9e1; --muted:#a79689; --accent:#ff8356; --accent-soft:#3a211699;
-    --hot:#ff7a6b; --cool:#5fd5c0; --warn:#f0bf5a; --warn-bg:#33270f;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#15110e; --surface:#1f1915; --surface-2:#2a221c; --line:#3a2f27;
-  --text:#f2e9e1; --muted:#a79689; --accent:#ff8356; --accent-soft:#3a211699;
-  --hot:#ff7a6b; --cool:#5fd5c0; --warn:#f0bf5a; --warn-bg:#33270f;
+:root[data-mode="dark"]{
+  --bg:#171a15; --surface:#20241c; --surface-2:#2a2f24; --line:#3a4132;
+  --text:#eef0e6; --muted:#9aa38c; --accent:#8fc182; --hot:#d9b47a;
+  --warn:#d9b47a; --warn-bg:#2b2a1c;
+  --shadow:none;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{
-  margin:0; background:var(--bg); color:var(--text);
-  font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  padding-bottom:env(safe-area-inset-bottom);
-}
-.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:17px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
 
-header{padding:26px 0 14px;display:flex;align-items:flex-start;gap:12px}
-h1{margin:0;font-size:25px;line-height:1.2;letter-spacing:-.4px;flex:1}
-h1 small{display:block;font-size:14px;font-weight:400;color:var(--muted);margin-top:4px;letter-spacing:0}
-#theme{
-  background:var(--surface);border:1px solid var(--line);color:var(--text);
-  width:42px;height:42px;border-radius:50%;font-size:19px;cursor:pointer;flex:none;
-}
+header{padding:26px 0 12px;display:flex;align-items:flex-start;gap:12px}
+h1{margin:0;font-size:25px;line-height:1.18;letter-spacing:-.4px;flex:1;font-weight:800}
+h1 small{display:block;font-size:14px;font-weight:400;color:var(--muted);margin-top:5px;letter-spacing:0}
+#mode{background:var(--surface);border:1px solid var(--line);color:var(--text);
+  width:44px;height:44px;border-radius:50%;font-size:18px;cursor:pointer;flex:none}
 
-nav{
-  position:sticky;top:0;z-index:20;background:var(--bg);
-  border-bottom:1px solid var(--line);margin:0 -16px;padding:0 10px;
-  display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-}
+nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);
+  margin:0 -16px;padding:0 10px;display:flex;gap:2px;overflow-x:auto;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
-nav button{
-  flex:none;background:none;border:0;border-bottom:3px solid transparent;
-  color:var(--muted);font:600 15px/1 inherit;padding:15px 13px;cursor:pointer;
-  white-space:nowrap;font-family:inherit;
-}
+nav button{flex:none;background:none;border:0;border-bottom:3px solid transparent;
+  color:var(--muted);font:700 15px/1 inherit;padding:15px 13px;cursor:pointer;white-space:nowrap}
 nav button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
 
 section[role=tabpanel]{padding:22px 0 60px}
 section[hidden]{display:none}
-
-h2{font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);
-   margin:34px 0 14px;font-weight:700}
+h2{font-size:14px;letter-spacing:.5px;color:var(--accent);margin:36px 0 14px;font-weight:800}
 h2:first-child{margin-top:0}
 
-/* --- temperature cards --- */
-.temps{display:grid;gap:12px;grid-template-columns:1fr}
-@media(min-width:620px){.temps{grid-template-columns:repeat(3,1fr)}}
-.tcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-       padding:16px 18px;border-left:4px solid var(--accent)}
-.tcard h3{margin:0 0 2px;font-size:15px;letter-spacing:.3px}
-.tcard .sub{font-size:12.5px;color:var(--muted);margin-bottom:12px}
-.big{font:700 34px/1 var(--mono);color:var(--hot);letter-spacing:-1px}
-.big span{font-size:16px;font-weight:600}
-.lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-top:3px}
-.pre{margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
-     font-size:14px;color:var(--muted)}
-.pre b{color:var(--text);font-family:var(--mono);font-size:15px}
+/* ---------- SCHEDE CARNE ---------- */
+.schede{display:grid;gap:15px;grid-template-columns:1fr}
+@media(min-width:720px){.schede{grid-template-columns:repeat(3,1fr)}}
+.scheda{background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  box-shadow:var(--shadow);overflow:hidden;border-top:5px solid var(--accent)}
+.scheda .top{padding:17px 19px 15px}
+.scheda h3{margin:0;font-size:19px;font-weight:800;letter-spacing:-.2px}
+.scheda .fmt{font-size:13.5px;color:var(--muted);margin-top:2px}
+.scheda .big{font:800 40px/1 -apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--hot);letter-spacing:-1.8px;margin-top:13px}
+.scheda .big em{font-style:normal;font-size:17px;font-weight:700;letter-spacing:0}
+.scheda .lbl{font-size:11.5px;color:var(--muted);text-transform:uppercase;
+  letter-spacing:1.1px;margin-top:4px;font-weight:700}
+dl{margin:0;border-top:1px solid var(--line)}
+dl div{display:flex;gap:12px;padding:10px 19px;border-bottom:1px solid var(--line);
+  align-items:baseline}
+dl div:last-child{border-bottom:0}
+dt{flex:0 0 40%;font-size:12.5px;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.6px;font-weight:700;line-height:1.35}
+dd{margin:0;flex:1;font-size:15px}
+dd.k{font-weight:800;color:var(--hot);font-size:17px}
+dd.no{color:var(--muted)}
 
-/* --- table --- */
-.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch;
-  border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
-table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
-th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-thead th{background:var(--surface-2);font-size:12px;text-transform:uppercase;
-  letter-spacing:.7px;color:var(--muted);position:sticky;top:0}
-tbody th{font-weight:600;color:var(--muted);font-size:13.5px;white-space:nowrap}
-tr:last-child td,tr:last-child th{border-bottom:0}
-td.k{font-family:var(--mono);font-weight:700;color:var(--hot)}
-.hint{font-size:12.5px;color:var(--muted);margin-top:8px;text-align:center}
+/* ---------- TABELLA (solo schermo largo) ---------- */
+.confronto{display:none}
+@media(min-width:720px){
+  .confronto{display:block}
+  .tbox{border:1px solid var(--line);border-radius:18px;background:var(--surface);
+    box-shadow:var(--shadow);overflow:hidden}
+  table{border-collapse:collapse;width:100%;font-size:14px}
+  th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--surface-2);font-size:11.5px;text-transform:uppercase;
+    letter-spacing:1px;color:var(--muted)}
+  tbody th{font-weight:700;color:var(--muted);font-size:12.5px;text-transform:uppercase;
+    letter-spacing:.5px}
+  tr:last-child td,tr:last-child th{border-bottom:0}
+  td.k{font-weight:800;color:var(--hot)}
+}
 
-/* --- rules --- */
-.rule{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-      padding:15px 17px;margin-bottom:11px}
-.rule h3{margin:0 0 5px;font-size:16px;display:flex;gap:9px;align-items:baseline}
-.rule h3 i{font-style:normal;font-family:var(--mono);color:var(--accent);font-size:13px;flex:none}
-.rule p{margin:0;font-size:15px;color:var(--muted)}
-.rule p b{color:var(--text)}
+/* ---------- REGOLE ---------- */
+.rule{background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:16px 19px;margin-bottom:11px;box-shadow:var(--shadow)}
+.rule h3{margin:0 0 6px;font-size:16.5px;font-weight:800;display:flex;gap:10px;align-items:baseline}
+.rule h3 i{font-style:normal;color:var(--accent);font-size:13px;flex:none;font-weight:800}
+.rule p{margin:0;font-size:15.5px;color:var(--muted)}
+.rule p+p{margin-top:7px}
+.rule b{color:var(--text)}
 
-.callout{background:var(--warn-bg);border:1px solid var(--line);border-left:4px solid var(--warn);
-  border-radius:var(--radius);padding:15px 17px;margin:18px 0}
-.callout h3{margin:0 0 6px;font-size:16px}
-.callout p{margin:0 0 8px;font-size:15px}
+.callout{background:var(--warn-bg);border:1px solid var(--line);border-left:5px solid var(--warn);
+  border-radius:18px;padding:16px 19px;margin:20px 0}
+.callout h3{margin:0 0 7px;font-size:16.5px;font-weight:800}
+.callout p{margin:0 0 8px;font-size:15.5px}
 .callout p:last-child{margin-bottom:0}
 
 ul.check{list-style:none;padding:0;margin:0}
-ul.check li{background:var(--surface);border:1px solid var(--line);border-radius:10px;
-  padding:13px 15px;margin-bottom:9px;font-size:15px;display:flex;gap:11px;align-items:flex-start}
-ul.check li::before{content:"☐";font-size:19px;line-height:1.15;color:var(--accent);flex:none}
+ul.check li{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:13px 16px;margin-bottom:9px;font-size:15.5px;display:flex;gap:12px;
+  align-items:flex-start;box-shadow:var(--shadow)}
+ul.check li::before{content:"☐";font-size:20px;line-height:1.1;color:var(--accent);flex:none}
 
 .soon{text-align:center;color:var(--muted);padding:70px 20px;font-size:16px}
-footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;color:var(--muted);text-align:center}
+footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
+  color:var(--muted);text-align:center}
 </style>
 </head>
 <body>
@@ -117,141 +116,152 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;color
 
 <header>
   <h1>Weekend in Montagna<small>Giovedì 15 → domenica 18 ottobre 2026 · 4 persone</small></h1>
-  <button id="theme" aria-label="Cambia tema">◐</button>
+  <button id="mode" aria-label="Cambia tema">◑</button>
 </header>
 
 <nav role="tablist">
-  <button role="tab" aria-selected="true" aria-controls="cotture" id="t-cotture">🔥 Cotture</button>
+  <button role="tab" aria-selected="true" aria-controls="cotture" id="t-cotture">Cotture</button>
   <button role="tab" aria-selected="false" aria-controls="gio" id="t-gio">Giovedì</button>
   <button role="tab" aria-selected="false" aria-controls="ven" id="t-ven">Venerdì</button>
   <button role="tab" aria-selected="false" aria-controls="sab" id="t-sab">Sabato</button>
 </nav>
 
-<!-- ============ COTTURE ============ -->
 <section role="tabpanel" id="cotture" aria-labelledby="t-cotture">
 
-  <h2>Le tre temperature</h2>
-  <div class="temps">
-    <div class="tcard">
-      <h3>Wagyu A5</h3>
-      <div class="sub">2 × 200 g · pietra ollare</div>
-      <div class="big">55–58<span> °C</span></div>
-      <div class="lbl">al taglio</div>
-      <div class="pre">Niente forno · pietra a <b>200–230 °C</b> · <b>6–8 min</b> girando ogni minuto</div>
-    </div>
-    <div class="tcard">
-      <h3>Picanha</h3>
-      <div class="sub">1,4 kg · forno + brace</div>
-      <div class="big">53–54<span> °C</span></div>
-      <div class="lbl">al taglio</div>
-      <div class="pre">Sforna a <b>47–48 °C</b> · forno 110 °C per <b>75–90 min</b></div>
-    </div>
-    <div class="tcard">
-      <h3>Costata</h3>
-      <div class="sub">2 × 1,1 kg · forno + brace</div>
-      <div class="big">55–57<span> °C</span></div>
-      <div class="lbl">al taglio</div>
-      <div class="pre">Sforna a <b>50–51 °C</b> · forno 110 °C per <b>60–80 min</b></div>
-    </div>
+  <h2>Le tre schede</h2>
+  <div class="schede">
+
+    <article class="scheda">
+      <div class="top">
+        <h3>Wagyu A5</h3>
+        <div class="fmt">2 × 200 g · interi · pietra ollare</div>
+        <div class="big">55–58<em> °C</em></div>
+        <div class="lbl">al taglio</div>
+      </div>
+      <dl>
+        <div><dt>Fattore limitante</dt><dd>Scioglimento del grasso</dd></div>
+        <div><dt>Salatura</dt><dd class="no">No — fiocchi alla fine</dd></div>
+        <div><dt>Metodo</dt><dd>Pietra ollare sulla brace</dd></div>
+        <div><dt>Temperatura</dt><dd class="k">200–230 °C</dd></div>
+        <div><dt>Tempo</dt><dd class="k">6–8 min</dd></div>
+        <div><dt>Girare</dt><dd>Ogni minuto</dd></div>
+        <div><dt>Riposo</dt><dd>1–2 min su piatto caldo</dd></div>
+        <div><dt>Brace</dt><dd class="no">—</dd></div>
+        <div><dt>Note</dt><dd>Un pezzo alla volta. Rendi prima la cappa di grasso e cuoci lì dentro</dd></div>
+      </dl>
+    </article>
+
+    <article class="scheda">
+      <div class="top">
+        <h3>Picanha</h3>
+        <div class="fmt">1,4 kg · intera · forno + brace</div>
+        <div class="big">53–54<em> °C</em></div>
+        <div class="lbl">al taglio</div>
+      </div>
+      <dl>
+        <div><dt>Fattore limitante</dt><dd>Cottura uniforme</dd></div>
+        <div><dt>Salatura</dt><dd>~14 g sale grosso · <b>46 h</b> scoperta su rack</dd></div>
+        <div><dt>Metodo</dt><dd>Reverse sear: forno → brace</dd></div>
+        <div><dt>Temperatura</dt><dd>Forno <b>110 °C</b></dd></div>
+        <div><dt>Tempo</dt><dd class="k">75–90 min</dd></div>
+        <div><dt>Sforna a</dt><dd class="k">47–48 °C</dd></div>
+        <div><dt>Riposo</dt><dd>10–15 min scoperta</dd></div>
+        <div><dt>Brace</dt><dd>Grasso giù <b>5–6 min</b> + carne <b>1–2 min</b></dd></div>
+        <div><dt>Note</dt><dd>Venatura che cambia: test dello strappo alle due estremità</dd></div>
+      </dl>
+    </article>
+
+    <article class="scheda">
+      <div class="top">
+        <h3>Costata</h3>
+        <div class="fmt">2 × 1,1 kg · interi · forno + brace</div>
+        <div class="big">55–57<em> °C</em></div>
+        <div class="lbl">al taglio</div>
+      </div>
+      <dl>
+        <div><dt>Fattore limitante</dt><dd>Resa del grasso</dd></div>
+        <div><dt>Salatura</dt><dd>~11 g a pezzo · <b>48 h</b> scoperta su rack</dd></div>
+        <div><dt>Metodo</dt><dd>Reverse sear: forno → brace</dd></div>
+        <div><dt>Temperatura</dt><dd>Forno <b>110 °C</b></dd></div>
+        <div><dt>Tempo</dt><dd class="k">60–80 min</dd></div>
+        <div><dt>Sforna a</dt><dd class="k">50–51 °C</dd></div>
+        <div><dt>Riposo</dt><dd>10–15 min scoperta</dd></div>
+        <div><dt>Brace</dt><dd><b>90–120 s</b> per faccia + <b>1–2 min</b> sul bordo di grasso</dd></div>
+        <div><dt>Note</dt><dd>Stacca lo spinalis e affettalo a parte: ha venatura propria</dd></div>
+      </dl>
+    </article>
+
   </div>
 
-  <h2>Tabella completa</h2>
-  <div class="scroller">
-    <table>
-      <thead>
-        <tr><th></th><th>Wagyu A5</th><th>Picanha</th><th>Costata</th></tr>
-      </thead>
-      <tbody>
-        <tr><th>Fattore limitante</th><td>Scioglimento del grasso</td><td>Cottura uniforme</td><td>Resa del grasso</td></tr>
-        <tr><th>Salatura</th><td>❌ solo in fiocchi alla fine</td><td>✅ ~14 g, 46 h</td><td>✅ ~11 g a pezzo, 48 h</td></tr>
-        <tr><th>Formato</th><td>Interi, 200 g</td><td>1,4 kg intera</td><td>2 pezzi interi</td></tr>
-        <tr><th>Metodo</th><td>Pietra ollare</td><td>Forno → brace</td><td>Forno → brace</td></tr>
-        <tr><th>Temperatura</th><td class="k">200–230 °C</td><td>Forno 110 °C</td><td>Forno 110 °C</td></tr>
-        <tr><th>Tempo</th><td class="k">6–8 min</td><td>75–90 min forno</td><td>60–80 min forno</td></tr>
-        <tr><th>Sforna a</th><td>—</td><td class="k">47–48 °C</td><td class="k">50–51 °C</td></tr>
-        <tr><th>Riposo</th><td>1–2 min, piatto caldo</td><td>10–15 min scoperta</td><td>10–15 min scoperta</td></tr>
-        <tr><th>Brace</th><td>—</td><td>Grasso <b>5–6 min</b> + carne 1–2</td><td>90–120 s per faccia + <b>1–2 min sul bordo grasso</b></td></tr>
-        <tr><th>Al taglio</th><td class="k">55–58 °C</td><td class="k">53–54 °C</td><td class="k">55–57 °C</td></tr>
-        <tr><th>Un pezzo alla volta</th><td>✅ sì</td><td>—</td><td>Puoi farle insieme</td></tr>
-      </tbody>
-    </table>
+  <div class="confronto">
+    <h2>Confronto</h2>
+    <div class="tbox">
+      <table>
+        <thead><tr><th></th><th>Wagyu A5</th><th>Picanha</th><th>Costata</th></tr></thead>
+        <tbody>
+          <tr><th>Fattore limitante</th><td>Scioglimento del grasso</td><td>Cottura uniforme</td><td>Resa del grasso</td></tr>
+          <tr><th>Salatura</th><td>Solo fiocchi alla fine</td><td>~14 g, 46 h</td><td>~11 g a pezzo, 48 h</td></tr>
+          <tr><th>Temperatura</th><td class="k">200–230 °C</td><td>Forno 110 °C</td><td>Forno 110 °C</td></tr>
+          <tr><th>Tempo</th><td class="k">6–8 min</td><td>75–90 min</td><td>60–80 min</td></tr>
+          <tr><th>Sforna a</th><td>—</td><td class="k">47–48 °C</td><td class="k">50–51 °C</td></tr>
+          <tr><th>Riposo</th><td>1–2 min, piatto caldo</td><td>10–15 min scoperta</td><td>10–15 min scoperta</td></tr>
+          <tr><th>Brace</th><td>—</td><td>Grasso 5–6 min + carne 1–2</td><td>90–120 s per faccia + bordo grasso</td></tr>
+          <tr><th>Al taglio</th><td class="k">55–58 °C</td><td class="k">53–54 °C</td><td class="k">55–57 °C</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <p class="hint">← scorri la tabella →</p>
 
   <h2>Regole generali</h2>
 
-  <div class="rule">
-    <h3><i>01</i> Chiediti qual è il fattore limitante</h3>
-    <p>Su una carne <b>magra</b> il nemico è stracuocere: poco tempo, molto calore. Su una carne <b>grassa</b> il problema opposto — se il grasso non si scioglie resta ceroso e sgradevole. <b>Il Wagyu va cotto più di un filetto, non meno.</b></p>
-  </div>
+  <div class="rule"><h3><i>01</i> Chiediti qual è il fattore limitante</h3>
+  <p>Su una carne <b>magra</b> il nemico è stracuocere: poco tempo, molto calore. Su una carne <b>grassa</b> il problema è opposto — se il grasso non si scioglie resta ceroso e sgradevole. <b>Il Wagyu va cotto più di un filetto, non meno.</b></p></div>
 
-  <div class="rule">
-    <h3><i>02</i> La sonda, non l'orologio</h3>
-    <p>I minuti sono una stima: dipendono da spessore, temperatura di partenza e forno. <b>Solo la temperatura al cuore non mente.</b> Sonda sempre nel punto più spesso, lontano dall'osso.</p>
-  </div>
+  <div class="rule"><h3><i>02</i> La sonda, non l'orologio</h3>
+  <p>I minuti sono una stima: dipendono da spessore, temperatura di partenza e forno. <b>Solo la temperatura al cuore non mente.</b> Sonda nel punto più spesso, lontano dall'osso.</p></div>
 
-  <div class="rule">
-    <h3><i>03</i> Misura <b>dopo</b> la scottatura, non prima</h3>
-    <p>Il numero che conta è quello al momento di affettare. Rinfila la sonda dopo la brace: se sei basso, altri trenta secondi non costano niente — il contrario sì.</p>
-  </div>
+  <div class="rule"><h3><i>03</i> Misura <b>dopo</b> la scottatura, non prima</h3>
+  <p>Il numero che conta è quello al momento di affettare. Rinfila la sonda dopo la brace: se sei basso, altri trenta secondi non costano niente — il contrario sì.</p></div>
 
-  <div class="rule">
-    <h3><i>04</i> Sforna sempre sotto il target</h3>
-    <p>Tra forno e piatto guadagni <b>+4/+6 °C</b>: carryover +1/2, riposo −2/3, brace +4/6. A 110 °C il carryover è piccolo (1–2 °C): è la <b>scottatura</b> a scaldare, non il riposo.</p>
-  </div>
+  <div class="rule"><h3><i>04</i> Sforna sempre sotto il target</h3>
+  <p>Tra forno e piatto guadagni <b>+4/+6 °C</b>: carryover +1/2, riposo −2/3, brace +4/6. A 110 °C il carryover è piccolo: è la <b>scottatura</b> a scaldare, non il riposo.</p></div>
 
-  <div class="rule">
-    <h3><i>05</i> Riposo <b>prima</b> della scottatura, non dopo</h3>
-    <p>È il senso del reverse sear: riposi dopo il forno, poi scotti, poi servi subito. Dopo la brace bastano 3–5 minuti. <b>Scoperta</b>: la stanza è a 21–22 °C, l'alluminio intrappola vapore e ti ammorbidisce la crosta.</p>
-  </div>
+  <div class="rule"><h3><i>05</i> Riposo <b>prima</b> della scottatura</h3>
+  <p>È il senso del reverse sear: riposi dopo il forno, poi scotti, poi servi subito. Dopo la brace bastano 3–5 minuti. <b>Scoperta</b>: la stanza è a 21–22 °C e l'alluminio intrappola vapore, ammorbidendo la crosta.</p></div>
 
-  <div class="rule">
-    <h3><i>06</i> Braci a due zone</h3>
-    <p>Ammucchia le braci da un lato, lasciale rade dall'altro. Ti dà una zona rovente per la crosta e una tiepida per gestire le parti che corrono avanti o per parcheggiare la carne.</p>
-  </div>
+  <div class="rule"><h3><i>06</i> Braci a due zone</h3>
+  <p>Ammucchia le braci da un lato, lasciale rade dall'altro. Hai una zona rovente per la crosta e una tiepida per gestire le parti che corrono avanti o per parcheggiare la carne.</p></div>
 
-  <div class="rule">
-    <h3><i>07</i> Taglia contro fibra — e verificalo</h3>
-    <p><b>Test dello strappo:</b> la carne cruda si separa sempre <i>lungo</i> le fibre. Tira un angolo e guarda come si apre. Poi <b>incidi un segno di riferimento parallelo alle fibre</b>: dopo la cottura la crosta nasconde tutto.</p>
-    <p style="margin-top:7px"><b>Controprova sulla prima fetta:</b> puntini = giusto, striature lunghe = ruota di 90°.</p>
-  </div>
+  <div class="rule"><h3><i>07</i> Taglia contro fibra — e verificalo</h3>
+  <p><b>Test dello strappo:</b> la carne cruda si separa sempre <i>lungo</i> le fibre. Tira un angolo e guarda come si apre. Poi <b>incidi un segno parallelo alle fibre</b>: dopo la cottura la crosta nasconde tutto.</p>
+  <p><b>Controprova sulla prima fetta:</b> puntini = giusto, striature lunghe = ruota di 90°.</p></div>
 
-  <div class="rule">
-    <h3><i>08</i> Il pepe brucia sulla brace</h3>
-    <p>Metà prima del forno, <b>metà dopo la scottatura</b>. Sul fuoco diretto il pepe carbonizza e diventa amaro — l'unica cosa che l'Amarone non perdona.</p>
-  </div>
+  <div class="rule"><h3><i>08</i> Il pepe brucia sulla brace</h3>
+  <p>Metà prima del forno, <b>metà dopo la scottatura</b>. Sul fuoco diretto carbonizza e diventa amaro — l'unica cosa che l'Amarone non perdona.</p></div>
 
-  <div class="rule">
-    <h3><i>09</i> Col Wagyu niente deve essere freddo</h3>
-    <p>Il suo grasso fonde a 25–30 °C — e <b>si rapprende alla stessa temperatura</b>. Su un tagliere freddo torna ceroso in venti secondi. <b>Scalda piatti, tagliere e piatti di servizio.</b></p>
-    <p style="margin-top:7px">Affetta su <b>legno tiepido</b>, mai sulla pietra: è steatite, Mohs 1–2,5, più morbida della tua unghia — il coltello la scava.</p>
-  </div>
+  <div class="rule"><h3><i>09</i> Col Wagyu niente deve essere freddo</h3>
+  <p>Il suo grasso fonde a 25–30 °C e <b>si rapprende alla stessa temperatura</b>: su un tagliere freddo torna ceroso in venti secondi. <b>Scalda piatto di riposo, tagliere e piatti di servizio.</b></p>
+  <p>Affetta su <b>legno tiepido</b>, mai sulla pietra: è steatite, Mohs 1–2,5, più morbida della tua unghia — il coltello la scava.</p></div>
 
-  <div class="rule">
-    <h3><i>10</i> Rendi il grasso e cuoci lì dentro</h3>
-    <p>La cappa del Wagyu va sulla pietra per prima: in 60–90 secondi si scioglie. Togli il residuo solido e <b>cuoci la carne in quel grasso</b>. Lascia 3–5 mm attaccati alla carne, sono i migliori.</p>
-  </div>
+  <div class="rule"><h3><i>10</i> Rendi il grasso e cuoci lì dentro</h3>
+  <p>La cappa del Wagyu va sulla pietra per prima: in 60–90 secondi si scioglie. Togli il residuo solido e <b>cuoci la carne in quel grasso</b>. Lascia 3–5 mm attaccati alla carne, sono i migliori.</p></div>
 
-  <div class="rule">
-    <h3><i>11</i> Pietra ollare: raschia da calda, mai sapone</h3>
-    <p>Raschia finché è tiepida, poi acqua bollente e spazzola. <b>È porosa: assorbe il detersivo e te lo restituisce sulla carne.</b> E non caricarla troppo — il calore crolla se ci metti sopra tanta roba fredda insieme.</p>
-  </div>
+  <div class="rule"><h3><i>11</i> Pietra ollare: raschia da calda, mai sapone</h3>
+  <p>Raschia finché è tiepida, poi acqua bollente e spazzola. <b>È porosa: assorbe il detersivo e te lo restituisce sulla carne.</b> E non caricarla troppo — il calore crolla se ci metti sopra tanta roba fredda insieme.</p></div>
 
-  <div class="rule">
-    <h3><i>12</i> Non bucare le salsicce</h3>
-    <p>Calore moderato, 15–20 minuti, girandole spesso. Bucarle fa uscire il grasso che le tiene morbide.</p>
-  </div>
+  <div class="rule"><h3><i>12</i> Non bucare le salsicce</h3>
+  <p>Calore moderato, 15–20 minuti, girandole spesso. Bucarle fa uscire il grasso che le tiene morbide.</p></div>
 
   <div class="callout">
     <h3>⚠️ Da verificare giovedì sera</h3>
-    <p><b>Il forno della casa.</b> Venerdì e sabato dipendono da 110 °C <i>reali</i>. I forni delle case di vacanza sono spesso tarati male.</p>
+    <p><b>Il forno della casa.</b> Venerdì e sabato dipendono da 110 °C <i>reali</i>, e i forni delle case di vacanza sono spesso tarati male.</p>
     <p>Accendilo a 110 mentre mangiate il Wagyu, infilaci la sonda, aspetta dieci minuti. Se segna 140, sai di quanto correggere. <b>È il controllo più economico di tutto il weekend.</b></p>
   </div>
 
   <h2>Prima di cominciare</h2>
   <ul class="check">
-    <li>Termometro a sonda (meglio due: uno per muscolo)</li>
-    <li>Due caraffe — venerdì servono insieme</li>
+    <li>Termometro a sonda — meglio due</li>
+    <li>Due caraffe (venerdì servono insieme)</li>
     <li>Quattro calici grandi</li>
     <li>Griglia da camino</li>
     <li>Rack da frigo per le salature</li>
@@ -262,15 +272,9 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;color
 
 </section>
 
-<section role="tabpanel" id="gio" aria-labelledby="t-gio" hidden>
-  <p class="soon">Giovedì 15 — da costruire</p>
-</section>
-<section role="tabpanel" id="ven" aria-labelledby="t-ven" hidden>
-  <p class="soon">Venerdì 16 — da costruire</p>
-</section>
-<section role="tabpanel" id="sab" aria-labelledby="t-sab" hidden>
-  <p class="soon">Sabato 17 — da costruire</p>
-</section>
+<section role="tabpanel" id="gio" aria-labelledby="t-gio" hidden><p class="soon">Giovedì 15 — da costruire</p></section>
+<section role="tabpanel" id="ven" aria-labelledby="t-ven" hidden><p class="soon">Venerdì 16 — da costruire</p></section>
+<section role="tabpanel" id="sab" aria-labelledby="t-sab" hidden><p class="soon">Sabato 17 — da costruire</p></section>
 
 <footer>Weekend in Montagna · 15–18 ottobre 2026</footer>
 </div>
@@ -287,20 +291,19 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;color
     if(push&&history.replaceState)history.replaceState(null,'','#'+id);
     window.scrollTo(0,0);
   }
-  tabs.forEach(function(t){
-    t.addEventListener('click',function(){show(t.getAttribute('aria-controls'),true)});
-  });
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'),true)})});
   var h=location.hash.replace('#','');
   if(h&&document.getElementById(h))show(h,false);
 
-  var KEY='wm-theme',btn=document.getElementById('theme');
-  try{var s=localStorage.getItem(KEY); if(s)document.documentElement.setAttribute('data-theme',s);}catch(e){}
+  var KEY='wm-mode',btn=document.getElementById('mode'),root=document.documentElement;
+  try{var s=localStorage.getItem(KEY); if(s)root.setAttribute('data-mode',s);}catch(e){}
+  function icon(){btn.textContent=root.getAttribute('data-mode')==='dark'?'◑':'◐'}
+  icon();
   btn.addEventListener('click',function(){
-    var cur=document.documentElement.getAttribute('data-theme');
-    if(!cur)cur=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
-    var next=cur==='dark'?'light':'dark';
-    document.documentElement.setAttribute('data-theme',next);
+    var next=root.getAttribute('data-mode')==='dark'?'light':'dark';
+    root.setAttribute('data-mode',next);
     try{localStorage.setItem(KEY,next)}catch(e){}
+    icon();
   });
 })();
 </script>
