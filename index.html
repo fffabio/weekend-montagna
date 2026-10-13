@@ -40,6 +40,13 @@ nav button{flex:none;background:none;border:0;border-bottom:3px solid transparen
   color:var(--muted);font:700 15px/1 inherit;padding:15px 11px;cursor:pointer;white-space:nowrap}
 nav button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
 nav .div{flex:none;width:1px;height:20px;background:var(--line);margin:0 7px}
+nav .glab{flex:none;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;
+  font-weight:800;opacity:.75;padding:0 7px 0 2px;color:var(--muted)}
+nav .glab.d{color:var(--accent)}
+nav .glab.c{color:var(--hot)}
+nav .glab.v{color:var(--drink)}
+nav button[data-g="c"][aria-selected="true"]{color:var(--hot);border-bottom-color:var(--hot)}
+nav button[data-g="v"][aria-selected="true"]{color:var(--drink);border-bottom-color:var(--drink)}
 
 section[role=tabpanel]{padding:22px 0 60px}
 section[hidden]{display:none}
@@ -126,24 +133,27 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
 </header>
 
 <nav role="tablist">
-  <button role="tab" aria-selected="true"  aria-controls="wagyu"   id="t-wagyu">Wagyu</button>
-  <button role="tab" aria-selected="false" aria-controls="picanha" id="t-picanha">Picanha</button>
-  <button role="tab" aria-selected="false" aria-controls="costata" id="t-costata">Costata</button>
+  <span class="glab d">Giorni</span>
+  <button role="tab" data-g="d" aria-selected="true"  aria-controls="gio" id="t-gio">Giovedì</button>
+  <button role="tab" data-g="d" aria-selected="false" aria-controls="ven" id="t-ven">Venerdì</button>
+  <button role="tab" data-g="d" aria-selected="false" aria-controls="sab" id="t-sab">Sabato</button>
   <span class="div"></span>
-  <button role="tab" aria-selected="false" aria-controls="gio" id="t-gio">Giovedì</button>
-  <button role="tab" aria-selected="false" aria-controls="ven" id="t-ven">Venerdì</button>
-  <button role="tab" aria-selected="false" aria-controls="sab" id="t-sab">Sabato</button>
+  <span class="glab c">Cucina</span>
+  <button role="tab" data-g="c" aria-selected="false" aria-controls="wagyu"   id="t-wagyu">Wagyu</button>
+  <button role="tab" data-g="c" aria-selected="false" aria-controls="picanha" id="t-picanha">Picanha</button>
+  <button role="tab" data-g="c" aria-selected="false" aria-controls="costata" id="t-costata">Costata</button>
   <span class="div"></span>
-  <button role="tab" aria-selected="false" aria-controls="v1" id="t-v1">Mosesco</button>
-  <button role="tab" aria-selected="false" aria-controls="v2" id="t-v2">Pradurent</button>
-  <button role="tab" aria-selected="false" aria-controls="v3" id="t-v3">Case Vecie</button>
-  <button role="tab" aria-selected="false" aria-controls="v4" id="t-v4">S. Benedetto</button>
-  <button role="tab" aria-selected="false" aria-controls="v5" id="t-v5">Recioto</button>
-  <button role="tab" aria-selected="false" aria-controls="v6" id="t-v6">Tawny 20</button>
+  <span class="glab v">Vini</span>
+  <button role="tab" data-g="v" aria-selected="false" aria-controls="v1" id="t-v1">Mosesco</button>
+  <button role="tab" data-g="v" aria-selected="false" aria-controls="v2" id="t-v2">Pradurent</button>
+  <button role="tab" data-g="v" aria-selected="false" aria-controls="v3" id="t-v3">Case Vecie</button>
+  <button role="tab" data-g="v" aria-selected="false" aria-controls="v4" id="t-v4">S. Benedetto</button>
+  <button role="tab" data-g="v" aria-selected="false" aria-controls="v5" id="t-v5">Recioto</button>
+  <button role="tab" data-g="v" aria-selected="false" aria-controls="v6" id="t-v6">Tawny 20</button>
 </nav>
 
 <!-- ==================== WAGYU ==================== -->
-<section role="tabpanel" id="wagyu" aria-labelledby="t-wagyu">
+<section role="tabpanel" id="wagyu" aria-labelledby="t-wagyu" hidden>
 
   <h2>Bevande</h2>
   <div class="drinks">
@@ -336,7 +346,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
 </section>
 
 <!-- ==================== GIOVEDÌ ==================== -->
-<section role="tabpanel" id="gio" aria-labelledby="t-gio" hidden>
+<section role="tabpanel" id="gio" aria-labelledby="t-gio">
 
   <h2>Le bevande della sera</h2>
   <div class="drinks">
@@ -790,7 +800,7 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <h2>La scheda</h2>
   <div class="scheda">
     <div class="top">
-      <div class="fmt">Porto DOC, Tawny con indicazione d'età · vino fortificato e dolce</div>
+      <div class="fmt">Porto DOC, Tawny con indicazione d'età · 75 cl · vino fortificato e dolce</div>
       <div class="big">12–14<em> °C</em></div>
       <div class="lbl">temperatura di servizio</div>
     </div>
@@ -813,9 +823,14 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <p>Un <b>Tawny</b> invecchia <b>in botte</b>, a contatto con l'ossigeno per decenni. Perde il colore e il frutto fresco, e in cambio prende noce, caramello, scorza d'arancia. Arriva pronto, non si decanta, e <b>dura mesi dopo l'apertura</b>.</p>
   <p>Non è un Porto "minore": è un vino completamente diverso, fatto apposta per essere bevuto così.</p></div>
 
-  <div class="rule"><h3>Il 20 anni è il punto di equilibrio della gamma</h3>
+  <div class="rule"><h3>Il 20 è il gradino giusto, non un compromesso al ribasso</h3>
   <p>I Tawny con indicazione d'età escono a 10, 20, 30 e 40 anni. Il <b>10</b> è ancora dominato dal frutto e somiglia a un Porto giovane addolcito dal legno. Il <b>30</b> e il <b>40</b> sono magnifici ma sempre più concentrati, austeri, quasi liquorosi.</p>
-  <p>Il <b>20</b> è dove le due cose stanno in equilibrio: la nocciola e il caramello dell'ossidazione ci sono già tutti, ma resta ancora polpa di frutta sotto. È il motivo per cui è considerato lo scalino migliore della categoria.</p></div>
+  <p>Il <b>20</b> è dove le due cose stanno in equilibrio: la nocciola e il caramello dell'ossidazione ci sono già tutti, ma resta ancora polpa di frutta sotto.</p>
+  <p>E su gorgonzola e cioccolato fondente <b>il 30 e il 40 sarebbero peggiori, non migliori</b>: troppo austeri per reggere il grasso del formaggio. Spendere di più darebbe un vino più raro e meno adatto a questo uso.</p></div>
+
+  <div class="rule"><h3>Un classico, non una scoperta</h3>
+  <p>Va detto con onestà: è una bottiglia di una grande casa, <b>distribuita ovunque</b>, che fa benissimo il suo mestiere da decenni. Non è un ritrovamento di nicchia, ed è questa la differenza rispetto a buona parte delle altre bottiglie di questo weekend.</p>
+  <p>Non è un difetto. In alcune categorie <b>il classico famoso è davvero la scelta giusta</b>, e il Tawny 20 è una di quelle: nella sua fascia il Graham's è una delle due o tre bottiglie di riferimento insieme al Taylor's 20.</p></div>
 
   <div class="rule"><h3>Graham's è la casa dolce della famiglia</h3>
   <p>Graham's, Dow's e Warre's appartengono tutte ai Symington. Hanno stili di casa precisi e diversi: <b>Dow's chiude asciutto</b>, Warre's sta in mezzo, e <b>Graham's è il più ricco e rotondo dei tre</b>.</p>
@@ -834,6 +849,11 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
   <div class="rule"><h3>Perché non si guasta una volta aperto</h3>
   <p>È la domanda che fanno tutti, e la risposta è elegante: <b>è già ossidato da vent'anni</b>. Stappare la bottiglia non gli fa niente di nuovo, perché l'ossigeno ha già fatto tutto il lavoro che poteva fare in botte.</p>
   <p>L'esatto contrario di un Vintage, che passa la vita al riparo dall'aria e una volta aperto va finito subito.</p></div>
+
+  <div class="rule"><h3>Perché il dolce sta bene con l'erborinato</h3>
+  <p>Nel linguaggio dei formaggi <b>"piccante" non vuol dire peperoncino</b>: indica la sensazione pungente, salata e quasi metallica che il gorgonzola lascia sulla lingua. Viene dalla muffa, il <i>Penicillium</i>, che scompone i grassi, e dal sale, che negli erborinati è abbondante.</p>
+  <p>Lo zucchero la <b>neutralizza</b>. È un meccanismo fisiologico, non una questione di gusto: il dolce smorza il salato e la punta aggressiva della muffa, e in cambio il formaggio asciuga la dolcezza del vino, che da solo risulterebbe stucchevole.</p>
+  <p>È il motivo per cui l'accoppiata vino dolce più erborinato torna in mezza Europa: Sauternes e Roquefort in Francia, Porto e Stilton in Inghilterra. Qui la versione è Tawny e gorgonzola.</p></div>
 
   <div class="rule"><h3>Perché un vino portoghese ha nomi britannici</h3>
   <p>Graham's, Dow's, Taylor's, Croft, Sandeman: le grandi case del Porto hanno quasi tutte nomi inglesi o scozzesi. La ragione è un trattato del <b>1703</b>, il <b>Methuen</b>, che garantiva ai vini portoghesi un dazio agevolato in Inghilterra durante le guerre con la Francia.</p>
