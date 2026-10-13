@@ -155,6 +155,21 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:14.5px;
 .ico .dnum{fill:var(--ac);font-weight:800;font-size:15px;font-family:inherit}
 .ico .ring{fill:none;stroke:var(--ac);stroke-width:2;opacity:.45}
 
+/* Da laptop in su: tre colonne fisse. Sei vini stanno in due righe piene e
+   i gruppi da tre riempiono la riga, cosi' i bordi delle schede si allineano. */
+@media (min-width:820px){
+  .grid{grid-template-columns:repeat(3,1fr);gap:14px}
+  .card{padding:17px 18px;gap:15px;border-radius:16px}
+  .card .nm{font-size:18.5px}
+  .card .sb{font-size:14px;margin-top:5px;line-height:1.38}
+  .ico{width:36px;height:50px}
+  .ico.sq{width:46px;height:46px}
+  .home h2.grp{font-size:12.5px;margin:32px 0 12px}
+  header{padding:34px 0 16px}
+  h1{font-size:34px}
+  h1 small{font-size:17px}
+}
+
 /* ===== barra indietro dentro ogni pagina ===== */
 .bar{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);
   margin:0 -16px 4px;padding:9px 16px;display:flex;align-items:center;gap:11px}
@@ -194,7 +209,7 @@ section.v{--bc:var(--drink)} section.b{--bc:var(--malt)}
   <div class="grid">
     <button class="card c" data-go="wagyu"><svg class="ico sq" viewBox="0 0 48 42" aria-hidden="true" style="--g:#8c3f3f"><path class="meat" d="M6 21c0-10 9-15 19-15s17 4 17 14-8 16-18 16S6 31 6 21z"/><path class="mrb" d="M14 14c4 2 6 6 5 11M22 10c3 4 4 9 2 14M30 11c2 5 2 10 0 14M37 16c1 4 1 7 0 10"/></svg><span class="tx">
       <span class="nm">Wagyu A5</span>
-      <span class="sb">Pietra 200-230 °C, 6-8 minuti</span></span></button>
+      <span class="sb">Pietra 200–230 °C, 6–8 minuti</span></span></button>
     <button class="card c" data-go="picanha"><img class="ico sq ph" alt="" aria-hidden="true" src="data:image/webp;base64,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"><span class="tx">
       <span class="nm">Picanha</span>
       <span class="sb">Forno 110 °C, poi brace</span></span></button>
@@ -206,10 +221,10 @@ section.v{--bc:var(--drink)} section.b{--bc:var(--malt)}
   <div class="grid">
     <button class="card v" data-go="v1"><svg class="ico" viewBox="0 0 40 64" aria-hidden="true" style="--g:#7d2740"><rect class="cap" x="15" y="1" width="10" height="7" rx="1.5"/><path class="glass" d="M16 7h8v9c0 3.5 6 8 6 14.5V60a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V30.5C10 24 16 19.5 16 16V7z"/><rect class="lbl" x="11.5" y="38" width="17" height="13" rx="1.5"/></svg><span class="tx">
       <span class="nm">Mosesco</span>
-      <span class="sb">Dolcetto 2024 · 15-16 °C</span></span></button>
+      <span class="sb">Dolcetto 2024 · 15–16 °C</span></span></button>
     <button class="card v" data-go="v2"><svg class="ico" viewBox="0 0 40 64" aria-hidden="true" style="--g:#6d2238"><rect class="cap" x="15" y="1" width="10" height="7" rx="1.5"/><path class="glass" d="M16 7h8v9c0 3.5 6 8 6 14.5V60a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V30.5C10 24 16 19.5 16 16V7z"/><rect class="lbl" x="11.5" y="38" width="17" height="13" rx="1.5"/></svg><span class="tx">
       <span class="nm">Sorì Pradurent</span>
-      <span class="sb">Dolcetto 2023 · 15-16 °C</span></span></button>
+      <span class="sb">Dolcetto 2023 · 15–16 °C</span></span></button>
     <button class="card v" data-go="v3"><svg class="ico" viewBox="0 0 40 64" aria-hidden="true" style="--g:#5a1626"><rect class="cap" x="15" y="1" width="10" height="7" rx="1.5"/><path class="glass" d="M16 7h8v9c0 3.5 6 8 6 14.5V60a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V30.5C10 24 16 19.5 16 16V7z"/><rect class="lbl" x="11.5" y="38" width="17" height="13" rx="1.5"/></svg><span class="tx">
       <span class="nm">Case Vecie</span>
       <span class="sb">Amarone 2018 · 17 °C</span></span></button>
@@ -218,10 +233,10 @@ section.v{--bc:var(--drink)} section.b{--bc:var(--malt)}
       <span class="sb">Amarone 2015 · 17 °C</span></span></button>
     <button class="card v" data-go="v5"><svg class="ico" viewBox="0 0 40 64" aria-hidden="true" style="--g:#55101f"><rect class="cap" x="15" y="1" width="10" height="7" rx="1.5"/><path class="glass" d="M16 7h8v9c0 3.5 6 8 6 14.5V60a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V30.5C10 24 16 19.5 16 16V7z"/><rect class="lbl" x="11.5" y="38" width="17" height="13" rx="1.5"/></svg><span class="tx">
       <span class="nm">Recioto</span>
-      <span class="sb">Dolce 2021 · 16-18 °C</span></span></button>
+      <span class="sb">Dolce 2021 · 16–18 °C</span></span></button>
     <button class="card v" data-go="v6"><svg class="ico" viewBox="0 0 40 64" aria-hidden="true" style="--g:#a9622f"><rect class="cap" x="15" y="1" width="10" height="7" rx="1.5"/><path class="glass" d="M16 7h8v9c0 3.5 6 8 6 14.5V60a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V30.5C10 24 16 19.5 16 16V7z"/><rect class="lbl" x="11.5" y="38" width="17" height="13" rx="1.5"/></svg><span class="tx">
       <span class="nm">Graham’s Tawny 20</span>
-      <span class="sb">Porto · 12-14 °C</span></span></button>
+      <span class="sb">Porto · 12–14 °C</span></span></button>
   </div>
   <h2 class="grp b">Bevande</h2>
   <div class="grid">
@@ -1087,7 +1102,7 @@ section.v{--bc:var(--drink)} section.b{--bc:var(--malt)}
 
 </section>
 
-<footer>Weekend in Montagna · 15-18 ottobre 2026</footer>
+<footer>Weekend in Montagna · 15–18 ottobre 2026</footer>
 </div>
 
 <script>
