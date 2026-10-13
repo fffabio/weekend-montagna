@@ -7,17 +7,16 @@
 <meta name="description" content="Piano cotture e serate — 15-18 ottobre 2026">
 <meta name="theme-color" content="#171a15">
 <style>
-/* ---------- RIFUGIO ---------- */
 :root{
   --bg:#f4f1e8; --surface:#fffefa; --surface-2:#eae5d6; --line:#d9d2bf;
   --text:#23261f; --muted:#6c7263; --accent:#3f5d3a; --hot:#9d4b24;
-  --warn:#8a6a1f; --warn-bg:#f7eed6;
+  --drink:#7b3b4a; --warn:#8a6a1f; --warn-bg:#f7eed6;
   --shadow:0 2px 10px rgba(40,45,30,.07);
 }
 :root[data-mode="dark"]{
   --bg:#171a15; --surface:#20241c; --surface-2:#2a2f24; --line:#3a4132;
   --text:#eef0e6; --muted:#9aa38c; --accent:#8fc182; --hot:#d9b47a;
-  --warn:#d9b47a; --warn-bg:#2b2a1c;
+  --drink:#d79aa2; --warn:#d9b47a; --warn-bg:#2b2a1c;
   --shadow:none;
 }
 *{box-sizing:border-box}
@@ -34,77 +33,63 @@ h1 small{display:block;font-size:14px;font-weight:400;color:var(--muted);margin-
   width:44px;height:44px;border-radius:50%;font-size:18px;cursor:pointer;flex:none}
 
 nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);
-  margin:0 -16px;padding:0 10px;display:flex;gap:2px;overflow-x:auto;
+  margin:0 -16px;padding:0 10px;display:flex;gap:2px;overflow-x:auto;align-items:center;
   -webkit-overflow-scrolling:touch;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 nav button{flex:none;background:none;border:0;border-bottom:3px solid transparent;
-  color:var(--muted);font:700 15px/1 inherit;padding:15px 13px;cursor:pointer;white-space:nowrap}
+  color:var(--muted);font:700 15px/1 inherit;padding:15px 12px;cursor:pointer;white-space:nowrap}
 nav button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+nav .div{flex:none;width:1px;height:20px;background:var(--line);margin:0 8px}
 
 section[role=tabpanel]{padding:22px 0 60px}
 section[hidden]{display:none}
-h2{font-size:14px;letter-spacing:.5px;color:var(--accent);margin:36px 0 14px;font-weight:800}
+h2{font-size:14px;letter-spacing:.5px;color:var(--accent);margin:34px 0 13px;font-weight:800}
 h2:first-child{margin-top:0}
 
-/* ---------- SCHEDE CARNE ---------- */
-.schede{display:grid;gap:15px;grid-template-columns:1fr}
-@media(min-width:720px){.schede{grid-template-columns:repeat(3,1fr)}}
+/* ---- bevande ---- */
+.drinks{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--drink);
+  border-radius:18px;padding:17px 19px;box-shadow:var(--shadow)}
+.drinks .main{font-size:18px;font-weight:800;color:var(--drink);line-height:1.35}
+.drinks .temp{font-size:15px;color:var(--text);margin-top:5px;font-weight:600}
+.drinks p{margin:11px 0 0;font-size:15px;color:var(--muted)}
+.drinks p b{color:var(--text)}
+.drinks .alt{margin-top:13px;padding-top:12px;border-top:1px dashed var(--line);
+  font-size:14.5px;color:var(--muted)}
+.drinks .no{color:var(--muted);font-size:14.5px;margin-top:9px}
+.drinks .no b{color:var(--text)}
+
+/* ---- scheda ---- */
 .scheda{background:var(--surface);border:1px solid var(--line);border-radius:18px;
   box-shadow:var(--shadow);overflow:hidden;border-top:5px solid var(--accent)}
 .scheda .top{padding:17px 19px 15px}
-.scheda h3{margin:0;font-size:19px;font-weight:800;letter-spacing:-.2px}
-.scheda .fmt{font-size:13.5px;color:var(--muted);margin-top:2px}
-.scheda .big{font:800 40px/1 -apple-system,BlinkMacSystemFont,sans-serif;
-  color:var(--hot);letter-spacing:-1.8px;margin-top:13px}
-.scheda .big em{font-style:normal;font-size:17px;font-weight:700;letter-spacing:0}
+.scheda .fmt{font-size:13.5px;color:var(--muted)}
+.scheda .big{font:800 44px/1 -apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--hot);letter-spacing:-2px;margin-top:10px}
+.scheda .big em{font-style:normal;font-size:18px;font-weight:700;letter-spacing:0}
 .scheda .lbl{font-size:11.5px;color:var(--muted);text-transform:uppercase;
   letter-spacing:1.1px;margin-top:4px;font-weight:700}
-dl{margin:0;border-top:1px solid var(--line)}
-dl div{display:flex;gap:12px;padding:10px 19px;border-bottom:1px solid var(--line);
-  align-items:baseline}
-dl div:last-child{border-bottom:0}
-dt{flex:0 0 40%;font-size:12.5px;color:var(--muted);text-transform:uppercase;
+dl{margin:0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr}
+@media(min-width:640px){dl{grid-template-columns:1fr 1fr}}
+dl div{display:flex;gap:12px;padding:11px 19px;border-bottom:1px solid var(--line);align-items:baseline}
+dt{flex:0 0 42%;font-size:12.5px;color:var(--muted);text-transform:uppercase;
   letter-spacing:.6px;font-weight:700;line-height:1.35}
 dd{margin:0;flex:1;font-size:15px}
 dd.k{font-weight:800;color:var(--hot);font-size:17px}
 dd.no{color:var(--muted)}
 
-/* ---------- TABELLA (solo schermo largo) ---------- */
-.confronto{display:none}
-@media(min-width:720px){
-  .confronto{display:block}
-  .tbox{border:1px solid var(--line);border-radius:18px;background:var(--surface);
-    box-shadow:var(--shadow);overflow:hidden}
-  table{border-collapse:collapse;width:100%;font-size:14px}
-  th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-  thead th{background:var(--surface-2);font-size:11.5px;text-transform:uppercase;
-    letter-spacing:1px;color:var(--muted)}
-  tbody th{font-weight:700;color:var(--muted);font-size:12.5px;text-transform:uppercase;
-    letter-spacing:.5px}
-  tr:last-child td,tr:last-child th{border-bottom:0}
-  td.k{font-weight:800;color:var(--hot)}
-}
-
-/* ---------- REGOLE ---------- */
+/* ---- regole ---- */
 .rule{background:var(--surface);border:1px solid var(--line);border-radius:18px;
   padding:16px 19px;margin-bottom:11px;box-shadow:var(--shadow)}
-.rule h3{margin:0 0 6px;font-size:16.5px;font-weight:800;display:flex;gap:10px;align-items:baseline}
-.rule h3 i{font-style:normal;color:var(--accent);font-size:13px;flex:none;font-weight:800}
+.rule h3{margin:0 0 6px;font-size:16.5px;font-weight:800}
 .rule p{margin:0;font-size:15.5px;color:var(--muted)}
 .rule p+p{margin-top:7px}
 .rule b{color:var(--text)}
 
 .callout{background:var(--warn-bg);border:1px solid var(--line);border-left:5px solid var(--warn);
-  border-radius:18px;padding:16px 19px;margin:20px 0}
+  border-radius:18px;padding:16px 19px;margin:18px 0 0}
 .callout h3{margin:0 0 7px;font-size:16.5px;font-weight:800}
 .callout p{margin:0 0 8px;font-size:15.5px}
 .callout p:last-child{margin-bottom:0}
-
-ul.check{list-style:none;padding:0;margin:0}
-ul.check li{background:var(--surface);border:1px solid var(--line);border-radius:14px;
-  padding:13px 16px;margin-bottom:9px;font-size:15.5px;display:flex;gap:12px;
-  align-items:flex-start;box-shadow:var(--shadow)}
-ul.check li::before{content:"☐";font-size:20px;line-height:1.1;color:var(--accent);flex:none}
 
 .soon{text-align:center;color:var(--muted);padding:70px 20px;font-size:16px}
 footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
@@ -120,155 +105,192 @@ footer{border-top:1px solid var(--line);padding:18px 0 34px;font-size:13px;
 </header>
 
 <nav role="tablist">
-  <button role="tab" aria-selected="true" aria-controls="cotture" id="t-cotture">Cotture</button>
+  <button role="tab" aria-selected="true"  aria-controls="wagyu"   id="t-wagyu">Wagyu</button>
+  <button role="tab" aria-selected="false" aria-controls="picanha" id="t-picanha">Picanha</button>
+  <button role="tab" aria-selected="false" aria-controls="costata" id="t-costata">Costata</button>
+  <span class="div"></span>
   <button role="tab" aria-selected="false" aria-controls="gio" id="t-gio">Giovedì</button>
   <button role="tab" aria-selected="false" aria-controls="ven" id="t-ven">Venerdì</button>
   <button role="tab" aria-selected="false" aria-controls="sab" id="t-sab">Sabato</button>
 </nav>
 
-<section role="tabpanel" id="cotture" aria-labelledby="t-cotture">
+<!-- ==================== WAGYU ==================== -->
+<section role="tabpanel" id="wagyu" aria-labelledby="t-wagyu">
 
-  <h2>Le tre schede</h2>
-  <div class="schede">
-
-    <article class="scheda">
-      <div class="top">
-        <h3>Wagyu A5</h3>
-        <div class="fmt">2 × 200 g · interi · pietra ollare</div>
-        <div class="big">55–58<em> °C</em></div>
-        <div class="lbl">al taglio</div>
-      </div>
-      <dl>
-        <div><dt>Fattore limitante</dt><dd>Scioglimento del grasso</dd></div>
-        <div><dt>Salatura</dt><dd class="no">No — fiocchi alla fine</dd></div>
-        <div><dt>Metodo</dt><dd>Pietra ollare sulla brace</dd></div>
-        <div><dt>Temperatura</dt><dd class="k">200–230 °C</dd></div>
-        <div><dt>Tempo</dt><dd class="k">6–8 min</dd></div>
-        <div><dt>Girare</dt><dd>Ogni minuto</dd></div>
-        <div><dt>Riposo</dt><dd>1–2 min su piatto caldo</dd></div>
-        <div><dt>Brace</dt><dd class="no">—</dd></div>
-        <div><dt>Note</dt><dd>Un pezzo alla volta. Rendi prima la cappa di grasso e cuoci lì dentro</dd></div>
-      </dl>
-    </article>
-
-    <article class="scheda">
-      <div class="top">
-        <h3>Picanha</h3>
-        <div class="fmt">1,4 kg · intera · forno + brace</div>
-        <div class="big">53–54<em> °C</em></div>
-        <div class="lbl">al taglio</div>
-      </div>
-      <dl>
-        <div><dt>Fattore limitante</dt><dd>Cottura uniforme</dd></div>
-        <div><dt>Salatura</dt><dd>~14 g sale grosso · <b>46 h</b> scoperta su rack</dd></div>
-        <div><dt>Metodo</dt><dd>Reverse sear: forno → brace</dd></div>
-        <div><dt>Temperatura</dt><dd>Forno <b>110 °C</b></dd></div>
-        <div><dt>Tempo</dt><dd class="k">75–90 min</dd></div>
-        <div><dt>Sforna a</dt><dd class="k">47–48 °C</dd></div>
-        <div><dt>Riposo</dt><dd>10–15 min scoperta</dd></div>
-        <div><dt>Brace</dt><dd>Grasso giù <b>5–6 min</b> + carne <b>1–2 min</b></dd></div>
-        <div><dt>Note</dt><dd>Venatura che cambia: test dello strappo alle due estremità</dd></div>
-      </dl>
-    </article>
-
-    <article class="scheda">
-      <div class="top">
-        <h3>Costata</h3>
-        <div class="fmt">2 × 1,1 kg · interi · forno + brace</div>
-        <div class="big">55–57<em> °C</em></div>
-        <div class="lbl">al taglio</div>
-      </div>
-      <dl>
-        <div><dt>Fattore limitante</dt><dd>Resa del grasso</dd></div>
-        <div><dt>Salatura</dt><dd>~11 g a pezzo · <b>48 h</b> scoperta su rack</dd></div>
-        <div><dt>Metodo</dt><dd>Reverse sear: forno → brace</dd></div>
-        <div><dt>Temperatura</dt><dd>Forno <b>110 °C</b></dd></div>
-        <div><dt>Tempo</dt><dd class="k">60–80 min</dd></div>
-        <div><dt>Sforna a</dt><dd class="k">50–51 °C</dd></div>
-        <div><dt>Riposo</dt><dd>10–15 min scoperta</dd></div>
-        <div><dt>Brace</dt><dd><b>90–120 s</b> per faccia + <b>1–2 min</b> sul bordo di grasso</dd></div>
-        <div><dt>Note</dt><dd>Stacca lo spinalis e affettalo a parte: ha venatura propria</dd></div>
-      </dl>
-    </article>
-
-  </div>
-
-  <div class="confronto">
-    <h2>Confronto</h2>
-    <div class="tbox">
-      <table>
-        <thead><tr><th></th><th>Wagyu A5</th><th>Picanha</th><th>Costata</th></tr></thead>
-        <tbody>
-          <tr><th>Fattore limitante</th><td>Scioglimento del grasso</td><td>Cottura uniforme</td><td>Resa del grasso</td></tr>
-          <tr><th>Salatura</th><td>Solo fiocchi alla fine</td><td>~14 g, 46 h</td><td>~11 g a pezzo, 48 h</td></tr>
-          <tr><th>Temperatura</th><td class="k">200–230 °C</td><td>Forno 110 °C</td><td>Forno 110 °C</td></tr>
-          <tr><th>Tempo</th><td class="k">6–8 min</td><td>75–90 min</td><td>60–80 min</td></tr>
-          <tr><th>Sforna a</th><td>—</td><td class="k">47–48 °C</td><td class="k">50–51 °C</td></tr>
-          <tr><th>Riposo</th><td>1–2 min, piatto caldo</td><td>10–15 min scoperta</td><td>10–15 min scoperta</td></tr>
-          <tr><th>Brace</th><td>—</td><td>Grasso 5–6 min + carne 1–2</td><td>90–120 s per faccia + bordo grasso</td></tr>
-          <tr><th>Al taglio</th><td class="k">55–58 °C</td><td class="k">53–54 °C</td><td class="k">55–57 °C</td></tr>
-        </tbody>
-      </table>
+  <h2>Bevande</h2>
+  <div class="drinks">
+    <div class="main">Kaiserdom Pilsener, ghiacciata</div>
+    <div class="temp">4 °C — più fredda del solito</div>
+    <p>È l'unica cosa che fa il lavoro che serve: <b>bollicine e amaro spazzano via il grasso</b> dal palato tra una fetta e l'altra. Senza, alla terza fetta ti fermi.</p>
+    <div class="no">
+      <p><b>❌ Non il sake durante.</b> Il Taiheizan è a 15%: bevuto adesso, il Mosesco a 14% mezz'ora dopo ti sembrerà acqua. Va <b>tiepido a fine serata</b>, davanti al camino.</p>
+      <p><b>❌ Non i Dolcetto.</b> Arrivano dopo, con le salsicce sulla pietra.</p>
     </div>
   </div>
 
-  <h2>Regole generali</h2>
-
-  <div class="rule"><h3><i>01</i> Chiediti qual è il fattore limitante</h3>
-  <p>Su una carne <b>magra</b> il nemico è stracuocere: poco tempo, molto calore. Su una carne <b>grassa</b> il problema è opposto — se il grasso non si scioglie resta ceroso e sgradevole. <b>Il Wagyu va cotto più di un filetto, non meno.</b></p></div>
-
-  <div class="rule"><h3><i>02</i> La sonda, non l'orologio</h3>
-  <p>I minuti sono una stima: dipendono da spessore, temperatura di partenza e forno. <b>Solo la temperatura al cuore non mente.</b> Sonda nel punto più spesso, lontano dall'osso.</p></div>
-
-  <div class="rule"><h3><i>03</i> Misura <b>dopo</b> la scottatura, non prima</h3>
-  <p>Il numero che conta è quello al momento di affettare. Rinfila la sonda dopo la brace: se sei basso, altri trenta secondi non costano niente — il contrario sì.</p></div>
-
-  <div class="rule"><h3><i>04</i> Sforna sempre sotto il target</h3>
-  <p>Tra forno e piatto guadagni <b>+4/+6 °C</b>: carryover +1/2, riposo −2/3, brace +4/6. A 110 °C il carryover è piccolo: è la <b>scottatura</b> a scaldare, non il riposo.</p></div>
-
-  <div class="rule"><h3><i>05</i> Riposo <b>prima</b> della scottatura</h3>
-  <p>È il senso del reverse sear: riposi dopo il forno, poi scotti, poi servi subito. Dopo la brace bastano 3–5 minuti. <b>Scoperta</b>: la stanza è a 21–22 °C e l'alluminio intrappola vapore, ammorbidendo la crosta.</p></div>
-
-  <div class="rule"><h3><i>06</i> Braci a due zone</h3>
-  <p>Ammucchia le braci da un lato, lasciale rade dall'altro. Hai una zona rovente per la crosta e una tiepida per gestire le parti che corrono avanti o per parcheggiare la carne.</p></div>
-
-  <div class="rule"><h3><i>07</i> Taglia contro fibra — e verificalo</h3>
-  <p><b>Test dello strappo:</b> la carne cruda si separa sempre <i>lungo</i> le fibre. Tira un angolo e guarda come si apre. Poi <b>incidi un segno parallelo alle fibre</b>: dopo la cottura la crosta nasconde tutto.</p>
-  <p><b>Controprova sulla prima fetta:</b> puntini = giusto, striature lunghe = ruota di 90°.</p></div>
-
-  <div class="rule"><h3><i>08</i> Il pepe brucia sulla brace</h3>
-  <p>Metà prima del forno, <b>metà dopo la scottatura</b>. Sul fuoco diretto carbonizza e diventa amaro — l'unica cosa che l'Amarone non perdona.</p></div>
-
-  <div class="rule"><h3><i>09</i> Col Wagyu niente deve essere freddo</h3>
-  <p>Il suo grasso fonde a 25–30 °C e <b>si rapprende alla stessa temperatura</b>: su un tagliere freddo torna ceroso in venti secondi. <b>Scalda piatto di riposo, tagliere e piatti di servizio.</b></p>
-  <p>Affetta su <b>legno tiepido</b>, mai sulla pietra: è steatite, Mohs 1–2,5, più morbida della tua unghia — il coltello la scava.</p></div>
-
-  <div class="rule"><h3><i>10</i> Rendi il grasso e cuoci lì dentro</h3>
-  <p>La cappa del Wagyu va sulla pietra per prima: in 60–90 secondi si scioglie. Togli il residuo solido e <b>cuoci la carne in quel grasso</b>. Lascia 3–5 mm attaccati alla carne, sono i migliori.</p></div>
-
-  <div class="rule"><h3><i>11</i> Pietra ollare: raschia da calda, mai sapone</h3>
-  <p>Raschia finché è tiepida, poi acqua bollente e spazzola. <b>È porosa: assorbe il detersivo e te lo restituisce sulla carne.</b> E non caricarla troppo — il calore crolla se ci metti sopra tanta roba fredda insieme.</p></div>
-
-  <div class="rule"><h3><i>12</i> Non bucare le salsicce</h3>
-  <p>Calore moderato, 15–20 minuti, girandole spesso. Bucarle fa uscire il grasso che le tiene morbide.</p></div>
-
-  <div class="callout">
-    <h3>⚠️ Da verificare giovedì sera</h3>
-    <p><b>Il forno della casa.</b> Venerdì e sabato dipendono da 110 °C <i>reali</i>, e i forni delle case di vacanza sono spesso tarati male.</p>
-    <p>Accendilo a 110 mentre mangiate il Wagyu, infilaci la sonda, aspetta dieci minuti. Se segna 140, sai di quanto correggere. <b>È il controllo più economico di tutto il weekend.</b></p>
+  <h2>La scheda</h2>
+  <div class="scheda">
+    <div class="top">
+      <div class="fmt">2 × 200 g · interi · pietra ollare sulla brace</div>
+      <div class="big">55–58<em> °C</em></div>
+      <div class="lbl">al taglio</div>
+    </div>
+    <dl>
+      <div><dt>Fattore limitante</dt><dd>Scioglimento del grasso</dd></div>
+      <div><dt>Salatura</dt><dd class="no">No — fiocchi alla fine</dd></div>
+      <div><dt>Pietra</dt><dd class="k">200–230 °C</dd></div>
+      <div><dt>Tempo</dt><dd class="k">6–8 min</dd></div>
+      <div><dt>Girare</dt><dd>Ogni minuto</dd></div>
+      <div><dt>Riposo</dt><dd>1–2 min su piatto caldo</dd></div>
+      <div><dt>Quantità</dt><dd>Un pezzo alla volta</dd></div>
+      <div><dt>Taglio</dt><dd>A bocconcini <b>dopo</b> la cottura</dd></div>
+    </dl>
   </div>
 
-  <h2>Prima di cominciare</h2>
-  <ul class="check">
-    <li>Termometro a sonda — meglio due</li>
-    <li>Due caraffe (venerdì servono insieme)</li>
-    <li>Quattro calici grandi</li>
-    <li>Griglia da camino</li>
-    <li>Rack da frigo per le salature</li>
-    <li>Tagliere di legno da scaldare</li>
-    <li>Sale grosso (1 kg) e sale in fiocchi</li>
-    <li>Alluminio</li>
-  </ul>
+  <h2>Regole</h2>
+
+  <div class="rule"><h3>Va cotto più di un filetto, non meno</h3>
+  <p>Il fattore limitante non è il cuore, è <b>lo scioglimento del grasso</b> — che richiede tempo a temperatura, non una fiammata. Scottato 30 secondi, il grasso resta <b>ceroso</b> e perdi tutto quello per cui hai pagato.</p></div>
+
+  <div class="rule"><h3>Il segnale è l'aspetto, non il cronometro</h3>
+  <p>Fermati quando la superficie è <b>lucida, il grasso visibilmente sciolto</b> e il pezzo cede sotto il dito. I 6–8 minuti sono una stima.</p></div>
+
+  <div class="rule"><h3>Rendi la cappa e cuoci lì dentro</h3>
+  <p>Rifila la cappa di grasso <b>lasciando 3–5 mm</b> attaccati alla carne, e mettila sulla pietra per prima: in 60–90 secondi si scioglie. Togli il residuo solido e <b>cuoci la carne in quel grasso</b>.</p>
+  <p>Rifila e affetta <b>da freddo</b>: 15–20 minuti in congelatore e il coltello va dritto.</p></div>
+
+  <div class="rule"><h3>Niente deve essere freddo</h3>
+  <p>Il grasso del Wagyu fonde a 25–30 °C e <b>si rapprende alla stessa temperatura</b>: su un tagliere freddo torna ceroso in venti secondi. <b>Scalda il piatto di riposo, il tagliere e i piatti di servizio.</b></p>
+  <p>Affetta su <b>legno tiepido</b>, mai sulla pietra: è steatite, Mohs 1–2,5, più morbida della tua unghia — il coltello la scava.</p></div>
+
+  <div class="rule"><h3>Pietra pulita, e non caricarla</h3>
+  <p>Il Wagyu va <b>per primo</b>, su pietra asciutta: se ci passi prima la pancetta, un A5 da 230 €/kg ti sa di maiale. E un pezzo alla volta — 400 g insieme fanno crollare la temperatura.</p>
+  <p>A fine serata: <b>raschia da calda, acqua bollente, mai sapone</b>. È porosa e il detersivo te lo restituisce sulla carne.</p></div>
+
+</section>
+
+<!-- ==================== PICANHA ==================== -->
+<section role="tabpanel" id="picanha" aria-labelledby="t-picanha">
+
+  <h2>Bevande</h2>
+  <div class="drinks">
+    <div class="main">I due Amaroni, affiancati</div>
+    <div class="temp">Case Vecie 2018 + Corte San Benedetto 2015 — 17 °C</div>
+    <p>Il <b>cappello di grasso reso</b> è ciò che regge i 16,5% dell'Amarone: alcol ed estratto tagliano il grasso, e la caramellatura della cappa richiama la frutta secca del vino.</p>
+    <p><b>Caraffa:</b> Case Vecie <b>2 ore prima</b>. San Benedetto <b>30–40 min</b>, versato piano — ha sedimento, lascia l'ultimo dito nella bottiglia.</p>
+    <div class="alt"><b>Se invece questa è la sera della birra:</b> Kuchlbauer Zwickl o Rittmayer con la carne, poi il San Benedetto con i formaggi stagionati. I due Amaroni si aprono una sera sola.</div>
+  </div>
+
+  <h2>La scheda</h2>
+  <div class="scheda">
+    <div class="top">
+      <div class="fmt">1,4 kg · intera · reverse sear: forno → brace</div>
+      <div class="big">53–54<em> °C</em></div>
+      <div class="lbl">al taglio</div>
+    </div>
+    <dl>
+      <div><dt>Fattore limitante</dt><dd>Cottura uniforme</dd></div>
+      <div><dt>Salatura</dt><dd>~14 g sale grosso · <b>46 h</b> scoperta su rack</dd></div>
+      <div><dt>Forno</dt><dd class="k">110 °C</dd></div>
+      <div><dt>Tempo forno</dt><dd class="k">75–90 min</dd></div>
+      <div><dt>Sforna a</dt><dd class="k">47–48 °C</dd></div>
+      <div><dt>Riposo</dt><dd>10–15 min scoperta</dd></div>
+      <div><dt>Brace</dt><dd>Grasso giù <b>5–6 min</b> + carne <b>1–2 min</b></dd></div>
+      <div><dt>Taglio</dt><dd>Contro fibra, cambiando angolo a metà</dd></div>
+    </dl>
+  </div>
+
+  <h2>Regole</h2>
+
+  <div class="rule"><h3>Sforna sotto il target</h3>
+  <p>Tra forno e piatto guadagni <b>+4/+6 °C</b>: carryover +1/2, riposo −2/3, brace +4/6. A 110 °C il carryover è piccolo — <b>è la scottatura a scaldare</b>, non il riposo.</p></div>
+
+  <div class="rule"><h3>Riposo prima della brace, scoperta</h3>
+  <p>È il senso del reverse sear: forno → riposo → scottatura → servi subito. <b>Niente alluminio</b>: la stanza è a 21–22 °C e il foglio intrappola vapore, ammorbidendo la superficie che hai asciugato per due giorni.</p></div>
+
+  <div class="rule"><h3>La cappa: 5–6 minuti, non dieci</h3>
+  <p>Dopo 75–90 minuti a 110 °C <b>il grasso si è già parzialmente reso in forno</b>: non parte da crudo. E sulla brace il grasso che cola <b>accende fiammate</b> che carbonizzano invece di rendere. Braci moderate, non roventi, e sorveglia.</p></div>
+
+  <div class="rule"><h3>Misura dopo la scottatura, non prima</h3>
+  <p>Il numero che conta è quello al momento di affettare. Rinfila la sonda dopo la brace: se sei basso, altri trenta secondi non costano niente — il contrario sì.</p></div>
+
+  <div class="rule"><h3>La venatura cambia direzione</h3>
+  <p>È l'errore classico sulla picanha: si imposta il taglio sulla parte spessa e si finisce la punta nel verso sbagliato.</p>
+  <p><b>Test dello strappo alle due estremità:</b> la carne cruda si separa sempre <i>lungo</i> le fibre. Poi <b>due taglietti di riferimento</b>, perché dopo la cottura la crosta nasconde tutto. Affetta la parte grossa e la punta come due pezzi separati.</p>
+  <p><b>Controprova sulla prima fetta:</b> puntini = giusto, striature lunghe = ruota di 90°.</p></div>
+
+  <div class="rule"><h3>Il pepe brucia sulla brace</h3>
+  <p>Metà prima del forno, <b>metà dopo la scottatura</b>. Sul fuoco diretto carbonizza e diventa amaro — l'unica cosa che l'Amarone non perdona.</p></div>
+
+  <div class="callout">
+    <h3>⚠️ Tara il forno giovedì sera</h3>
+    <p>Tutto questo poggia su <b>110 °C reali</b>, e i forni delle case di vacanza sono spesso sbagliati di venti o trenta gradi.</p>
+    <p>Accendilo a 110 mentre mangiate il Wagyu, infilaci la sonda, aspetta dieci minuti. <b>È il controllo più economico del weekend.</b></p>
+  </div>
+
+</section>
+
+<!-- ==================== COSTATA ==================== -->
+<section role="tabpanel" id="costata" aria-labelledby="t-costata">
+
+  <h2>Bevande</h2>
+  <div class="drinks">
+    <div class="main">Birra maltata con la carne, Amarone dopo</div>
+    <div class="temp">Augustiner o Kuchlbauer Zwickl, 6–8 °C → poi Corte San Benedetto 2015, 17 °C</div>
+    <p>La <b>crosta bruciata dalla brace</b> contro un vino a 16,5% è un litigio: l'alcol amplifica l'amaro della bruciatura. La birra maltata invece la asseconda.</p>
+    <p>L'Amarone arriva <b>dopo</b>, con i formaggi stagionati, dove dà il meglio. E a chiudere il <b>Recioto</b> con gorgonzola e cioccolato fondente.</p>
+    <div class="alt"><b>Se invece questa è la sera dei due Amaroni:</b> Case Vecie 2018 + Corte San Benedetto 2015 affiancati, 17 °C. Una costata molto marezzata col grasso sciolto li regge benissimo — meglio di una fiorentina.</div>
+  </div>
+
+  <h2>La scheda</h2>
+  <div class="scheda">
+    <div class="top">
+      <div class="fmt">2 × 1,1 kg · interi · reverse sear: forno → brace</div>
+      <div class="big">55–57<em> °C</em></div>
+      <div class="lbl">al taglio</div>
+    </div>
+    <dl>
+      <div><dt>Fattore limitante</dt><dd>Resa del grasso</dd></div>
+      <div><dt>Salatura</dt><dd>~11 g a pezzo · <b>48 h</b> scoperta su rack</dd></div>
+      <div><dt>Forno</dt><dd class="k">110 °C</dd></div>
+      <div><dt>Tempo forno</dt><dd class="k">60–80 min</dd></div>
+      <div><dt>Sforna a</dt><dd class="k">50–51 °C</dd></div>
+      <div><dt>Riposo</dt><dd>10–15 min scoperta</dd></div>
+      <div><dt>Brace</dt><dd><b>90–120 s</b> per faccia + <b>1–2 min</b> sul bordo di grasso</dd></div>
+      <div><dt>Taglio</dt><dd>Stacca dall'osso, <b>gira di 90°</b>, affetta</dd></div>
+    </dl>
+  </div>
+
+  <h2>Regole</h2>
+
+  <div class="rule"><h3>Va più cotta di quanto istinto suggerisca</h3>
+  <p>Prime rib USA è molto marezzata e lo spinalis ha connettivo: <b>sotto i 52 °C risulta flaccida e unta</b>, a 55–57 il grasso si è sciolto e diventa cremosa. Su un filetto 56 sarebbe un delitto, qui è il punto giusto.</p></div>
+
+  <div class="rule"><h3>Sforna sotto il target</h3>
+  <p>Tra forno e piatto guadagni <b>+4/+6 °C</b>. A 110 °C il carryover è di 1–2 gradi: <b>è la scottatura a scaldare</b>. Sforna a 50–51 e arrivi a 55–57.</p>
+  <p>Due pezzi da 1,1 kg insieme sono molta massa: conta <b>60–80 minuti</b>, e vai di sonda.</p></div>
+
+  <div class="rule"><h3>Riposo prima della brace, scoperta</h3>
+  <p>Forno → riposo 10–15 min → scottatura → 3–5 min → taglio. <b>Niente alluminio</b>: a 21–22 °C di stanza non serve, e intrappola vapore.</p></div>
+
+  <div class="rule"><h3>Il bordo di grasso va messo in piedi</h3>
+  <p>A 90 secondi per faccia il rimbocco di grasso esterno resta crudo e gommoso. <b>Tienila in piedi sul bordo 1–2 minuti</b> prima di toglierla.</p></div>
+
+  <div class="rule"><h3>Non affettarla com'è appoggiata</h3>
+  <p>Il macellaio ha tagliato di traverso al lombo: <b>le fibre corrono attraverso lo spessore</b>, da una faccia piatta all'altra. Se affetti col coltello che scende, tagli <i>parallelo</i> alle fibre e viene stopposa.</p>
+  <p><b>Stacca il muscolo dall'osso, giralo di 90° su un fianco, poi affetta.</b> Controprova: puntini = giusto, striature lunghe = ruota.</p></div>
+
+  <div class="rule"><h3>Lo spinalis si stacca e si affetta a parte</h3>
+  <p>Il cappello esterno è il pezzo migliore della costata e <b>ha una venatura propria</b>, diversa dall'occhio centrale. Separalo e affettalo per conto suo: vale il gesto in più.</p></div>
+
+  <div class="rule"><h3>Il pepe brucia sulla brace</h3>
+  <p>Metà prima del forno, metà dopo la scottatura. Sul fuoco diretto carbonizza e diventa amaro.</p></div>
+
+  <div class="callout">
+    <h3>⚠️ Tara il forno giovedì sera</h3>
+    <p>Tutto questo poggia su <b>110 °C reali</b>, e i forni delle case di vacanza sono spesso sbagliati di venti o trenta gradi.</p>
+    <p>Accendilo a 110 mentre mangiate il Wagyu, infilaci la sonda, aspetta dieci minuti.</p>
+  </div>
 
 </section>
 
