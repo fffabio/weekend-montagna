@@ -103,8 +103,12 @@ dd.no{color:var(--muted)}
 .tl .h{flex:0 0 58px;font-weight:800;font-size:17.5px;color:var(--hot);
   font-variant-numeric:tabular-nums;padding-top:1px}
 .tl .b{flex:1;font-size:17px}
-.tl .b b{display:block;font-size:17.5px;margin-bottom:2px;color:var(--text)}
+/* Solo il grassetto figlio diretto e' il titolo della riga. Senza il figlio
+   diretto la regola prendeva anche i grassetti dentro al testo, che andavano
+   a capo da soli col corpo del titolo. */
+.tl .b > b{display:block;font-size:17.5px;margin-bottom:2px;color:var(--text)}
 .tl .b span{color:var(--muted)}
+.tl .b span b{color:var(--text)}
 .box{background:var(--surface);border:1px solid var(--line);border-radius:18px;
   padding:6px 19px;box-shadow:var(--shadow)}
 
@@ -517,7 +521,7 @@ section.v{--bc:var(--drink)} section.b{--bc:var(--malt)}
       <li><span class="h">4 °C</span><span class="b"><b>Kaiserdom Pilsener</b><span>In frigo appena arrivi. Qui serve davvero ghiacciata: è la lama che pulisce il palato dal grasso dell'A5.</span></span></li>
       <li><span class="h">40 °C</span><span class="b"><b>Sake Taiheizan</b><span>A bagnomaria, 200–250 ml per volta. Il procedimento completo è nel tab <b>Sake e birre</b>.</span></span></li>
       <li><span class="h">15–16 °C</span><span class="b"><b>Mosesco 2024</b><span><b>Frigo 25–30 minuti</b>, poi apri e versa. <b>Niente caraffa:</b> è dell'annata scorsa e non ha né tannini da ammorbidire né barrique da aprire, quindi l'aria gli toglierebbe solo freschezza.</span></span></li>
-      <li><span class="h">15–16 °C</span><span class="b"><b>Sorì Pradurent 2023</b><span><b>Frigo 25–30 minuti</b>, poi <b>caraffa 30 minuti</b>. I dieci mesi di barrique e la maggiore densità hanno bisogno d'aria. Travasalo mentre siete ancora sul Mosesco.</span></span></li>
+      <li><span class="h">15–16 °C</span><span class="b"><b>Sorì Pradurent 2023</b><span><b>Frigo 25–30 minuti</b>, poi <b>caraffa 30 minuti</b>. I dieci mesi di barrique e la maggiore densità hanno bisogno d'aria. Travasalo mentre siete ancora sul Mosesco. Tiralo fuori dal frigo <b>sul bordo basso dei 25–30</b>: nella mezz'ora di caraffa risale di un grado o due, e il bersaglio è 15–16 nel bicchiere, non nella bottiglia.</span></span></li>
     </ul>
   </div>
 
@@ -568,10 +572,11 @@ section.v{--bc:var(--drink)} section.b{--bc:var(--malt)}
   <h2>Come preparare ogni bottiglia</h2>
   <div class="box">
     <ul class="tl">
-      <li><span class="h">⚠️</span><span class="b"><b>Servono due caraffe, insieme</b><span>Il Case Vecie entra in caraffa alle 18:00, il San Benedetto alle 20:25: per una mezz'ora abbondante sono <b>entrambe in uso</b>. È l'unica sera del weekend in cui te ne servono due, sabato non ne serve nessuna.</span></span></li>
+      <li><span class="h">⚠️</span><span class="b"><b>Servono due caraffe, insieme</b><span>Il Case Vecie entra in caraffa alle 18:00, il San Benedetto alle 20:20: per una mezz'ora abbondante sono <b>entrambe in uso</b>. È l'unica sera del weekend in cui te ne servono due, sabato non ne serve nessuna.</span></span></li>
       <li><span class="h">2 h</span><span class="b"><b>Case Vecie 2018, caraffa</b><span>Due ore piene prima di versare. È giovane e potente, l'ossigeno gli serve davvero. Travasalo alle 18.</span></span></li>
       <li><span class="h">40 min</span><span class="b"><b>Corte San Benedetto 2015, caraffa</b><span>Solo 30–40 minuti: a dieci anni si ossida in fretta e oltre l'ora lo appiattisci. <b>Ha sedimento</b>, quindi tienila in piedi da ieri, travasa piano alla luce e <b>fermati quando vedi il deposito</b>, lasciando l'ultimo dito nella bottiglia.</span></span></li>
-      <li><span class="h">17 °C</span><span class="b"><b>Entrambi in frigo 15–20 min</b><span>Con la stanza a 21–22 °C servono pochi minuti. Usa il tempo che hai misurato ieri sul Mosesco. Caraffe <b>lontane dal camino</b>.</span></span></li>
+      <li><span class="h">17 °C</span><span class="b"><b>Il frigo va fatto alla bottiglia, prima della caraffa</b><span>Una caraffa in frigo non ci sta, e una volta travasato il vino non lo raffreddi più. Quindi: <b>bottiglia in frigo 15–20 minuti, poi travasi</b>. Caraffe <b>lontane dal camino</b>.</span></span></li>
+      <li><span class="h">🌡️</span><span class="b"><b>La caraffa riscalda: misura prima di versare</b><span>Il Case Vecie sta in caraffa tre ore in una stanza a 21–22 °C, e in tre ore ci arriva vicino. Infila la <b>sonda della carne</b> nella caraffa un attimo prima di versare: se segna <b>oltre 18 °C</b>, dieci minuti di caraffa in frigo, togliendo un ripiano. Vale la stessa regola della picanha, vai di sonda e non di orologio.</span></span></li>
     </ul>
   </div>
 
@@ -632,7 +637,8 @@ section.v{--bc:var(--drink)} section.b{--bc:var(--malt)}
       <li><span class="h">20:40</span><span class="b"><b>Risonda e riposa 3–5 min</b><span>Devi essere sui <b>55–57 °C</b>. Più di una fiorentina, perché qui il grasso deve sciogliersi.</span></span></li>
       <li><span class="h">20:45</span><span class="b"><b>Taglia</b><span><b>Una alla volta:</b> stacca il muscolo dall'osso, giralo di 90° su un fianco, poi affetta. Lo <b>spinalis</b>, il cappello esterno, staccalo e affettalo a parte: ha venatura propria ed è il pezzo migliore.</span></span></li>
       <li><span class="h">21:40</span><span class="b"><b>Tawny in frigo</b><span>Quaranta minuti, così arriva a 12–14 °C per le 22:20.</span></span></li>
-      <li><span class="h">22:00</span><span class="b"><b>Apri il Recioto</b><span>Venti minuti di bottiglia aperta e basta.</span></span></li>
+      <li><span class="h">21:45</span><span class="b"><b>Recioto in frigo</b><span>Dieci, quindici minuti e <b>non di più</b>: dalla stanza a 21–22 °C deve scendere a 16–18. Freddo no, ma nemmeno a temperatura di stanza, altrimenti su un 16,5% esce l'alcol e resta solo lo zucchero.</span></span></li>
+      <li><span class="h">22:00</span><span class="b"><b>Fuori dal frigo e apri il Recioto</b><span>Venti minuti di bottiglia aperta e basta, niente caraffa. Nel frattempo risale di un grado e arriva giusto.</span></span></li>
       <li><span class="h">22:20</span><span class="b"><b>La chiusura, due bicchieri</b><span>Davanti al camino: <b>Parmigiano 36 mesi</b>, pecorino, <b>gorgonzola</b>, <b>noci</b> e <b>cioccolato fondente 70%</b>. Prima il <b>Recioto</b>, poi il <b>Tawny</b>. Bicchierini piccoli, 40–50 ml di ciascuno.</span></span></li>
     </ul>
   </div>
